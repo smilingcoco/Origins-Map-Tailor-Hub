@@ -1,22 +1,24 @@
 export default function SignalTable({ rows }) {
   return (
-    <table className="signal-table">
-      <thead>
-        <tr>
-          <th>Arquetipo</th>
-          <th>Señales monitorizadas</th>
-          <th>Canal sugerido</th>
-        </tr>
-      </thead>
-      <tbody>
-        {rows.map((row) => (
-          <tr key={row.archetype}>
-            <td>{row.archetype}</td>
-            <td>{row.signals}</td>
-            <td>{row.channel}</td>
+    <div className="signal-table-wrap">
+      <table className="signal-table">
+        <thead>
+          <tr>
+            <th>Arquetipo</th>
+            <th>Señales monitorizadas</th>
+            <th>Canal sugerido</th>
           </tr>
-        ))}
-      </tbody>
-    </table>
+        </thead>
+        <tbody>
+          {rows.map((row) => (
+            <tr key={row.archetype}>
+              <td data-label="Arquetipo">{row.archetype}</td>
+              <td data-label="Señales monitorizadas">{row.signals}</td>
+              <td data-label="Canal sugerido">{row.channel}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
   );
 }
