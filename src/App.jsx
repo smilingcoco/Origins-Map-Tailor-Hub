@@ -71,7 +71,9 @@ export default function App() {
       </div>
       <div className="app-layout">
         <aside className="side-nav" aria-label="Navegación por secciones">
-          <div className="side-nav-label">Secciones</div>
+          <div className="side-nav-brand" aria-hidden="true">
+            ✶
+          </div>
           <ul className="side-nav-list">
             {navSections.map((item) => (
               <li key={item.id}>
@@ -80,7 +82,7 @@ export default function App() {
                   className={activeSection === item.id ? 'side-nav-link active' : 'side-nav-link'}
                   aria-current={activeSection === item.id ? 'true' : undefined}
                 >
-                  <span>{item.number}</span> {item.title}
+                  <span>{item.number}.</span> {item.title}
                 </a>
               </li>
             ))}

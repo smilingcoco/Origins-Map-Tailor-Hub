@@ -87,11 +87,9 @@ a {
 
 .side-nav {
   position: sticky;
-  top: 20px;
+  top: 28px;
   align-self: start;
-  padding: 12px;
-  border: 1px solid var(--neutral-200);
-  background: linear-gradient(180deg, rgba(245, 245, 245, 0.8), rgba(255, 255, 255, 0.9));
+  padding: 0;
 }
 
 .side-nav-label,
@@ -100,31 +98,30 @@ a {
   text-transform: uppercase;
 }
 
-.side-nav-label {
-  font-size: 10px;
-  letter-spacing: 0.12em;
-  color: var(--neutral-600);
-  margin-bottom: 10px;
+.side-nav-brand {
+  font-size: 56px;
+  line-height: 0.85;
+  color: var(--neutral-900);
+  margin-bottom: 22px;
 }
 
 .side-nav-list {
   list-style: none;
-  border-left: 1px solid var(--neutral-300);
-  padding-left: 12px;
+  padding-left: 0;
 }
 
 .side-nav-list li {
-  margin-bottom: 6px;
+  margin-bottom: 14px;
 }
 
 .side-nav-link {
   display: inline-block;
   text-decoration: none;
-  font-size: 11px;
+  font-size: 14px;
   letter-spacing: 0.08em;
-  color: var(--neutral-600);
+  color: rgba(54, 44, 44, 0.85);
   transition: color 0.2s ease, transform 0.2s ease;
-  padding: 2px 0;
+  padding: 1px 0;
 }
 
 .side-nav-link:focus-visible {
@@ -133,16 +130,20 @@ a {
 }
 
 .side-nav-link span {
-  color: var(--blue-500);
+  color: inherit;
 }
 
 .side-nav-link.active {
-  color: var(--neutral-900);
-  transform: translateX(4px);
+  color: var(--blue-500);
+  transform: none;
 }
 
 .side-nav-link.active span {
-  font-weight: 700;
+  font-weight: 500;
+}
+
+.side-nav-link:hover {
+  color: var(--blue-500);
 }
 
 .hero-section {
@@ -803,22 +804,27 @@ a {
 
   .side-nav {
     position: static;
-    padding: 0;
-    border: none;
-    background: transparent;
+  }
+
+  .side-nav-brand {
+    display: none;
   }
 
   .side-nav-list {
     display: flex;
     flex-wrap: wrap;
     gap: 8px 12px;
-    border-left: none;
+    border-top: 1px solid var(--neutral-200);
     border-bottom: 1px solid var(--neutral-200);
-    padding: 0 0 12px;
+    padding: 12px 0;
   }
 
   .side-nav-list li {
     margin-bottom: 0;
+  }
+
+  .side-nav-link {
+    font-size: 11px;
   }
 
   .metrics-grid {
