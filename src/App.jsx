@@ -73,7 +73,7 @@ export default function App() {
         <HeroSection meta={data.meta} />
         <aside className="side-nav" aria-label="Navegación por secciones">
           <div className="side-nav-brand" aria-hidden="true">
-            ✶
+            <img src="/isotipo-tailor-black.png" alt="" />
           </div>
           <ul className="side-nav-list">
             {navSections.map((item) => (
