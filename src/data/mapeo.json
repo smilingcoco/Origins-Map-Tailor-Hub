@@ -1,0 +1,327 @@
+{
+  "meta": {
+    "label": "Tailor Hub · Operativa Transversal · Grupo Modulor",
+    "title": "Mapeo del Pasado",
+    "subtitle": "ICP Fase 0 — Una lectura honesta de con quién hemos trabajado y qué hemos aprendido",
+    "stats": [
+      { "label": "Empresas analizadas", "value": "32" },
+      { "label": "Patrones", "value": "7" },
+      { "label": "Action points", "value": "11" },
+      { "label": "Arquetipos ICP", "value": "4" },
+      { "label": "Versión", "value": "4.0 · Feb 2026" }
+    ]
+  },
+  "intro": {
+    "paragraphs": [
+      "Tailor Hub es un estudio de desarrollo de software y servicios de IA. Somos 32 personas. Llevamos seis años construyendo aplicaciones, plataformas y herramientas para empresas que van desde startups de tres personas hasta la mayor empresa privada del mundo.",
+      "Formamos parte del grupo Modulor junto a Mendesaltaren (diseño de producto), SSTIL (branding y comunicación), NoCodeHackers (soluciones no-code) y Fik (finanzas y operaciones para startups). Trabajamos de forma independiente pero cada vez más en proyectos conjuntos. Este documento es relevante para todos los estudios del grupo.",
+      "Durante seis años la energía fue hacia adelante. Entregar, facturar, crecer. Lo que no hicimos fue parar a mirar atrás con criterio: ¿con quién hemos trabajado bien de verdad? ¿Qué tienen en común los clientes con los que la relación dura años? ¿Qué señales, si las hubiéramos leído bien, nos habrían dicho que un proyecto iba a ser difícil antes de empezar?",
+      "El Mapeo del Pasado es el intento de responder a eso. No es un portfolio. No es un CRM. Es una base de conocimiento construida desde la honestidad — incluyendo los proyectos que salieron mal y lo que aprendimos de ellos. La mayoría de las empresas no hacen este ejercicio. Nosotros sí."
+    ],
+    "callout": "Este es el ICP en Fase 0. Antes de saber a quién queremos ir a buscar, necesitábamos entender con quién hemos trabajado bien y por qué. Aquí está esa respuesta — incompleta todavía, pero útil ya.",
+    "notionLinks": {
+      "empresas": "https://www.notion.so/b0f9d238dbaa4d2b8282372a50845717",
+      "proyectos": "https://www.notion.so/c2342d262fcd4a978eb0d4eafeefc834"
+    }
+  },
+  "limitationsIntro": "Antes de leer los patrones, conviene saber qué hemos excluido deliberadamente y qué sigue pendiente.",
+  "limitations": [
+    {
+      "title": "Proyectos de Old Tailor excluidos",
+      "body": "Hay una primera etapa de la empresa — Convertia, LastLap, Vasalto, Mido y otros — que hemos dejado fuera. No porque no tengan valor histórico, sino porque ya no representan lo que Tailor hace hoy ni el tipo de relación que buscamos. Incluirlos habría introducido ruido."
+    },
+    {
+      "title": "Sin datos financieros por cliente",
+      "body": "No sabemos todavía qué cliente fue más rentable. Puede que el más fluido facturara poco y el más difícil fuera el más rentable. Es una capa que hay que añadir en la siguiente fase — este análisis es cualitativo, no financiero."
+    },
+    {
+      "title": "Fichas incompletas",
+      "body": "Ibexa, Prodigioso Volcán, McCann y GeminAI tienen contexto pendiente. La persona que tiene la información no participó en esta sesión. Se completan en la próxima ronda."
+    },
+    {
+      "title": "Propuestas perdidas: ejercicio pendiente",
+      "body": "Solo tenemos un caso documentado (Embat). El análisis completo requiere investigar Pipedrive con Ops — un trabajo más largo que haremos con el equipo de ventas."
+    }
+  ],
+  "methodologyIntro": "Una sesión de trabajo con Adri Beloki usando IA como herramienta de documentación y análisis en tiempo real. Sin encuestas, sin formularios. La información salió de audios — memoria directa del equipo — y se volcó a una base de datos en Notion conforme avanzaba la conversación. Lo que no recordábamos se dejó en blanco.",
+  "methodologyOutro": "Cualquier estudio del grupo puede replicar este proceso. El punto de partida es la base de proyectos propia. El tiempo estimado para completar las fichas es de 2-3 sesiones con quien tenga el contexto de los clientes.",
+  "methodology": [
+    {
+      "step": "Paso 01",
+      "title": "Identificación de empresas",
+      "body": "Cruce de la base de proyectos con la memoria del equipo. Se separaron clientes reales de propuestas perdidas y proyectos de Old Tailor. Resultado: 32 clientes documentados."
+    },
+    {
+      "step": "Paso 02",
+      "title": "Enriquecimiento de fichas",
+      "body": "Para cada empresa: sector, tamaño, momento al contratarnos, perfil del interlocutor, qué construimos, canal de entrada y cómo fue la ejecución. Los campos cualitativos se completaron vía audio con quien tiene el contexto de primera mano."
+    },
+    {
+      "step": "Paso 03",
+      "title": "Análisis de patrones",
+      "body": "Con las fichas completas se cruzaron variables: ejecución vs. tamaño, vs. canal de entrada, vs. perfil de interlocutor, vs. geografía. Resultado: 7 patrones con capacidad predictiva real."
+    },
+    {
+      "step": "Paso 04",
+      "title": "Arquetipos y decisiones",
+      "body": "Los patrones se tradujeron en 4 arquetipos de cliente ideal y 11 decisiones concretas para ventas, operaciones y comunicación."
+    },
+    {
+      "step": "Próximo paso",
+      "title": "Fase 1 — Datos financieros + propuestas perdidas",
+      "body": "Cruzar el análisis cualitativo con rentabilidad real por cliente. Investigar Pipedrive con Ops para documentar el histórico de propuestas no ganadas."
+    }
+  ],
+  "metrics": [
+    { "label": "Clientes analizados", "value": 32, "display": "32", "desc": "Con relación comercial real" },
+    { "label": "Ejecución fluida", "value": 55, "display": "~55%", "desc": "De los proyectos con datos" },
+    { "label": "Sectores distintos", "value": 12, "display": "12+", "desc": "Ninguno predice el éxito" },
+    { "label": "Años de historia", "value": 6, "display": "6", "desc": "Analizados en una sesión" }
+  ],
+  "evolution": {
+    "intro": "Entender el ICP sin entender que Tailor está cambiando cómo entra en las conversaciones con sus clientes sería leer solo la mitad del documento.",
+    "label": "Servicio 226 · Diego Méndez + Sara Gándara (Mendesaltaren) · Desde finales de 2025",
+    "title": "De ejecutar briefings a aconsejar la decisión",
+    "paragraphs": [
+      "Durante años, Tailor llegaba cuando la decisión ya estaba tomada: \"necesitamos una app\", \"hay que rediseñar la web\". Nuestro trabajo era ejecutar ese briefing bien. Y lo hacemos bien.",
+      "Pero ejecutar un briefing bien no es lo mismo que ayudar a tomar la decisión correcta. A veces la app que el cliente quiere construir no es lo que el cliente necesita. A veces el problema que quieren resolver no es el problema real. A veces lo más útil que puedes hacer es decirle a alguien que no construya nada todavía.",
+      "El Servicio 226 es la respuesta a eso: unas semanas de trabajo con entregables claros para ayudar a la empresa a tomar una buena decisión antes de comprometerse con un proyecto largo. El output puede ser una aplicación. Puede ser un modelo de gobernanza del dato. Puede ser que no construyan nada todavía.",
+      "Diego lo llama \"ubicarse en otro punto de conversación\". Venimos del hacer. Queremos pasar a ser quienes aconsejan qué hacer."
+    ],
+    "before": {
+      "label": "Antes",
+      "title": "Ejecutores de briefing",
+      "body": "El cliente llega con la decisión tomada. Nuestro trabajo es construirla bien. Somos un proveedor de ejecución."
+    },
+    "after": {
+      "label": "Ahora",
+      "title": "Asesores de la decisión",
+      "body": "El cliente llega con un problema. Nuestro trabajo es ayudarle a entender qué decisión tiene sentido tomar. Somos un partner estratégico."
+    },
+    "outro": "Este cambio afecta al ICP porque amplía el perfil de cliente que tiene sentido buscar: no solo quien ya sabe que quiere construir algo, sino quien tiene un problema digital sin resolver y necesita a alguien que le ayude a pensar antes de actuar."
+  },
+  "patternsIntro": [
+    "Después de analizar 32 clientes, lo primero que hay que decir es lo que no predice nada: el sector y el tamaño. Hemos trabajado bien con la mayor empresa privada del mundo y mal con una pyme española. Hemos tenido proyectos fluidos en finanzas, turismo, moda, alimentación y esports. El sector no es el filtro.",
+    "Lo que sí predice son estas siete cosas."
+  ],
+  "patterns": [
+    {
+      "number": "01",
+      "title": "El tamaño importa, pero no de la forma esperada",
+      "body": "dormakaba tiene 16.000 empleados y es nuestro mejor cliente. Cargill es la mayor empresa privada del mundo y fue una maravilla. Pampling factura 30M€ y fue el peor proyecto que hemos tenido. El tamaño no predice nada. Lo que predice es si la empresa tiene cultura de externalización y respeta el valor del trabajo externo.",
+      "highlight": "tiene cultura de externalización y respeta el valor del trabajo externo"
+    },
+    {
+      "number": "02",
+      "title": "Las grandes corporaciones son dos cosas muy distintas",
+      "body": "dormakaba, Cargill, Mondélez y Volkswagen: fluidos. El Corte Inglés, Mediapro, Conurma e Inditex: con fricciones. La diferencia no es el sector. Es si el interlocutor tiene poder real para tomar decisiones.",
+      "highlight": "si el interlocutor tiene poder real para tomar decisiones"
+    },
+    {
+      "number": "03",
+      "title": "El canal de entrada predice la calidad del cliente",
+      "body": "Referido es consistentemente el canal de mayor calidad. La confianza viene preconstruida, el cliente entra con expectativas calibradas y el ciclo de venta es más corto. Los canales-partner son un multiplicador: McKinsey abre mesas de decisión a las que Tailor no llegaría solo.",
+      "highlight": "canales-partner son un multiplicador"
+    },
+    {
+      "number": "04",
+      "title": "La geografía tiene consecuencias operativas concretas",
+      "body": "Clientes con sede operativa en España o Europa: sin fricción relevante. Cargill trabaja desde Ginebra y va perfecto. VRAI está 100% en Estados Unidos y generó fricciones exclusivamente por el desfase horario. La clave no es la nacionalidad de la empresa sino dónde está el equipo con el que trabajamos día a día.",
+      "highlight": "dónde está el equipo con el que trabajamos día a día"
+    },
+    {
+      "number": "05",
+      "title": "El sector no es el filtro — el momento sí lo es",
+      "body": "Tailor ha trabajado bien en más de doce sectores. No hay uno que sea mejor que otro. Lo que sí importa es en qué momento está la empresa cuando nos contrata. El momento ideal: problema concreto, presupuesto asignado, decisión de externalizar ya tomada.",
+      "highlight": "en qué momento está la empresa cuando nos contrata"
+    },
+    {
+      "number": "06",
+      "title": "Hay un perfil de interlocutor que predice el éxito",
+      "body": "En todos los proyectos fluidos aparece el mismo perfil: criterio técnico propio, autonomía real para decidir, experiencia previa externalizando, orientación al resultado. Sabe lo que es complejo sin que se lo expliques. Puede decir sí sin escalar. En el discovery hay que cualificar a la persona, no solo a la empresa.",
+      "highlight": "criterio técnico propio, autonomía real para decidir, experiencia previa externalizando, orientación al resultado"
+    },
+    {
+      "number": "07",
+      "title": "La retención la genera el vínculo humano, no solo el delivery",
+      "body": "dormakaba lleva años. Mediapro, más de ocho proyectos. Intermundial empezó con una auditoría y se quedó. Lo que tienen en común no es solo que entregamos bien — es que alguien de Tailor construyó una relación real con alguien del cliente. Una gran consultora no puede hacer esto.",
+      "highlight": "alguien de Tailor construyó una relación real con alguien del cliente"
+    }
+  ],
+  "archetypesIntro": "No hay un único ICP de Tailor Hub. Hay cuatro perfiles que funcionan bien, cada uno con su lógica de entrada y su forma de construir la relación.",
+  "archetypes": [
+    {
+      "number": "01",
+      "name": "La gran corporación con interlocutor con poder",
+      "body": "Empresa grande, presupuesto real, experiencia en externalización. El interlocutor tiene autonomía y criterio técnico. Potencial de relación muy larga y creciente en complejidad. Requiere PM sólido desde el primer día para absorber la fricción burocrática del cliente.",
+      "champion": {
+        "name": "René — Cargill",
+        "body": "Basado fuera de España. La relación se mantiene viva con reuniones mensuales o bimestrales lideradas por Jorge y Nico. La distancia geográfica no es un problema cuando hay confianza construida."
+      },
+      "signals": ["Cambio de CTO/CDO", "Fusión o adquisición", "Nueva unidad digital", "Transformación anunciada"],
+      "cases": ["dormakaba", "Cargill", "Mondélez", "Volkswagen"]
+    },
+    {
+      "number": "02",
+      "name": "La startup con tracción y cultural fit",
+      "body": "Startup post-ronda o scale-up con producto validado. CTO o head of product con criterio propio. Busca un acelerador tecnológico, no solo un ejecutor. Cultural fit máximo — hablan el mismo idioma que Tailor. Las señales de activación son rastreables.",
+      "champion": {
+        "name": "Iñigo Merino — Dcycle",
+        "body": "CTO con criterio técnico sólido y alineamiento total de mindset. La ejecución fue perfecta precisamente porque confió en el equipo y no interfirió en el cómo."
+      },
+      "signals": ["Cierre Serie A/B", "Head of Product nuevo", "Entrada aceleradora", "Roadmap nuevo producto"],
+      "cases": ["Dcycle", "FUDCLUB", "Essentialist"]
+    },
+    {
+      "number": "03",
+      "name": "La empresa mediana en transformación",
+      "body": "Empresa española consolidada que decide digitalizar o modernizar. Interlocutor cercano a dirección, muchas veces con perfil técnico o de producto. La entrada ideal es un proyecto acotado — auditoría, Servicio 226 — que demuestra valor antes de hablar de relación larga.",
+      "champion": {
+        "name": "Raúl Cruz Rius — Mediapro",
+        "body": "Más detalle pendiente — próxima sesión"
+      },
+      "signals": ["Cambio de liderazgo", "Rebranding", "Expansión a nuevo mercado", "Posición técnica abierta"],
+      "cases": ["Mediapro", "Intermundial", "Mentor Places"]
+    },
+    {
+      "number": "04",
+      "name": "El canal-partner",
+      "body": "No es un cliente final — es una puerta de entrada. Consultoras estratégicas, tecnológicas o partners de producto que tienen acceso a decisores pero necesitan brazo ejecutor digital de calidad. Tailor aporta lo que ellos no pueden dar: ejecución ágil y la cercanía que las grandes no tienen.",
+      "champion": {
+        "name": "Equipo McKinsey",
+        "body": "Llegan con proyectos ya cualificados a nivel C-suite. La visibilidad de Tailor con el cliente final crece conforme ejecutamos — el caso Santander Portugal es el mejor ejemplo."
+      },
+      "signals": ["Licitación pública ganada", "Búsqueda subcontratistas", "RFP técnico publicado"],
+      "cases": ["McKinsey", "Vercel", "Contentful", "Ayesa-tipo"]
+    }
+  ],
+  "partners": [
+    {
+      "name": "Vercel",
+      "year": "2026",
+      "desc": "Partnership oficial firmado en 2026. Vercel conecta a Tailor con empresas que necesitan desarrollo frontend de alto nivel sobre su plataforma.",
+      "pipeline": [
+        { "company": "Kave Home", "status": "pending", "note": "Pendiente" },
+        { "company": "Revel", "status": "done", "note": "Intro realizada" },
+        { "company": "Mango", "status": "pending", "note": "Pendiente" }
+      ]
+    },
+    {
+      "name": "Contentful",
+      "year": "2025",
+      "desc": "Partnership oficial firmado en 2025. Tailor es partner de implementación de Contentful — el CMS headless líder — para sus clientes en España.",
+      "pipeline": [
+        { "company": "Barceló", "status": "pending", "note": "En conversación" },
+        { "company": "VIVA", "status": "pending", "note": "En conversación" }
+      ]
+    }
+  ],
+  "signalHunterIntro": "Un ICP en un PDF no sirve de nada. El objetivo del Mapeo del Pasado es que los arquetipos y sus señales de activación se conviertan en algo que facilite el trabajo de Simón y Alex semana a semana — no que queden archivados en Notion.",
+  "signalHunter": {
+    "label": "En desarrollo · Adri Beloki, Head of Comms · Operativo antes de abril 2026",
+    "title": "Signal Hunter",
+    "body": [
+      "Signal Hunter es un agente de IA que monitoriza señales públicas — prensa económica, LinkedIn, bases de datos de rondas de inversión, licitaciones, movimientos de directivos — y alerta cuando una empresa encaja con alguno de los cuatro arquetipos y está emitiendo una señal de activación.",
+      "En lugar de que Simón o Alex busquen manualmente, reciben cada semana una lista cualificada: empresa, arquetipo al que corresponde, señal detectada, canal de entrada recomendado y argumento inicial sugerido."
+    ],
+    "examples": [
+      {
+        "label": "Ejemplo de alerta · Arquetipo 02",
+        "body": "Expansión publica que una startup con sede en Madrid ha cerrado una ronda de 14M€ Serie A. Signal Hunter la cruza con el arquetipo 02, detecta que acaban de contratar un Head of Product, y sugiere outreach directo con el Servicio 226 como entrada."
+      },
+      {
+        "label": "Ejemplo de alerta · Arquetipo 01",
+        "body": "LinkedIn muestra que el CTO de una empresa industrial europea acaba de cambiar. Signal Hunter lo cruza con el arquetipo 01 y sugiere activar la red de referidos para conseguir una introducción antes de que el nuevo CTO consolide sus decisiones de proveedor."
+      }
+    ],
+    "table": [
+      { "archetype": "Gran corporación", "signals": "Cambio CTO/CDO, M&A, transformación digital, nueva unidad", "channel": "Referido · Canal-partner" },
+      { "archetype": "Startup con tracción", "signals": "Serie A/B, Head of Product nuevo, aceleradora, roadmap", "channel": "Referido · Outreach directo" },
+      { "archetype": "Empresa mediana", "signals": "Cambio liderazgo, rebranding, expansión, posición técnica", "channel": "Referido · Servicio 226" },
+      { "archetype": "Canal-partner", "signals": "Licitación ganada, búsqueda subcontratistas, RFP técnico", "channel": "Relación directa con partner" }
+    ]
+  },
+  "actionsIntro": "Del análisis emergen once decisiones. Algunas ya se están aplicando. Otras son hipótesis sólidas que todavía no son proceso.",
+  "actionPoints": [
+    {
+      "number": "01",
+      "title": "Replicar el modelo canal-consultora",
+      "body": "McKinsey abre mesas a las que Tailor no llega solo. ¿Hay otras — BCG, Accenture, Oliver Wyman, Roland Berger — con el mismo gap y a las que proponer la misma relación?",
+      "status": "Hipótesis validada. Pendiente explorar candidatos."
+    },
+    {
+      "number": "02",
+      "title": "Servicio 226 antes que externalización larga",
+      "body": "Si el cliente no tiene historial de externalización, la primera propuesta tiene que ser acotada. El Servicio 226 es el formato ideal. Intermundial lo valida. Embat lo valida al revés.",
+      "status": "Siendo implementado. Convertir en criterio de venta explícito."
+    },
+    {
+      "number": "03",
+      "title": "Política clara para clientes americanos sin base europea",
+      "body": "VRAI generó fricción exclusivamente por desfase horario. O se cobra ese coste, o se construye capacidad en LATAM. No se puede ignorar.",
+      "status": "Patrón identificado. Pendiente decisión interna."
+    },
+    {
+      "number": "04",
+      "title": "Chequear historial de externalización en el discovery",
+      "body": "¿Cuándo han externalizado antes? Si la respuesta es nunca, cambiar el enfoque de la propuesta. Esta pregunta tiene que estar en el proceso.",
+      "status": "Recomendable implementar de inmediato."
+    },
+    {
+      "number": "05",
+      "title": "El PM en Big Corporates no es opcional — y tiene que estar presupuestado",
+      "body": "El PM protege al equipo técnico del desgaste burocrático. Si no está en la propuesta, lo estamos absorbiendo sin cobrar.",
+      "status": "Revisar modelos de propuesta para este perfil."
+    },
+    {
+      "number": "06",
+      "title": "Sin ownership de cuenta, no hay proyecto",
+      "body": "Pampling, Clikalia y Conurma llegaron vía estudio hermano sin interlocutor de Tailor con vínculo real desde el principio. Essentialist es el modelo: Víctor Chamizo en las ceremonias desde el día uno, se monetice o no.",
+      "status": "Aplicado en Essentialist. Pendiente sistematizar."
+    },
+    {
+      "number": "07",
+      "title": "El cliente quemado de una consultora tradicional es el más fácil de conquistar",
+      "body": "Hola Islas Canarias llegó frustrado de su proveedor anterior. El contraste con Tailor hizo el trabajo. Alto potencial como argumento de marketing — sin nombrar a nadie.",
+      "status": "Patrón identificado. Pendiente articular como mensaje."
+    },
+    {
+      "number": "08",
+      "title": "Sector público: objetivo a medio plazo, no ahora",
+      "body": "Tailor ejecuta muy bien en proyectos públicos. Para optar a licitaciones directas hacen falta tamaño y estructura que todavía no tenemos. Vale la pena trazarlo como horizonte.",
+      "status": "Aspiración identificada. Pendiente evaluar viabilidad."
+    },
+    {
+      "number": "09",
+      "title": "La relación personal protege contra el robo de talento",
+      "body": "Clikalia intentó fichar equipo de Tailor. Cuando el cliente solo ve un proveedor, el talento es intercambiable. Cuando hay amistad real, robar es traicionar a alguien.",
+      "status": "Especialmente relevante en staff augmentation y proyectos largos."
+    },
+    {
+      "number": "10",
+      "title": "Motivación del equipo: detectar pronto",
+      "body": "SeQura salió mal por una razón interna. ¿Cubren las retrospectivas actuales el estado motivacional del equipo, no solo lo técnico?",
+      "status": "Pendiente evaluar si el proceso actual lo cubre."
+    },
+    {
+      "number": "11",
+      "title": "El tamaño pequeño es una ventaja — usarla de forma deliberada",
+      "body": "Una gran consultora no puede mandar a su fundador a cenar. Tailor sí. Hay que convertir esto en algo más consciente: una cena el día de la firma, una llamada cuando termina el primer proyecto, un café cuando hay un problema. Cosas que cuestan poco y que las grandes no pueden hacer.",
+      "status": "Ventaja identificada. Convertir en protocolo de onboarding de clientes."
+    }
+  ],
+  "propuestas": {
+    "intro": "El análisis de propuestas no ganadas es el ejercicio más ambicioso de este proyecto — y el que todavía no hemos hecho bien.",
+    "label": "Trabajo pendiente · Ops + Ventas · Salva esencial en este proceso",
+    "title": "Base de Propuestas No Ganadas",
+    "paragraphs": [
+      "Para completar esta sección hace falta investigar el histórico de Pipedrive con el equipo de Ops y hacer un trabajo conjunto con ventas para documentar qué pasó en cada propuesta no ganada: por qué creemos que no se ganó, qué haríamos diferente, y si el perfil de empresa encajaba o no con el ICP.",
+      "El primer caso documentado es Embat — fintech de tesorería en Barcelona. Llegamos con una propuesta de externalización completa a una empresa que nunca había externalizado tecnología. La sensación de riesgo bloqueó la decisión. Si hubiéramos entrado con el Servicio 226, quizás la historia habría sido distinta.",
+      "Cruzar esta base con los patrones de clientes ganados es donde emergerán los insights más útiles del ICP: no solo con quién trabajamos bien, sino a quién deberíamos haber llegado de otra forma."
+    ]
+  },
+  "footer": {
+    "brand": "Tailor Hub · Grupo Modulor",
+    "info": "Adri Beloki · Febrero 2026 · v4.0"
+  }
+}
