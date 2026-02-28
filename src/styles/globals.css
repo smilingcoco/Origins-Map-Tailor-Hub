@@ -77,15 +77,22 @@ a {
 .app-layout {
   display: grid;
   grid-template-columns: 220px minmax(0, 1fr);
+  grid-template-rows: auto auto;
   gap: 28px;
   align-items: start;
 }
 
+.app-layout > .hero-section {
+  grid-column: 1 / -1;
+}
+
 .page-content {
+  grid-column: 2;
   max-width: 800px;
 }
 
 .side-nav {
+  grid-column: 1;
   position: sticky;
   top: 28px;
   align-self: start;

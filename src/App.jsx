@@ -70,6 +70,7 @@ export default function App() {
         <div className="reading-progress-bar" style={{ width: `${readingProgress}%` }} />
       </div>
       <div className="app-layout">
+        <HeroSection meta={data.meta} />
         <aside className="side-nav" aria-label="Navegación por secciones">
           <div className="side-nav-brand" aria-hidden="true">
             ✶
@@ -89,8 +90,6 @@ export default function App() {
           </ul>
         </aside>
         <div className="page-content">
-          <HeroSection meta={data.meta} />
-
           <SectionWrapper id="section-01" number="01" title="Qué es esto y por qué existe">
             {data.intro.paragraphs.map((paragraph) => (
               <p key={paragraph}>{paragraph}</p>
