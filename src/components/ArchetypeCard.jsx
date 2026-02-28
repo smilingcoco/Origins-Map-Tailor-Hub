@@ -19,7 +19,7 @@ export default function ArchetypeCard({ item, index }) {
       </div>
 
       <div className="archetype-signals">
-        <div className="archetype-signals-label">Senales Signal Hunter</div>
+        <div className="archetype-signals-label">Señales Signal Hunter</div>
         <div className="archetype-signals-list">{item.signals.join(' · ')}</div>
       </div>
 

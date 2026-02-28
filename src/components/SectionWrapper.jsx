@@ -1,9 +1,11 @@
 import { motion } from 'framer-motion';
 import { fadeUp } from './animations';
 
-export default function SectionWrapper({ number, title, children }) {
+export default function SectionWrapper({ id, number, title, children }) {
   return (
     <motion.section
+      id={id}
+      data-nav-section="true"
       className="section"
       variants={fadeUp}
       initial="hidden"

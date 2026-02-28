@@ -4,7 +4,7 @@ export default function SignalTable({ rows }) {
       <thead>
         <tr>
           <th>Arquetipo</th>
-          <th>Senales monitorizadas</th>
+          <th>Señales monitorizadas</th>
           <th>Canal sugerido</th>
         </tr>
       </thead>

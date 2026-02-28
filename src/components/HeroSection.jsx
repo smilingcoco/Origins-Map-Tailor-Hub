@@ -10,15 +10,18 @@ const word = {
 };
 
 export default function HeroSection({ meta }) {
+  const [line1 = 'ORIGINS', ...rest] = meta.title.toUpperCase().split(' ');
+  const line2 = rest.join(' ') || 'MAP';
+
   return (
     <header className="hero-section">
       <p className="doc-label">{meta.label}</p>
       <h1 className="hero-title">
         <motion.span custom={0} variants={word} initial="hidden" animate="visible">
-          MAPEO
+          {line1}
         </motion.span>
         <motion.span custom={1} variants={word} initial="hidden" animate="visible">
-          DEL PASADO
+          {line2}
         </motion.span>
       </h1>
       <p className="hero-subtitle">{meta.subtitle}</p>

@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 import data from './data/mapeo.json';
 import HeroSection from './components/HeroSection';
@@ -19,79 +19,129 @@ import Footer from './components/Footer';
 
 export default function App() {
   const [metricsActive, setMetricsActive] = useState(false);
+  const [activeSection, setActiveSection] = useState('section-01');
+
+  const navSections = [
+    { id: 'section-01', number: '01', title: 'Qué es esto' },
+    { id: 'section-02', number: '02', title: 'Límites' },
+    { id: 'section-03', number: '03', title: 'Método' },
+    { id: 'section-04', number: '04', title: 'Números' },
+    { id: 'section-05', number: '05', title: 'Cambio' },
+    { id: 'section-06', number: '06', title: 'Patrones' },
+    { id: 'section-07', number: '07', title: 'Arquetipos' },
+    { id: 'section-08', number: '08', title: 'Signal Hunter' },
+    { id: 'section-09', number: '09', title: 'Decisiones' },
+    { id: 'section-10', number: '10', title: 'No ganamos' }
+  ];
+
+  useEffect(() => {
+    const sections = document.querySelectorAll('[data-nav-section="true"]');
+    const observer = new IntersectionObserver(
+      (entries) => {
+        const visible = entries.find((entry) => entry.isIntersecting);
+        if (visible?.target?.id) {
+          setActiveSection(visible.target.id);
+        }
+      },
+      { rootMargin: '-30% 0px -55% 0px', threshold: 0.05 }
+    );
+
+    sections.forEach((section) => observer.observe(section));
+    return () => observer.disconnect();
+  }, []);
 
   return (
     <main className="page-shell">
-      <HeroSection meta={data.meta} />
+      <div className="app-layout">
+        <aside className="side-nav" aria-label="Navegación por secciones">
+          <div className="side-nav-label">Secciones</div>
+          <ul className="side-nav-list">
+            {navSections.map((item) => (
+              <li key={item.id}>
+                <a
+                  href={`#${item.id}`}
+                  className={activeSection === item.id ? 'side-nav-link active' : 'side-nav-link'}
+                  aria-current={activeSection === item.id ? 'true' : undefined}
+                >
+                  <span>{item.number}</span> {item.title}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </aside>
+        <div className="page-content">
+          <HeroSection meta={data.meta} />
 
-      <SectionWrapper number="01" title="Que es esto y por que existe">
-        {data.intro.paragraphs.map((paragraph) => (
-          <p key={paragraph}>{paragraph}</p>
-        ))}
-        <CalloutBox text={data.intro.callout} notionLinks={data.intro.notionLinks} />
-      </SectionWrapper>
+          <SectionWrapper id="section-01" number="01" title="Qué es esto y por qué existe">
+            {data.intro.paragraphs.map((paragraph) => (
+              <p key={paragraph}>{paragraph}</p>
+            ))}
+            <CalloutBox text={data.intro.callout} notionLinks={data.intro.notionLinks} />
+          </SectionWrapper>
 
-      <SectionWrapper number="02" title="Lo que este analisis no es">
-        <p>{data.limitationsIntro}</p>
-        <WarningBox items={data.limitations} />
-      </SectionWrapper>
+          <SectionWrapper id="section-02" number="02" title="Lo que este análisis no es">
+            <p>{data.limitationsIntro}</p>
+            <WarningBox items={data.limitations} />
+          </SectionWrapper>
 
-      <SectionWrapper number="03" title="Como se hizo">
-        <p>{data.methodologyIntro}</p>
-        <Timeline items={data.methodology} />
-        <p className="section-note">{data.methodologyOutro}</p>
-      </SectionWrapper>
+          <SectionWrapper id="section-03" number="03" title="Cómo se hizo">
+            <p>{data.methodologyIntro}</p>
+            <Timeline items={data.methodology} />
+            <p className="section-note">{data.methodologyOutro}</p>
+          </SectionWrapper>
 
-      <SectionWrapper number="04" title="El mapa en numeros">
-        <motion.div
-          onViewportEnter={() => setMetricsActive(true)}
-          viewport={{ once: true, margin: '-80px' }}
-        >
-          <MetricsGrid metrics={data.metrics} active={metricsActive} />
-        </motion.div>
-      </SectionWrapper>
+          <SectionWrapper id="section-04" number="04" title="El mapa en números">
+            <motion.div
+              onViewportEnter={() => setMetricsActive(true)}
+              viewport={{ once: true, margin: '-80px' }}
+            >
+              <MetricsGrid metrics={data.metrics} active={metricsActive} />
+            </motion.div>
+          </SectionWrapper>
 
-      <SectionWrapper number="05" title="Un cambio de posicion">
-        <p>{data.evolution.intro}</p>
-        <EvolutionBox evolution={data.evolution} />
-      </SectionWrapper>
+          <SectionWrapper id="section-05" number="05" title="Un cambio de posición">
+            <p>{data.evolution.intro}</p>
+            <EvolutionBox evolution={data.evolution} />
+          </SectionWrapper>
 
-      <SectionWrapper number="06" title="Los siete patrones">
-        {data.patternsIntro.map((paragraph) => (
-          <p key={paragraph}>{paragraph}</p>
-        ))}
-        {data.patterns.map((pattern) => (
-          <PatternBlock pattern={pattern} key={pattern.number} />
-        ))}
-      </SectionWrapper>
+          <SectionWrapper id="section-06" number="06" title="Los siete patrones">
+            {data.patternsIntro.map((paragraph) => (
+              <p key={paragraph}>{paragraph}</p>
+            ))}
+            {data.patterns.map((pattern) => (
+              <PatternBlock pattern={pattern} key={pattern.number} />
+            ))}
+          </SectionWrapper>
 
-      <SectionWrapper number="07" title="Los cuatro arquetipos de cliente">
-        <p>{data.archetypesIntro}</p>
-        <ArchetypeGrid archetypes={data.archetypes} />
-        <p className="partner-intro">
-          Dentro del arquetipo 04, los <strong>partnerships tecnologicos</strong> son un canal emergente con
-          pipeline concreto ya en marcha.
-        </p>
-        <PartnerGrid partners={data.partners} />
-      </SectionWrapper>
+          <SectionWrapper id="section-07" number="07" title="Los cuatro arquetipos de cliente">
+            <p>{data.archetypesIntro}</p>
+            <ArchetypeGrid archetypes={data.archetypes} />
+            <p className="partner-intro">
+              Dentro del arquetipo 04, los <strong>partnerships tecnológicos</strong> son un canal emergente con
+              pipeline concreto ya en marcha.
+            </p>
+            <PartnerGrid partners={data.partners} />
+          </SectionWrapper>
 
-      <SectionWrapper number="08" title="De documento a sistema activo">
-        <p>{data.signalHunterIntro}</p>
-        <SignalHunterBox signalHunter={data.signalHunter} />
-        <SignalTable rows={data.signalHunter.table} />
-      </SectionWrapper>
+          <SectionWrapper id="section-08" number="08" title="De documento a sistema activo">
+            <p>{data.signalHunterIntro}</p>
+            <SignalHunterBox signalHunter={data.signalHunter} />
+            <SignalTable rows={data.signalHunter.table} />
+          </SectionWrapper>
 
-      <SectionWrapper number="09" title="Once decisiones accionables">
-        <p>{data.actionsIntro}</p>
-        <ActionList items={data.actionPoints} />
-      </SectionWrapper>
+          <SectionWrapper id="section-09" number="09" title="Once decisiones accionables">
+            <p>{data.actionsIntro}</p>
+            <ActionList items={data.actionPoints} />
+          </SectionWrapper>
 
-      <SectionWrapper number="10" title="Lo que no ganamos">
-        <p>{data.propuestas.intro}</p>
-        <PropuestasBox data={data.propuestas} />
-      </SectionWrapper>
+          <SectionWrapper id="section-10" number="10" title="Lo que no ganamos">
+            <p>{data.propuestas.intro}</p>
+            <PropuestasBox data={data.propuestas} />
+          </SectionWrapper>
 
-      <Footer footer={data.footer} />
+          <Footer footer={data.footer} />
+        </div>
+      </div>
     </main>
   );
 }

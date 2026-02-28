@@ -3,7 +3,7 @@ export default function CalloutBox({ text, notionLinks }) {
     <div className="callout">
       <p>{text}</p>
       <p>
-        Las bases de datos completas estan en Notion:{' '}
+        Las bases de datos completas están en Notion:{' '}
         <a className="callout-link" href={notionLinks.empresas} target="_blank" rel="noreferrer">
           Base de Empresas ↗
         </a>{' '}

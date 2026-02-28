@@ -32,6 +32,10 @@ body,
   min-height: 100%;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   font-family: 'PPMori', serif;
   color: var(--neutral-900);
@@ -49,9 +53,76 @@ a {
 }
 
 .page-shell {
-  max-width: 800px;
+  max-width: 1180px;
   margin: 0 auto;
   padding: 80px 48px 120px;
+}
+
+.app-layout {
+  display: grid;
+  grid-template-columns: 220px minmax(0, 1fr);
+  gap: 28px;
+  align-items: start;
+}
+
+.page-content {
+  max-width: 800px;
+}
+
+.side-nav {
+  position: sticky;
+  top: 20px;
+  align-self: start;
+}
+
+.side-nav-label,
+.side-nav-link {
+  font-family: 'PPNeueMontrealMono', monospace;
+  text-transform: uppercase;
+}
+
+.side-nav-label {
+  font-size: 10px;
+  letter-spacing: 0.12em;
+  color: var(--neutral-600);
+  margin-bottom: 10px;
+}
+
+.side-nav-list {
+  list-style: none;
+  border-left: 1px solid var(--neutral-200);
+  padding-left: 12px;
+}
+
+.side-nav-list li {
+  margin-bottom: 6px;
+}
+
+.side-nav-link {
+  display: inline-block;
+  text-decoration: none;
+  font-size: 10px;
+  letter-spacing: 0.08em;
+  color: var(--neutral-600);
+  transition: color 0.2s ease;
+}
+
+.side-nav-link:focus-visible {
+  outline: 1px solid var(--blue-500);
+  outline-offset: 2px;
+}
+
+.side-nav-link span {
+  color: var(--blue-500);
+}
+
+.side-nav-link.active {
+  color: var(--neutral-900);
+}
+
+.side-nav-link.active span {
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
 }
 
 .hero-section {
@@ -151,6 +222,7 @@ a {
 
 .section {
   margin-bottom: 72px;
+  scroll-margin-top: 20px;
 }
 
 .section-number {
@@ -676,6 +748,32 @@ a {
 @media (max-width: 900px) {
   .page-shell {
     padding: 64px 24px 96px;
+  }
+
+  .app-layout {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .page-content {
+    max-width: 100%;
+  }
+
+  .side-nav {
+    position: static;
+  }
+
+  .side-nav-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px 12px;
+    border-left: none;
+    border-bottom: 1px solid var(--neutral-200);
+    padding: 0 0 12px;
+  }
+
+  .side-nav-list li {
+    margin-bottom: 0;
   }
 
   .metrics-grid {

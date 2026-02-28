@@ -28,7 +28,7 @@ export default function PatternBlock({ pattern }) {
         {pattern.number}
       </motion.div>
       <motion.div className="pattern-content" variants={content}>
-        <div className="pattern-label">Patron {pattern.number}</div>
+        <div className="pattern-label">Patrón {pattern.number}</div>
         <h3 className="pattern-title">{pattern.title}</h3>
         <p className="pattern-body">{pattern.body}</p>
       </motion.div>
