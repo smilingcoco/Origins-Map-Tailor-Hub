@@ -42,6 +42,7 @@ body {
   background: var(--neutral-00);
   font-size: 15px;
   line-height: 1.65;
+  overflow-x: clip;
 }
 
 p {
@@ -169,6 +170,7 @@ a {
   flex-direction: column;
   justify-content: center;
   position: relative;
+  overflow-x: clip;
 }
 
 .doc-label,
@@ -216,10 +218,13 @@ a {
   text-transform: uppercase;
   letter-spacing: -0.02em;
   margin-bottom: 20px;
+  max-width: 100%;
 }
 
 .hero-title span {
   display: block;
+  max-width: 100%;
+  overflow-wrap: anywhere;
 }
 
 .hero-subtitle {
@@ -909,6 +914,8 @@ a {
 
   .hero-title {
     font-size: clamp(40px, 18vw, 66px);
+    line-height: 0.9;
+    letter-spacing: -0.015em;
   }
 
   .hero-actions {
@@ -925,6 +932,15 @@ a {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 8px 12px;
+  }
+
+  .hero-meta-row > * {
+    min-width: 0;
+  }
+
+  .hero-meta-item {
+    overflow-wrap: anywhere;
+    line-height: 1.35;
   }
 
   .section {
