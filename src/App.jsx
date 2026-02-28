@@ -23,7 +23,7 @@ export default function App() {
 
   const navSections = [
     { id: 'section-01', number: '01', title: 'Qué es esto' },
-    { id: 'section-02', number: '02', title: 'Límites' },
+    { id: 'section-02', number: '02', title: 'Qué nos falta' },
     { id: 'section-03', number: '03', title: 'Método' },
     { id: 'section-04', number: '04', title: 'Números' },
     { id: 'section-05', number: '05', title: 'Cambio' },
@@ -79,7 +79,7 @@ export default function App() {
             <CalloutBox text={data.intro.callout} notionLinks={data.intro.notionLinks} />
           </SectionWrapper>
 
-          <SectionWrapper id="section-02" number="02" title="Lo que este análisis no es">
+          <SectionWrapper id="section-02" number="02" title="Qué nos falta para que sea perfecto">
             <p>{data.limitationsIntro}</p>
             <WarningBox items={data.limitations} />
           </SectionWrapper>

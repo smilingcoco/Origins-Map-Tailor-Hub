@@ -43,7 +43,7 @@
       "body": "Solo tenemos un caso documentado (Embat). El análisis completo requiere investigar Pipedrive con Ops — un trabajo más largo que haremos con el equipo de ventas."
     }
   ],
-  "methodologyIntro": "Una sesión de trabajo con Adri Beloki usando IA como herramienta de documentación y análisis en tiempo real. Sin encuestas, sin formularios. La información salió de audios — memoria directa del equipo — y se volcó a una base de datos en Notion conforme avanzaba la conversación. Lo que no recordábamos se dejó en blanco.",
+  "methodologyIntro": "Adri Beloki utilizó Claude para capturar y estructurar la información base de proyectos pasados, apoyándose en el trabajo de documentación de Ops y Sales, sin el que este análisis no habría sido posible.",
   "methodologyOutro": "Cualquier estudio del grupo puede replicar este proceso. El punto de partida es la base de proyectos propia. El tiempo estimado para completar las fichas es de 2-3 sesiones con quien tenga el contexto de los clientes.",
   "methodology": [
     {
