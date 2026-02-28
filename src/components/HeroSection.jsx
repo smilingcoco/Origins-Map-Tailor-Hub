@@ -25,6 +25,14 @@ export default function HeroSection({ meta }) {
         </motion.span>
       </h1>
       <p className="hero-subtitle">{meta.subtitle}</p>
+      <div className="hero-actions">
+        <a className="hero-action primary" href="#section-01">
+          Empezar lectura
+        </a>
+        <a className="hero-action" href="#section-06">
+          Ir a patrones
+        </a>
+      </div>
       <div className="hero-meta-row">
         {meta.stats.map((item) => (
           <div className="hero-meta-item" key={item.label}>

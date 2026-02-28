@@ -20,6 +20,7 @@ import Footer from './components/Footer';
 export default function App() {
   const [metricsActive, setMetricsActive] = useState(false);
   const [activeSection, setActiveSection] = useState('section-01');
+  const [readingProgress, setReadingProgress] = useState(0);
 
   const navSections = [
     { id: 'section-01', number: '01', title: 'Qué es esto' },
@@ -50,8 +51,24 @@ export default function App() {
     return () => observer.disconnect();
   }, []);
 
+  useEffect(() => {
+    const onScroll = () => {
+      const scrollTop = window.scrollY || window.pageYOffset;
+      const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
+      const progress = maxScroll > 0 ? Math.min(100, (scrollTop / maxScroll) * 100) : 0;
+      setReadingProgress(progress);
+    };
+
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+    return () => window.removeEventListener('scroll', onScroll);
+  }, []);
+
   return (
     <main className="page-shell">
+      <div className="reading-progress" aria-hidden="true">
+        <div className="reading-progress-bar" style={{ width: `${readingProgress}%` }} />
+      </div>
       <div className="app-layout">
         <aside className="side-nav" aria-label="Navegación por secciones">
           <div className="side-nav-label">Secciones</div>
