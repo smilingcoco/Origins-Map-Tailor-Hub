@@ -44,6 +44,21 @@
     }
   ],
   "methodologyIntro": "Adri Beloki utilizó Claude para capturar y estructurar la información base de proyectos pasados, apoyándose en el trabajo de documentación de Ops y Sales, sin el que este análisis no habría sido posible.",
+  "authorComment": {
+    "paragraphs": [
+      "Aunque ellos no supieran que esto se iba a construir, el equipo de Ops y Sales ha sido clave documentando casos en Notion, con mayor o menor nivel de detalle. Es un ejemplo interno perfecto del valor enorme que tiene el gobierno del dato. Si tienes cosas registradas, la IA y una dirección con criterio pueden hacer magia.",
+      "Como en primera persona he estado almacenando y construyendo Case Studies desde hace un año, he podido rellenar muchos huecos con insights de proyectos. Algunos estaban escritos pero la gran mayoría de estos insights (razones por las que X proyecto ha ido bien, comentarios de Operativa que cobran relevancia, anécdótas que dan capas de profundidad para que la IA tenga un contexto más rico) han sido alimentadas con un proceso jodidamente, espectacularmente, complicado: sábado 28 de febrero en casa, mandando audios a Claude con el móvil, que los iba guardando en una Database de Notion. Lujo.",
+      "A partir de ahí, Claude, que es mucho, mucho, mucho más listo que yo, ha diseñado el análisis de patrones que verás a continuación. Bueno, si soy honesto, detectó varios, y según leía lo que me decía, se me fueron ocurriendo matices o directamente nuevos patrones.",
+      "Por último, con Códex y paciencia (voy aprendiendo de front-end sobre la marcha) se ha construido el portal que estás leyendo ahora, y con GitHub + Vercel se desplegó. Increíble lo fácil que es este último punto que me daba míedete."
+    ],
+    "signature": "Adri Beloki, The Creator",
+    "process": [
+      "Ops + Sales documentan database",
+      "Comms da insights en audio",
+      "Claude da estructura y patrones",
+      "Códex+Vercel convierten info en producto"
+    ]
+  },
   "methodologyOutro": "Cualquier estudio del grupo puede replicar este proceso. El punto de partida es la base de proyectos propia. El tiempo estimado para completar las fichas es de 2-3 sesiones con quien tenga el contexto de los clientes.",
   "methodology": [
     {

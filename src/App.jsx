@@ -5,6 +5,7 @@ import HeroSection from './components/HeroSection';
 import SectionWrapper from './components/SectionWrapper';
 import CalloutBox from './components/CalloutBox';
 import WarningBox from './components/WarningBox';
+import AuthorComment from './components/AuthorComment';
 import MetricsGrid from './components/MetricsGrid';
 import Timeline from './components/Timeline';
 import EvolutionBox from './components/EvolutionBox';
@@ -104,6 +105,7 @@ export default function App() {
 
           <SectionWrapper id="section-03" number="03" title="Cómo se hizo">
             <p>{data.methodologyIntro}</p>
+            <AuthorComment data={data.authorComment} />
             <Timeline items={data.methodology} />
             <p className="section-note">{data.methodologyOutro}</p>
           </SectionWrapper>
