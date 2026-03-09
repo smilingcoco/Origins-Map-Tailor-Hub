@@ -25,14 +25,14 @@ export default function App() {
 
   const navSections = [
     { id: 'section-01', number: '01', title: 'Qué es esto' },
-    { id: 'section-02', number: '02', title: 'Qué nos falta' },
-    { id: 'section-03', number: '03', title: 'Método' },
-    { id: 'section-04', number: '04', title: 'Números' },
-    { id: 'section-05', number: '05', title: 'Patrones' },
-    { id: 'section-06', number: '06', title: 'Arquetipos' },
-    { id: 'section-07', number: '07', title: '¿Y 2026?' },
-    { id: 'section-08', number: '08', title: 'Signal Hunter' },
-    { id: 'section-09', number: '09', title: 'Decisiones' },
+    { id: 'section-02', number: '02', title: 'Números' },
+    { id: 'section-03', number: '03', title: 'Arquetipos' },
+    { id: 'section-04', number: '04', title: 'Patrones' },
+    { id: 'section-05', number: '05', title: 'Decisiones' },
+    { id: 'section-06', number: '06', title: '¿Y 2026?' },
+    { id: 'section-07', number: '07', title: 'Signal Hunter' },
+    { id: 'section-08', number: '08', title: 'Método' },
+    { id: 'section-09', number: '09', title: 'Qué nos falta' },
     { id: 'section-10', number: '10', title: 'Next Steps' }
   ];
 
@@ -98,19 +98,7 @@ export default function App() {
             <CalloutBox text={data.intro.callout} notionLinks={data.intro.notionLinks} />
           </SectionWrapper>
 
-          <SectionWrapper id="section-02" number="02" title="Qué nos falta para que sea perfecto">
-            <p>{data.limitationsIntro}</p>
-            <WarningBox items={data.limitations} />
-          </SectionWrapper>
-
-          <SectionWrapper id="section-03" number="03" title="Cómo se hizo">
-            <p>{data.methodologyIntro}</p>
-            <AuthorComment data={data.authorComment} />
-            <Timeline items={data.methodology} />
-            <p className="section-note">{data.methodologyOutro}</p>
-          </SectionWrapper>
-
-          <SectionWrapper id="section-04" number="04" title="El mapa en números">
+          <SectionWrapper id="section-02" number="02" title="El mapa en números">
             <motion.div
               onViewportEnter={() => setMetricsActive(true)}
               viewport={{ once: true, margin: '-80px' }}
@@ -119,16 +107,7 @@ export default function App() {
             </motion.div>
           </SectionWrapper>
 
-          <SectionWrapper id="section-05" number="05" title="Los siete patrones">
-            {data.patternsIntro.map((paragraph) => (
-              <p key={paragraph}>{paragraph}</p>
-            ))}
-            {data.patterns.map((pattern) => (
-              <PatternBlock pattern={pattern} key={pattern.number} />
-            ))}
-          </SectionWrapper>
-
-          <SectionWrapper id="section-06" number="06" title="Los cuatro arquetipos de cliente">
+          <SectionWrapper id="section-03" number="03" title="Los cuatro arquetipos de cliente">
             <p>{data.archetypesIntro}</p>
             <ArchetypeGrid archetypes={data.archetypes} />
             <p className="partner-intro">
@@ -138,20 +117,41 @@ export default function App() {
             <PartnerGrid partners={data.partners} />
           </SectionWrapper>
 
-          <SectionWrapper id="section-07" number="07" title="Un cambio de posición">
+          <SectionWrapper id="section-04" number="04" title="Los siete patrones">
+            {data.patternsIntro.map((paragraph) => (
+              <p key={paragraph}>{paragraph}</p>
+            ))}
+            {data.patterns.map((pattern) => (
+              <PatternBlock pattern={pattern} key={pattern.number} />
+            ))}
+          </SectionWrapper>
+
+          <SectionWrapper id="section-05" number="05" title="Once decisiones accionables">
+            <p>{data.actionsIntro}</p>
+            <ActionList items={data.actionPoints} />
+          </SectionWrapper>
+
+          <SectionWrapper id="section-06" number="06" title="Un cambio de posición">
             <p>{data.evolution.intro}</p>
             <EvolutionBox evolution={data.evolution} />
           </SectionWrapper>
 
-          <SectionWrapper id="section-08" number="08" title="De documento a sistema activo">
+          <SectionWrapper id="section-07" number="07" title="De documento a sistema activo">
             <p>{data.signalHunterIntro}</p>
             <SignalHunterBox signalHunter={data.signalHunter} />
             <SignalTable rows={data.signalHunter.table} />
           </SectionWrapper>
 
-          <SectionWrapper id="section-09" number="09" title="Once decisiones accionables">
-            <p>{data.actionsIntro}</p>
-            <ActionList items={data.actionPoints} />
+          <SectionWrapper id="section-08" number="08" title="Cómo se hizo">
+            <p>{data.methodologyIntro}</p>
+            <AuthorComment data={data.authorComment} />
+            <Timeline items={data.methodology} />
+            <p className="section-note">{data.methodologyOutro}</p>
+          </SectionWrapper>
+
+          <SectionWrapper id="section-09" number="09" title="Qué nos falta para que sea perfecto">
+            <p>{data.limitationsIntro}</p>
+            <WarningBox items={data.limitations} />
           </SectionWrapper>
 
           <SectionWrapper id="section-10" number="10" title="Lo que no ganamos">
