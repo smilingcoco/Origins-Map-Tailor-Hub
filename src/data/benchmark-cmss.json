@@ -8,9 +8,14 @@
       { "label": "Modelos comparados", "value": "2" },
       { "label": "FAQs clave", "value": "6" },
       { "label": "Fuentes", "value": "8" },
-      { "label": "Versión", "value": "1.1 · Mar 2026" }
+      { "label": "Versión", "value": "1.2 · Mar 2026" }
     ]
   },
+  "quickTakeaways": [
+    "La decisión no es técnica solo: afecta autonomía editorial, velocidad y coste a 3 años.",
+    "Monolítico funciona bien en alcance corto; headless escala mejor en multicanal y multi-equipo.",
+    "Para contexto enterprise con gobernanza alta, Contentful suele ofrecer mejor equilibrio operativo."
+  ],
   "objective": [
     "Hay más de 880 CMS en el mercado. La mayoría de los proyectos acaba usando uno de cuatro.",
     "Este benchmark traduce esa realidad a una guía práctica para decidir con criterio, según el momento del negocio, la complejidad del contenido y la autonomía que necesita cada equipo.",
@@ -22,42 +27,102 @@
     "En un CMS headless, el contenido se gestiona por API y se publica una vez para distribuirse en múltiples frontends: web, app, landing, portal o cualquier canal nuevo.",
     "La consecuencia operativa es directa: marketing gana autonomía para publicar, IT conserva control estructural, y escalar canales deja de requerir rehacerlo todo."
   ],
+  "modelComparison": [
+    {
+      "name": "CMS monolítico",
+      "fit": "Excelente para una web principal con cambios acotados",
+      "points": [
+        "Backend + frontend en el mismo sistema",
+        "Menos fricción inicial",
+        "Escalado multicanal más costoso"
+      ]
+    },
+    {
+      "name": "CMS headless",
+      "fit": "Excelente para web + app + canales múltiples",
+      "points": [
+        "Contenido distribuido por API",
+        "Más autonomía editorial a escala",
+        "Requiere diseño inicial de arquitectura"
+      ]
+    }
+  ],
   "platforms": [
     {
       "name": "WordPress",
       "kicker": "Democratización + velocidad de arranque",
+      "complexity": "Baja",
       "paragraphs": [
         "WordPress eliminó la barrera técnica para publicar en internet: plantillas, plugins y curva de entrada baja.",
         "Sigue siendo una opción sólida para blogs, webs corporativas pequeñas y proyectos con alcance acotado.",
         "El reto aparece al escalar: más idiomas, más canales, más dependencia de plugins y mayor riesgo de deuda técnica en mantenimiento."
-      ]
+      ],
+      "whenYes": [
+        "Web corporativa o blog de alcance corto",
+        "Equipo pequeño con foco en velocidad"
+      ],
+      "whenNo": [
+        "Multicanal real (web + app + portal)",
+        "Gobernanza editorial avanzada por roles"
+      ],
+      "decision": "Si tu horizonte es corto y quieres salir rápido, WordPress sigue siendo una gran opción." 
     },
     {
       "name": "Drupal",
       "kicker": "Control alto + operación compleja",
+      "complexity": "Alta",
       "paragraphs": [
         "Drupal encaja en organizaciones con flujos editoriales exigentes y equipos técnicos consolidados.",
         "Puede sostener arquitecturas avanzadas, pero exige disciplina operativa continua y ciclos de mantenimiento intensivos.",
         "Cuando se configura como headless, gana flexibilidad de entrega, pero mantiene una base no diseñada originalmente para ese modelo."
-      ]
+      ],
+      "whenYes": [
+        "Entorno institucional con requisitos muy específicos",
+        "Equipo técnico interno robusto y estable"
+      ],
+      "whenNo": [
+        "Necesidad alta de autonomía para marketing",
+        "Presupuesto anual limitado para mantenimiento"
+      ],
+      "decision": "Si ya existe una base madura en Drupal, la decisión clave es optimizar TCO y gobernanza." 
     },
     {
       "name": "Sanity",
       "kicker": "Headless nativo + control técnico extremo",
+      "complexity": "Media-alta",
       "paragraphs": [
         "Sanity aporta una experiencia excelente para equipos de desarrollo: modelo versionado con código, auditable y altamente flexible.",
         "Es ideal cuando producto y contenido evolucionan rápido y el equipo técnico lidera esa evolución.",
         "En entornos con fuerte autonomía editorial, algunos cambios de estructura siguen requiriendo soporte técnico, y eso afecta la operación diaria."
-      ]
+      ],
+      "whenYes": [
+        "Producto digital iterativo con equipo técnico fuerte",
+        "Necesidad de modelado muy flexible"
+      ],
+      "whenNo": [
+        "Equipo editorial muy independiente del técnico",
+        "Presupuesto sensible a picos de consumo API"
+      ],
+      "decision": "Si prima la flexibilidad del modelo por encima de todo, Sanity suele rendir muy bien." 
     },
     {
       "name": "Contentful",
       "kicker": "API-first + gobernanza enterprise",
+      "complexity": "Media",
       "paragraphs": [
         "Contentful nació headless desde origen y su fortaleza principal es operativa: gobernanza clara, permisos sólidos y escalado multi-equipo.",
         "IT puede definir estructura y reglas; marketing puede operar con autonomía dentro de ese marco.",
         "Su principal trade-off está en pricing y negociación enterprise, compensado por estabilidad contractual y previsibilidad en escenarios de escala."
-      ]
+      ],
+      "whenYes": [
+        "Organización con varios equipos editoriales y mercados",
+        "Necesidad de control y trazabilidad con operación fluida"
+      ],
+      "whenNo": [
+        "Proyecto muy pequeño con ciclo corto",
+        "Contexto sin necesidad de gobernanza compleja"
+      ],
+      "decision": "Si buscas equilibrio entre control, autonomía y escalado real, Contentful es una apuesta sólida." 
     }
   ],
   "benchmark": [
@@ -88,6 +153,24 @@
       "score": "7.1/10",
       "strength": "Adopción rápida y bajo coste inicial",
       "risk": "Escalabilidad y deuda por plugins"
+    }
+  ],
+  "decisionFlow": [
+    {
+      "title": "Definir contexto de negocio",
+      "body": "Volumen de contenidos, idiomas, canales y nivel de autonomía editorial que se espera en 12-24 meses."
+    },
+    {
+      "title": "Elegir modelo operativo",
+      "body": "Monolítico para foco corto; headless para escala multicanal y equipos distribuidos."
+    },
+    {
+      "title": "Evaluar trade-offs reales",
+      "body": "Time-to-market, gobernanza, mantenimiento y coste total en 3 años."
+    },
+    {
+      "title": "Tomar decisión y ejecutar",
+      "body": "Alinear tecnología, marketing y operaciones desde el inicio para evitar deuda futura."
     }
   ],
   "faq": [

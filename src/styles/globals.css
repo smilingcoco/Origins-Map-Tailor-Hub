@@ -1121,6 +1121,165 @@ a {
   margin-bottom: 18px;
 }
 
+.scan-summary {
+  margin-top: 28px;
+  border: 1px solid var(--neutral-200);
+  border-radius: 14px;
+  background: var(--neutral-100);
+  padding: 18px 20px;
+}
+
+.scan-summary-label {
+  font-family: 'PPNeueMontrealMono', monospace;
+  text-transform: uppercase;
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  color: var(--blue-500);
+  margin-bottom: 8px;
+}
+
+.scan-summary ul {
+  list-style: none;
+}
+
+.scan-summary li {
+  position: relative;
+  padding-left: 16px;
+  margin-bottom: 8px;
+  color: var(--neutral-600);
+}
+
+.scan-summary li:last-child {
+  margin-bottom: 0;
+}
+
+.scan-summary li::before {
+  content: '';
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--blue-500);
+  position: absolute;
+  left: 0;
+  top: 9px;
+}
+
+.model-grid,
+.decision-grid,
+.flow-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1px;
+  background: var(--neutral-200);
+  margin-top: 24px;
+}
+
+.model-card,
+.decision-card,
+.flow-step {
+  background: var(--neutral-00);
+  padding: 18px 16px;
+}
+
+.model-card-label,
+.flow-step-num,
+.quick-decision-label {
+  font-family: 'PPNeueMontrealMono', monospace;
+  text-transform: uppercase;
+  font-size: 9px;
+  letter-spacing: 0.1em;
+  color: var(--blue-500);
+  margin-bottom: 8px;
+}
+
+.model-card-title,
+.decision-card-title,
+.flow-step-title {
+  font-family: 'PPMori', serif;
+  font-size: 18px;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+
+.model-card-fit,
+.flow-step-body {
+  color: var(--neutral-600);
+  font-size: 13px;
+  margin-bottom: 10px;
+}
+
+.model-points,
+.decision-list {
+  list-style: none;
+}
+
+.model-points li,
+.decision-list li {
+  color: var(--neutral-600);
+  font-size: 13px;
+  padding: 8px 0;
+  border-bottom: 1px solid var(--neutral-200);
+}
+
+.model-points li:first-child,
+.decision-list li:first-child {
+  border-top: 1px solid var(--neutral-200);
+}
+
+.quick-decision-box {
+  margin-top: 18px;
+  border: 1px solid var(--neutral-200);
+  border-left: 3px solid var(--blue-500);
+  border-radius: 14px;
+  padding: 16px 18px;
+  background: var(--neutral-00);
+}
+
+.quick-decision-body {
+  font-size: 14px;
+  color: var(--neutral-900);
+}
+
+.quick-decision-complexity {
+  margin-top: 10px;
+  font-family: 'PPNeueMontrealMono', monospace;
+  text-transform: uppercase;
+  font-size: 9px;
+  letter-spacing: 0.08em;
+  color: var(--neutral-600);
+}
+
+.quick-decision-complexity span {
+  color: var(--neutral-900);
+}
+
+.score-cell {
+  display: grid;
+  gap: 8px;
+}
+
+.score-value {
+  font-family: 'PPNeueMontrealMono', monospace;
+  font-size: 11px;
+  letter-spacing: 0.06em;
+  color: var(--neutral-900);
+}
+
+.score-track {
+  width: 120px;
+  max-width: 100%;
+  height: 6px;
+  border-radius: 999px;
+  background: var(--neutral-200);
+  overflow: hidden;
+}
+
+.score-bar {
+  height: 100%;
+  background: var(--blue-500);
+  border-radius: 999px;
+}
+
 .source-list {
   list-style: none;
   border-top: 1px solid var(--neutral-200);
@@ -1255,7 +1414,10 @@ a {
   .archetype-grid,
   .partner-grid,
   .evolution-vs,
-  .criteria-grid {
+  .criteria-grid,
+  .model-grid,
+  .decision-grid,
+  .flow-grid {
     grid-template-columns: 1fr;
   }
 
@@ -1369,6 +1531,15 @@ a {
 
   .metrics-grid {
     grid-template-columns: 1fr;
+  }
+
+  .scan-summary,
+  .quick-decision-box {
+    padding: 14px;
+  }
+
+  .score-track {
+    width: 100%;
   }
 
   .signal-table {

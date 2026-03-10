@@ -3,6 +3,12 @@ import data from '../data/benchmark-cmss.json';
 import HeroSection from '../components/HeroSection';
 import SectionWrapper from '../components/SectionWrapper';
 
+function scoreToPercent(score) {
+  const value = Number(score.split('/')[0]);
+  if (Number.isNaN(value)) return 0;
+  return Math.max(0, Math.min(100, value * 10));
+}
+
 export default function BenchmarkCmssPage() {
   const [activeSection, setActiveSection] = useState('section-01');
   const [readingProgress, setReadingProgress] = useState(0);
@@ -61,6 +67,34 @@ export default function BenchmarkCmssPage() {
       {platform.paragraphs.map((paragraph) => (
         <p key={paragraph}>{paragraph}</p>
       ))}
+
+      <div className="decision-grid">
+        <article className="decision-card">
+          <h3 className="decision-card-title">Cuándo sí</h3>
+          <ul className="decision-list">
+            {platform.whenYes.map((point) => (
+              <li key={point}>{point}</li>
+            ))}
+          </ul>
+        </article>
+
+        <article className="decision-card">
+          <h3 className="decision-card-title">Cuándo no</h3>
+          <ul className="decision-list">
+            {platform.whenNo.map((point) => (
+              <li key={point}>{point}</li>
+            ))}
+          </ul>
+        </article>
+      </div>
+
+      <div className="quick-decision-box">
+        <p className="quick-decision-label">Decisión rápida</p>
+        <p className="quick-decision-body">{platform.decision}</p>
+        <p className="quick-decision-complexity">
+          Complejidad operativa <span>{platform.complexity}</span>
+        </p>
+      </div>
     </>
   );
 
@@ -106,12 +140,36 @@ export default function BenchmarkCmssPage() {
             {data.objective.map((paragraph) => (
               <p key={paragraph}>{paragraph}</p>
             ))}
+
+            <div className="scan-summary">
+              <p className="scan-summary-label">En 20 segundos</p>
+              <ul>
+                {data.quickTakeaways.map((takeaway) => (
+                  <li key={takeaway}>{takeaway}</li>
+                ))}
+              </ul>
+            </div>
           </SectionWrapper>
 
           <SectionWrapper id="section-02" number="02" title="El modelo que lo cambió todo">
             {data.modelShift.map((paragraph) => (
               <p key={paragraph}>{paragraph}</p>
             ))}
+
+            <div className="model-grid">
+              {data.modelComparison.map((model) => (
+                <article className="model-card" key={model.name}>
+                  <p className="model-card-label">Modelo</p>
+                  <h3 className="model-card-title">{model.name}</h3>
+                  <p className="model-card-fit">{model.fit}</p>
+                  <ul className="model-points">
+                    {model.points.map((point) => (
+                      <li key={point}>{point}</li>
+                    ))}
+                  </ul>
+                </article>
+              ))}
+            </div>
           </SectionWrapper>
 
           <SectionWrapper id="section-03" number="03" title={wordpress.name}>
@@ -147,13 +205,30 @@ export default function BenchmarkCmssPage() {
                     <tr key={item.cms}>
                       <td data-label="CMS">{item.cms}</td>
                       <td data-label="Fit principal">{item.fit}</td>
-                      <td data-label="Score">{item.score}</td>
+                      <td data-label="Score">
+                        <div className="score-cell">
+                          <span className="score-value">{item.score}</span>
+                          <div className="score-track" aria-hidden="true">
+                            <div className="score-bar" style={{ width: `${scoreToPercent(item.score)}%` }} />
+                          </div>
+                        </div>
+                      </td>
                       <td data-label="Fortaleza">{item.strength}</td>
                       <td data-label="Riesgo">{item.risk}</td>
                     </tr>
                   ))}
                 </tbody>
               </table>
+            </div>
+
+            <div className="flow-grid">
+              {data.decisionFlow.map((step, index) => (
+                <article className="flow-step" key={step.title}>
+                  <p className="flow-step-num">Paso {index + 1}</p>
+                  <h3 className="flow-step-title">{step.title}</h3>
+                  <p className="flow-step-body">{step.body}</p>
+                </article>
+              ))}
             </div>
           </SectionWrapper>
 
