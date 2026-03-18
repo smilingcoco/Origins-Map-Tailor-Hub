@@ -19,7 +19,7 @@ export default function NovoNordiskCompliancePage() {
   const [readingProgress, setReadingProgress] = useState(0);
 
   const navSections = [
-    { id: 'section-01', number: '01', title: 'Hero' },
+    { id: 'section-01', number: '01', title: 'Overview' },
     { id: 'section-02', number: '02', title: 'Problem' },
     { id: 'section-03', number: '03', title: 'Solution' },
     { id: 'section-04', number: '04', title: 'AI pipeline' },
@@ -72,19 +72,33 @@ export default function NovoNordiskCompliancePage() {
         <div className="reading-progress-bar" style={{ width: `${readingProgress}%` }} />
       </div>
       <a className="hub-backlink" href="/">
-        ← Volver al hub
+        ← Back to hub
       </a>
 
       <div className="app-layout">
         <HeroSection
           meta={data.meta}
           actions={{
-            primary: { href: '#section-03', label: 'See the solution' },
+            primary: { href: '#section-03', label: 'See the solution ↓' },
             secondary: { href: '#section-10', label: 'View roadmap' }
           }}
-        />
+        >
+          <div className="nn-hero-copy">
+            {data.hero.intro.map((paragraph) => (
+              <p key={paragraph}>{paragraph}</p>
+            ))}
+          </div>
+          <div className="nn-hero-strip">
+            {data.hero.quickStats.map((item) => (
+              <article className="nn-hero-stat" key={item.label}>
+                <div className="nn-hero-stat-value">{item.value}</div>
+                <div className="nn-hero-stat-label">{item.label}</div>
+              </article>
+            ))}
+          </div>
+        </HeroSection>
 
-        <aside className="side-nav" aria-label="Navegación por secciones">
+        <aside className="side-nav" aria-label="Section navigation">
           <div className="side-nav-brand" aria-hidden="true">
             <img src="/isotipo-tailor-black.png" alt="" />
           </div>
@@ -104,18 +118,19 @@ export default function NovoNordiskCompliancePage() {
         </aside>
 
         <div className="page-content">
-          <SectionWrapper id="section-01" number="01" title="Compliance monitoring shouldn't take weeks.">
-            {data.hero.intro.map((paragraph) => (
-              <p key={paragraph}>{paragraph}</p>
-            ))}
-
-            <div className="nn-hero-strip">
-              {data.hero.quickStats.map((item) => (
-                <article className="nn-hero-stat" key={item.label}>
-                  <div className="nn-hero-stat-value">{item.value}</div>
-                  <div className="nn-hero-stat-label">{item.label}</div>
-                </article>
-              ))}
+          <SectionWrapper id="section-01" number="01" title="Overview">
+            <p>
+              Novo Nordisk needs a compliance workflow that moves from disconnected manual review to a monitored
+              system that runs continuously, flags real risk, and gives legal and operations teams a faster path to
+              decision.
+            </p>
+            <div className="scan-summary">
+              <p className="scan-summary-label">In 20 seconds</p>
+              <ul>
+                <li>Two disconnected systems become one monitored workflow.</li>
+                <li>Tickets and photos are checked automatically every day.</li>
+                <li>Human review focuses only on the cases that actually need a decision.</li>
+              </ul>
             </div>
           </SectionWrapper>
 

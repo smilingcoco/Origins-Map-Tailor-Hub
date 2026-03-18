@@ -394,6 +394,17 @@ a {
   transform: translateX(-50%);
 }
 
+.hero-extra {
+  max-width: 720px;
+  margin-bottom: 24px;
+}
+
+.hero-extra p {
+  font-size: 18px;
+  line-height: 1.5;
+  margin-bottom: 12px;
+}
+
 .section {
   margin-bottom: 72px;
   scroll-margin-top: 20px;
@@ -1285,7 +1296,7 @@ a {
   grid-template-columns: repeat(3, 1fr);
   gap: 1px;
   background: var(--neutral-200);
-  margin-top: 28px;
+  margin-top: 18px;
 }
 
 .nn-hero-stat,
@@ -1395,10 +1406,6 @@ a {
   gap: 1px;
   background: var(--neutral-200);
   margin-top: 24px;
-}
-
-.nn-pillar-card:first-child {
-  grid-column: 1 / -1;
 }
 
 .nn-pipeline-flow {
@@ -1729,6 +1736,10 @@ a {
   .hero-meta-item {
     overflow-wrap: anywhere;
     line-height: 1.35;
+  }
+
+  .hero-extra p {
+    font-size: 16px;
   }
 
   .section {

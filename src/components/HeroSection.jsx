@@ -9,7 +9,7 @@ const word = {
   })
 };
 
-export default function HeroSection({ meta, actions }) {
+export default function HeroSection({ meta, actions, children }) {
   const [line1 = 'ORIGINS', ...rest] = meta.title.toUpperCase().split(' ');
   const line2 = rest.join(' ') || 'MAP';
 
@@ -28,6 +28,7 @@ export default function HeroSection({ meta, actions }) {
         </motion.span>
       </h1>
       <p className="hero-subtitle">{meta.subtitle}</p>
+      {children ? <div className="hero-extra">{children}</div> : null}
       <div className="hero-actions">
         <a className="hero-action primary" href={primaryAction.href}>
           {primaryAction.label}

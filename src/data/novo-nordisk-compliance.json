@@ -120,8 +120,8 @@
       ["Speed", "6-12 months, heavy governance", "16 weeks, 15-day sprints"],
       ["Stack", "Proprietary, vendor lock-in", "Azure-native, open standards"],
       ["AI", "Generic PoCs, outsourced", "Azure Cognitive Services, integrated E2E"],
-      ["Cost", "EUR300K-EUR500K+", "EUR173K-EUR198K, full senior team"],
-      ["Post-launch", "Expensive maintenance", "EUR3,152/mo — same team that built it"]
+      ["Cost", "€300K–500K+", "€173K–198K, full senior team"],
+      ["Post-launch", "Expensive maintenance", "€3,152/mo — same team that built it"]
     ]
   },
   "cases": {
@@ -149,6 +149,11 @@
           "Older vessels accumulate biological growth on their hulls. It doesn't trigger alarms — but it quietly increases fuel consumption per voyage.",
           "We built a system that tracks each voyage continuously and flags the gap between what the data predicts and what actually happens.",
           "The diagnosis that used to require weeks of manual review now happens while the ship is still at sea."
+        ],
+        "metrics": [
+          ["Real time", "voyage monitoring"],
+          ["At sea", "issue detection before docking"],
+          ["Weeks to hours", "review cycle reduction"]
         ]
       },
       {
@@ -182,14 +187,14 @@
     "title": "The investment.",
     "intro": "Three phases. The same senior team throughout. No handoffs, no knowledge loss between stages.",
     "phases": [
-      ["Phase 1 — Design", "EUR38,700 - EUR43,900", "Figma specs + interactive prototype"],
-      ["Phase 2 — Development", "EUR125,960 - EUR144,240", "Deployed functional platform — Backend + AI + Frontend"],
-      ["Phase 3 — QA + Deploy", "EUR9,000", "Validated production system"]
+      ["Phase 1 — Design", "€38,700–43,900", "Figma specs + interactive prototype"],
+      ["Phase 2 — Development", "€125,960–144,240", "Deployed functional platform — Backend + AI + Frontend"],
+      ["Phase 3 — QA + Deploy", "€9,000", "Validated production system"]
     ],
-    "total": "EUR173,660 - EUR198,140 (VAT not included)",
+    "total": "€173,660–198,140 (VAT not included)",
     "postLaunch": [
-      ["Maintenance", "EUR3,152/month", "Senior Software Engineer (32h) + DevOps (16h) — the same team that built the system."],
-      ["Azure infrastructure", "EUR400-700/month", "Base infra + AI services. Estimate; varies with usage."]
+      ["Maintenance", "€3,152/month", "Senior Software Engineer (32h) + DevOps (16h) — the same team that built the system."],
+      ["Azure infrastructure", "€400–700/month", "Base infra + AI services. Estimate; varies with usage."]
     ]
   },
   "roadmap": {
