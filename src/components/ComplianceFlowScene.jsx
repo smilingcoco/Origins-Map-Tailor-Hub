@@ -1,8 +1,6 @@
-import { useEffect, useMemo, useState } from 'react';
+import { useEffect, useMemo } from 'react';
 import { Canvas, useFrame } from '@react-three/fiber';
 import * as THREE from 'three';
-
-const STAGES = ['Ingest', 'Extract', 'Correlate', 'Alert'];
 
 function FlowLine({ start, end, color = '#d8d8dc', opacity = 0.85 }) {
   const geometry = useMemo(() => {
@@ -149,16 +147,6 @@ function SceneContent() {
 }
 
 export default function ComplianceFlowScene() {
-  const [activeStage, setActiveStage] = useState(0);
-
-  useEffect(() => {
-    const timer = window.setInterval(() => {
-      setActiveStage((current) => (current + 1) % STAGES.length);
-    }, 1800);
-
-    return () => window.clearInterval(timer);
-  }, []);
-
   return (
     <div className="compliance-scene-shell">
       <div className="compliance-scene-copy">
@@ -191,15 +179,6 @@ export default function ComplianceFlowScene() {
           <span>Output</span>
           <strong>Prioritized alerts</strong>
         </div>
-      </div>
-
-      <div className="compliance-stage-strip">
-        {STAGES.map((stage, index) => (
-          <div key={stage} className={index === activeStage ? 'compliance-stage-pill active' : 'compliance-stage-pill'}>
-            <span>{String(index + 1).padStart(2, '0')}</span>
-            {stage}
-          </div>
-        ))}
       </div>
     </div>
   );

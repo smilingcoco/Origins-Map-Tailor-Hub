@@ -1332,8 +1332,7 @@ a {
 .nn-postlaunch-label,
 .nn-roadmap-label,
 .compliance-scene-kicker,
-.compliance-scene-label span,
-.compliance-stage-pill span {
+.compliance-scene-label span {
   font-family: 'PPNeueMontrealMono', monospace;
   text-transform: uppercase;
   font-size: 10px;
@@ -1345,14 +1344,14 @@ a {
   margin-top: 24px;
   margin-bottom: 28px;
   border: 1px solid var(--neutral-200);
-  background: linear-gradient(180deg, rgba(44, 84, 255, 0.04) 0%, var(--neutral-00) 26%);
+  background: var(--neutral-00);
 }
 
 .compliance-scene-loading {
   margin-top: 24px;
   margin-bottom: 28px;
   border: 1px solid var(--neutral-200);
-  background: linear-gradient(180deg, rgba(44, 84, 255, 0.04) 0%, var(--neutral-00) 26%);
+  background: var(--neutral-00);
   padding: 28px 24px;
   font-family: 'PPNeueMontrealMono', monospace;
   text-transform: uppercase;
@@ -1369,8 +1368,8 @@ a {
 .compliance-scene-title {
   font-family: 'PPMori', serif;
   text-transform: uppercase;
-  font-size: 28px;
-  line-height: 1.02;
+  font-size: 24px;
+  line-height: 1.04;
   margin: 10px 0 12px;
 }
 
@@ -1382,13 +1381,12 @@ a {
 
 .compliance-scene-frame {
   position: relative;
-  height: 520px;
-  margin-top: 18px;
+  height: 460px;
+  margin-top: 14px;
   border-top: 1px solid var(--neutral-200);
-  border-bottom: 1px solid var(--neutral-200);
   background:
-    radial-gradient(circle at 50% 38%, rgba(44, 84, 255, 0.08), transparent 22%),
-    linear-gradient(180deg, rgba(255, 255, 255, 0.3), rgba(248, 248, 246, 0.95));
+    radial-gradient(circle at 50% 38%, rgba(44, 84, 255, 0.05), transparent 20%),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.3), rgba(248, 248, 246, 0.92));
   overflow: hidden;
 }
 
@@ -1404,6 +1402,7 @@ a {
   gap: 3px;
   min-width: 140px;
   pointer-events: none;
+  opacity: 0.82;
 }
 
 .compliance-scene-label strong {
@@ -1437,32 +1436,6 @@ a {
   bottom: 24px;
   transform: translateX(-50%);
   text-align: center;
-}
-
-.compliance-stage-strip {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 1px;
-  background: var(--neutral-200);
-}
-
-.compliance-stage-pill {
-  display: flex;
-  gap: 10px;
-  align-items: center;
-  background: var(--neutral-00);
-  padding: 14px 16px;
-  color: var(--neutral-600);
-  font-family: 'PPNeueMontrealMono', monospace;
-  text-transform: uppercase;
-  font-size: 11px;
-  letter-spacing: 0.08em;
-  transition: color 180ms ease, background 180ms ease;
-}
-
-.compliance-stage-pill.active {
-  color: var(--neutral-900);
-  background: rgba(44, 84, 255, 0.06);
 }
 
 .nn-problem-diagram {
@@ -1535,10 +1508,31 @@ a {
   margin-top: 24px;
 }
 
+.nn-pillars-grid {
+  grid-template-columns: 1fr;
+  gap: 0;
+  background: transparent;
+  margin-top: 18px;
+}
+
 .nn-pillars-grid > :last-child:nth-child(odd),
 .nn-case-grid > :last-child:nth-child(odd),
 .nn-investment-grid > :last-child:nth-child(odd) {
   grid-column: 1 / -1;
+}
+
+.nn-pillar-card {
+  background: transparent;
+  padding: 18px 0;
+  border-top: 1px solid var(--neutral-200);
+}
+
+.nn-pillar-card:last-child {
+  border-bottom: 1px solid var(--neutral-200);
+}
+
+.nn-pillar-title {
+  margin: 8px 0 10px;
 }
 
 .nn-scope-toggle {
@@ -1546,35 +1540,34 @@ a {
   gap: 8px;
   margin-top: 24px;
   margin-bottom: 18px;
-  padding: 6px;
-  border: 1px solid var(--neutral-200);
-  background: var(--neutral-100);
+  padding: 0;
+  border: 0;
+  background: transparent;
 }
 
 .nn-scope-toggle-btn {
   appearance: none;
-  border: 1px solid transparent;
+  border: 0;
+  border-bottom: 1px solid var(--neutral-200);
   background: transparent;
   color: var(--neutral-600);
-  padding: 10px 14px;
+  padding: 8px 0;
+  margin-right: 18px;
   font-family: 'PPNeueMontrealMono', monospace;
   text-transform: uppercase;
   font-size: 10px;
   letter-spacing: 0.08em;
   cursor: pointer;
-  transition: color 160ms ease, border-color 160ms ease, background 160ms ease, transform 160ms ease;
+  transition: color 160ms ease, border-color 160ms ease;
 }
 
 .nn-scope-toggle-btn:hover {
   color: var(--neutral-900);
-  background: var(--neutral-00);
 }
 
 .nn-scope-toggle-btn.active {
   color: var(--blue-500);
   border-color: var(--blue-500);
-  background: var(--neutral-00);
-  transform: translateY(-1px);
 }
 
 .nn-scope-grid {
@@ -1588,11 +1581,7 @@ a {
 .nn-scope-track {
   background: var(--neutral-00);
   padding: 22px 20px;
-  transition: background 180ms ease, box-shadow 180ms ease;
-}
-
-.nn-scope-track.active {
-  background: linear-gradient(180deg, rgba(44, 84, 255, 0.03) 0%, var(--neutral-00) 26%);
+  transition: background 180ms ease;
 }
 
 .nn-scope-track-head {
@@ -1658,16 +1647,14 @@ a {
 
 .nn-scope-phase-icon.open {
   border-color: var(--blue-500);
-  background: rgba(44, 84, 255, 0.06);
-  transform: rotate(180deg);
 }
 
 .nn-scope-phase-deliverable {
   display: inline-flex;
   align-items: center;
-  padding: 7px 10px;
-  border: 1px solid rgba(44, 84, 255, 0.18);
-  background: rgba(44, 84, 255, 0.04);
+  padding: 0;
+  border: 0;
+  background: transparent;
   width: fit-content;
   font-family: 'PPNeueMontrealMono', monospace;
   text-transform: uppercase;
@@ -1952,7 +1939,6 @@ a {
   .model-grid,
   .decision-grid,
   .flow-grid,
-  .compliance-stage-strip,
   .nn-hero-strip,
   .nn-problem-diagram,
   .nn-pillars-grid,
@@ -1977,7 +1963,7 @@ a {
   }
 
   .compliance-scene-frame {
-    height: 440px;
+    height: 400px;
   }
 }
 
@@ -2048,7 +2034,7 @@ a {
   }
 
   .compliance-scene-title {
-    font-size: 22px;
+    font-size: 20px;
   }
 
   .compliance-scene-body {
@@ -2056,7 +2042,7 @@ a {
   }
 
   .compliance-scene-frame {
-    height: 360px;
+    height: 320px;
     margin-top: 16px;
   }
 
@@ -2068,8 +2054,7 @@ a {
     font-size: 12px;
   }
 
-  .compliance-scene-label span,
-  .compliance-stage-pill span {
+  .compliance-scene-label span {
     font-size: 9px;
   }
 
@@ -2094,11 +2079,6 @@ a {
   .compliance-scene-label-bottom {
     bottom: 14px;
     width: 170px;
-  }
-
-  .compliance-stage-pill {
-    padding: 12px 14px;
-    font-size: 10px;
   }
 
   .section {
