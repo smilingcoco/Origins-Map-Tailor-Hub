@@ -16,6 +16,12 @@ const contentItems = [
     status: 'Publicado'
   },
   {
+    title: 'Tailor Hub x Novo Nordisk',
+    description: "Compliance monitoring shouldn't take weeks. Placeholder content ready to be replaced.",
+    href: '/novo-nordisk-compliance',
+    status: 'Borrador'
+  },
+  {
     title: 'Signal Hunter Reports',
     description: 'Próximamente: panel editorial de señales, hipótesis y activaciones semanales.',
     href: null,

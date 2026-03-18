@@ -1,0 +1,89 @@
+{
+  "meta": {
+    "label": "Tailor Hub x Novo Nordisk",
+    "title": "Compliance monitoring",
+    "subtitle": "shouldn't take weeks.",
+    "stats": [
+      { "label": "Use case", "value": "Placeholder" },
+      { "label": "Teams involved", "value": "Legal · Ops · Product" },
+      { "label": "Sections", "value": "6" },
+      { "label": "Status", "value": "Draft" },
+      { "label": "Version", "value": "0.1 · Mar 2026" }
+    ]
+  },
+  "intro": [
+    "Placeholder: this page will tell the story of how compliance monitoring can move from manual review cycles to a faster operational model.",
+    "Placeholder: replace this with the opening context, the business problem, and why the current process creates friction."
+  ],
+  "quickTakeaways": [
+    "Placeholder: key takeaway 01.",
+    "Placeholder: key takeaway 02.",
+    "Placeholder: key takeaway 03."
+  ],
+  "sections": [
+    {
+      "id": "section-02",
+      "number": "02",
+      "navTitle": "Challenge",
+      "title": "The challenge",
+      "paragraphs": [
+        "Placeholder: describe the current compliance monitoring workflow and where time is lost.",
+        "Placeholder: add the operational pain point for business, legal, and delivery teams."
+      ]
+    },
+    {
+      "id": "section-03",
+      "number": "03",
+      "navTitle": "Current process",
+      "title": "What happens today",
+      "paragraphs": [
+        "Placeholder: explain the current flow step by step.",
+        "Placeholder: highlight review bottlenecks, duplicated checks, and waiting time."
+      ]
+    },
+    {
+      "id": "section-04",
+      "number": "04",
+      "navTitle": "Opportunity",
+      "title": "Where the opportunity is",
+      "paragraphs": [
+        "Placeholder: define what could be automated, accelerated, or standardized.",
+        "Placeholder: capture what an improved workflow would unlock."
+      ]
+    },
+    {
+      "id": "section-05",
+      "number": "05",
+      "navTitle": "Solution concept",
+      "title": "A possible solution",
+      "paragraphs": [
+        "Placeholder: outline the proposed monitoring approach.",
+        "Placeholder: explain how data, alerts, roles, and workflows would fit together."
+      ]
+    },
+    {
+      "id": "section-06",
+      "number": "06",
+      "navTitle": "Impact",
+      "title": "Expected impact",
+      "paragraphs": [
+        "Placeholder: add expected gains in speed, reliability, and visibility.",
+        "Placeholder: add what changes for internal teams once the system is live."
+      ]
+    },
+    {
+      "id": "section-07",
+      "number": "07",
+      "navTitle": "Next steps",
+      "title": "Next steps",
+      "paragraphs": [
+        "Placeholder: define discovery scope, stakeholders, and first deliverables.",
+        "Placeholder: specify what needs to happen next to move from concept to execution."
+      ]
+    }
+  ],
+  "footer": {
+    "brand": "Tailor Hub Content Hub",
+    "info": "Placeholder page · Ready for content"
+  }
+}

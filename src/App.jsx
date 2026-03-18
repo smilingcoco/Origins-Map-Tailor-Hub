@@ -1,6 +1,7 @@
 import HubHomePage from './pages/HubHomePage';
 import OriginsMapPage from './pages/OriginsMapPage';
 import BenchmarkCmssPage from './pages/BenchmarkCmssPage';
+import NovoNordiskCompliancePage from './pages/NovoNordiskCompliancePage';
 
 function getRoute() {
   if (typeof window === 'undefined') {
@@ -20,6 +21,10 @@ export default function App() {
 
   if (route === '/benchmark-cmss') {
     return <BenchmarkCmssPage />;
+  }
+
+  if (route === '/novo-nordisk-compliance') {
+    return <NovoNordiskCompliancePage />;
   }
 
   return <HubHomePage />;
