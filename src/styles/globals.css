@@ -1330,12 +1330,139 @@ a {
 .nn-case-label,
 .nn-investment-label,
 .nn-postlaunch-label,
-.nn-roadmap-label {
+.nn-roadmap-label,
+.compliance-scene-kicker,
+.compliance-scene-label span,
+.compliance-stage-pill span {
   font-family: 'PPNeueMontrealMono', monospace;
   text-transform: uppercase;
   font-size: 10px;
   letter-spacing: 0.1em;
   color: var(--blue-500);
+}
+
+.compliance-scene-shell {
+  margin-top: 24px;
+  margin-bottom: 28px;
+  border: 1px solid var(--neutral-200);
+  background: linear-gradient(180deg, rgba(44, 84, 255, 0.04) 0%, var(--neutral-00) 26%);
+}
+
+.compliance-scene-loading {
+  margin-top: 24px;
+  margin-bottom: 28px;
+  border: 1px solid var(--neutral-200);
+  background: linear-gradient(180deg, rgba(44, 84, 255, 0.04) 0%, var(--neutral-00) 26%);
+  padding: 28px 24px;
+  font-family: 'PPNeueMontrealMono', monospace;
+  text-transform: uppercase;
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  color: var(--neutral-600);
+}
+
+.compliance-scene-copy {
+  padding: 24px 24px 0;
+  max-width: 720px;
+}
+
+.compliance-scene-title {
+  font-family: 'PPMori', serif;
+  text-transform: uppercase;
+  font-size: 28px;
+  line-height: 1.02;
+  margin: 10px 0 12px;
+}
+
+.compliance-scene-body {
+  color: var(--neutral-600);
+  font-size: 15px;
+  max-width: 620px;
+}
+
+.compliance-scene-frame {
+  position: relative;
+  height: 520px;
+  margin-top: 18px;
+  border-top: 1px solid var(--neutral-200);
+  border-bottom: 1px solid var(--neutral-200);
+  background:
+    radial-gradient(circle at 50% 38%, rgba(44, 84, 255, 0.08), transparent 22%),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.3), rgba(248, 248, 246, 0.95));
+  overflow: hidden;
+}
+
+.compliance-scene-frame canvas {
+  width: 100% !important;
+  height: 100% !important;
+  display: block;
+}
+
+.compliance-scene-label {
+  position: absolute;
+  display: grid;
+  gap: 3px;
+  min-width: 140px;
+  pointer-events: none;
+}
+
+.compliance-scene-label strong {
+  font-family: 'PPMori', serif;
+  text-transform: uppercase;
+  font-size: 16px;
+  line-height: 1.05;
+  color: var(--neutral-900);
+}
+
+.compliance-scene-label-left {
+  left: 24px;
+  top: 38px;
+}
+
+.compliance-scene-label-right {
+  right: 24px;
+  top: 38px;
+  text-align: right;
+}
+
+.compliance-scene-label-center {
+  left: 50%;
+  top: 44px;
+  transform: translateX(-50%);
+  text-align: center;
+}
+
+.compliance-scene-label-bottom {
+  left: 50%;
+  bottom: 24px;
+  transform: translateX(-50%);
+  text-align: center;
+}
+
+.compliance-stage-strip {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1px;
+  background: var(--neutral-200);
+}
+
+.compliance-stage-pill {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  background: var(--neutral-00);
+  padding: 14px 16px;
+  color: var(--neutral-600);
+  font-family: 'PPNeueMontrealMono', monospace;
+  text-transform: uppercase;
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  transition: color 180ms ease, background 180ms ease;
+}
+
+.compliance-stage-pill.active {
+  color: var(--neutral-900);
+  background: rgba(44, 84, 255, 0.06);
 }
 
 .nn-problem-diagram {
@@ -1819,6 +1946,7 @@ a {
   .model-grid,
   .decision-grid,
   .flow-grid,
+  .compliance-stage-strip,
   .nn-hero-strip,
   .nn-problem-diagram,
   .nn-pillars-grid,
@@ -1840,6 +1968,10 @@ a {
 
   .doc-footer {
     flex-direction: column;
+  }
+
+  .compliance-scene-frame {
+    height: 440px;
   }
 }
 
@@ -1903,6 +2035,64 @@ a {
 
   .hero-extra p {
     font-size: 16px;
+  }
+
+  .compliance-scene-copy {
+    padding: 18px 16px 0;
+  }
+
+  .compliance-scene-title {
+    font-size: 22px;
+  }
+
+  .compliance-scene-body {
+    font-size: 14px;
+  }
+
+  .compliance-scene-frame {
+    height: 360px;
+    margin-top: 16px;
+  }
+
+  .compliance-scene-label {
+    min-width: auto;
+  }
+
+  .compliance-scene-label strong {
+    font-size: 12px;
+  }
+
+  .compliance-scene-label span,
+  .compliance-stage-pill span {
+    font-size: 9px;
+  }
+
+  .compliance-scene-label-left,
+  .compliance-scene-label-right {
+    top: 16px;
+  }
+
+  .compliance-scene-label-left {
+    left: 14px;
+  }
+
+  .compliance-scene-label-right {
+    right: 14px;
+  }
+
+  .compliance-scene-label-center {
+    top: 58px;
+    width: 160px;
+  }
+
+  .compliance-scene-label-bottom {
+    bottom: 14px;
+    width: 170px;
+  }
+
+  .compliance-stage-pill {
+    padding: 12px 14px;
+    font-size: 10px;
   }
 
   .section {

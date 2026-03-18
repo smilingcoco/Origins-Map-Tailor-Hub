@@ -1,9 +1,11 @@
-import { useEffect, useState } from 'react';
+import { Suspense, lazy, useEffect, useState } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
 import data from '../data/novo-nordisk-compliance.json';
 import HeroSection from '../components/HeroSection';
 import SectionWrapper from '../components/SectionWrapper';
 import Footer from '../components/Footer';
+
+const ComplianceFlowScene = lazy(() => import('../components/ComplianceFlowScene'));
 
 function DotGrid({ items }) {
   return (
@@ -169,6 +171,9 @@ export default function NovoNordiskCompliancePage() {
 
           <SectionWrapper id="section-03" number="03" title={data.solution.title}>
             <p>{data.solution.intro}</p>
+            <Suspense fallback={<div className="compliance-scene-loading">Loading live flow…</div>}>
+              <ComplianceFlowScene />
+            </Suspense>
             <div className="nn-pillars-grid">
               {data.solution.pillars.map((pillar) => (
                 <article className="nn-pillar-card" key={pillar.number}>
