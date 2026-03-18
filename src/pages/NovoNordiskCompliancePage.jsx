@@ -49,14 +49,6 @@ export default function NovoNordiskCompliancePage() {
     return () => window.removeEventListener('scroll', onScroll);
   }, []);
 
-  const scrollToSection = (sectionId) => {
-    const target = document.getElementById(sectionId);
-    if (target) {
-      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      setActiveSection(sectionId);
-    }
-  };
-
   return (
     <main className="page-shell">
       <div className="reading-progress" aria-hidden="true">
@@ -82,14 +74,13 @@ export default function NovoNordiskCompliancePage() {
           <ul className="side-nav-list">
             {navSections.map((item) => (
               <li key={item.id}>
-                <button
-                  type="button"
+                <a
+                  href={`#${item.id}`}
                   className={activeSection === item.id ? 'side-nav-link active' : 'side-nav-link'}
                   aria-current={activeSection === item.id ? 'true' : undefined}
-                  onClick={() => scrollToSection(item.id)}
                 >
                   <span>{item.number}.</span> {item.title}
-                </button>
+                </a>
               </li>
             ))}
           </ul>
