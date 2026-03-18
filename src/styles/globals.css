@@ -1535,6 +1535,12 @@ a {
   margin-top: 24px;
 }
 
+.nn-pillars-grid > :last-child:nth-child(odd),
+.nn-case-grid > :last-child:nth-child(odd),
+.nn-investment-grid > :last-child:nth-child(odd) {
+  grid-column: 1 / -1;
+}
+
 .nn-scope-toggle {
   display: inline-flex;
   gap: 8px;
