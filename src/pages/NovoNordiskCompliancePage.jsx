@@ -28,10 +28,10 @@ export default function NovoNordiskCompliancePage() {
     { id: 'section-03b', number: '03B', title: 'Scope' },
     { id: 'section-04', number: '04', title: 'AI pipeline' },
     { id: 'section-05', number: '05', title: 'Team' },
-    { id: 'section-06', number: '06', title: 'Why Tailor' },
-    { id: 'section-07', number: '07', title: 'Cases' },
-    { id: 'section-08', number: '08', title: 'ROI' },
-    { id: 'section-09', number: '09', title: 'Investment' },
+    { id: 'section-09', number: '06', title: 'Investment' },
+    { id: 'section-06', number: '07', title: 'Why Tailor' },
+    { id: 'section-07', number: '08', title: 'Cases' },
+    { id: 'section-08', number: '09', title: 'ROI' },
     { id: 'section-10', number: '10', title: 'Roadmap' },
     { id: 'section-11', number: '11', title: 'Assumptions' },
     { id: 'section-12', number: '12', title: 'Next step' }
@@ -226,7 +226,10 @@ export default function NovoNordiskCompliancePage() {
                               aria-expanded={isOpen}
                             >
                               <span className="nn-scope-phase-title">
-                                {isOpen ? '▼' : '▶'} {phase.title}
+                                <span className={isOpen ? 'nn-scope-phase-icon open' : 'nn-scope-phase-icon'} aria-hidden="true">
+                                  {isOpen ? '−' : '+'}
+                                </span>
+                                {phase.title}
                               </span>
                               <span className="nn-scope-phase-deliverable">Deliverable: {phase.deliverable}</span>
                             </button>
@@ -302,7 +305,35 @@ export default function NovoNordiskCompliancePage() {
             </div>
           </SectionWrapper>
 
-          <SectionWrapper id="section-06" number="06" title={data.comparison.title}>
+          <SectionWrapper id="section-09" number="06" title={data.investment.title}>
+            <p>{data.investment.intro}</p>
+            <div className="nn-investment-grid">
+              {data.investment.phases.map(([title, value, body]) => (
+                <article className="nn-investment-card" key={title}>
+                  <p className="nn-investment-label">{title}</p>
+                  <div className="nn-investment-value">{value}</div>
+                  <p className="nn-investment-body">{body}</p>
+                </article>
+              ))}
+            </div>
+            <div className="quick-decision-box">
+              <p className="quick-decision-label">Total</p>
+              <p className="quick-decision-body">{data.investment.total}</p>
+            </div>
+            <div className="nn-postlaunch-list">
+              {data.investment.postLaunch.map(([title, value, body]) => (
+                <article className="nn-postlaunch-item" key={title}>
+                  <div>
+                    <p className="nn-postlaunch-label">{title}</p>
+                    <p className="nn-postlaunch-body">{body}</p>
+                  </div>
+                  <div className="nn-postlaunch-value">{value}</div>
+                </article>
+              ))}
+            </div>
+          </SectionWrapper>
+
+          <SectionWrapper id="section-06" number="07" title={data.comparison.title}>
             <p className="section-note">{data.comparison.subtitle}</p>
             <div className="signal-table-wrap">
               <table className="signal-table nn-comparison-table">
@@ -326,7 +357,7 @@ export default function NovoNordiskCompliancePage() {
             </div>
           </SectionWrapper>
 
-          <SectionWrapper id="section-07" number="07" title={data.cases.title}>
+          <SectionWrapper id="section-07" number="08" title={data.cases.title}>
             <p>{data.cases.intro}</p>
             <div className="nn-case-grid">
               {data.cases.items.map((item) => (
@@ -354,7 +385,7 @@ export default function NovoNordiskCompliancePage() {
             </div>
           </SectionWrapper>
 
-          <SectionWrapper id="section-08" number="08" title={data.roi.title}>
+          <SectionWrapper id="section-08" number="09" title={data.roi.title}>
             <p>{data.roi.intro}</p>
             <div className="metrics-grid">
               {data.roi.metrics.map(([value, label]) => (
@@ -362,34 +393,6 @@ export default function NovoNordiskCompliancePage() {
                   <div className="metric-value">{value}</div>
                   <div className="metric-desc">{label}</div>
                 </div>
-              ))}
-            </div>
-          </SectionWrapper>
-
-          <SectionWrapper id="section-09" number="09" title={data.investment.title}>
-            <p>{data.investment.intro}</p>
-            <div className="nn-investment-grid">
-              {data.investment.phases.map(([title, value, body]) => (
-                <article className="nn-investment-card" key={title}>
-                  <p className="nn-investment-label">{title}</p>
-                  <div className="nn-investment-value">{value}</div>
-                  <p className="nn-investment-body">{body}</p>
-                </article>
-              ))}
-            </div>
-            <div className="quick-decision-box">
-              <p className="quick-decision-label">Total</p>
-              <p className="quick-decision-body">{data.investment.total}</p>
-            </div>
-            <div className="nn-postlaunch-list">
-              {data.investment.postLaunch.map(([title, value, body]) => (
-                <article className="nn-postlaunch-item" key={title}>
-                  <div>
-                    <p className="nn-postlaunch-label">{title}</p>
-                    <p className="nn-postlaunch-body">{body}</p>
-                  </div>
-                  <div className="nn-postlaunch-value">{value}</div>
-                </article>
               ))}
             </div>
           </SectionWrapper>

@@ -1413,12 +1413,15 @@ a {
   gap: 8px;
   margin-top: 24px;
   margin-bottom: 18px;
+  padding: 6px;
+  border: 1px solid var(--neutral-200);
+  background: var(--neutral-100);
 }
 
 .nn-scope-toggle-btn {
   appearance: none;
-  border: 1px solid var(--neutral-200);
-  background: var(--neutral-00);
+  border: 1px solid transparent;
+  background: transparent;
   color: var(--neutral-600);
   padding: 10px 14px;
   font-family: 'PPNeueMontrealMono', monospace;
@@ -1426,18 +1429,19 @@ a {
   font-size: 10px;
   letter-spacing: 0.08em;
   cursor: pointer;
-  transition: color 160ms ease, border-color 160ms ease, background 160ms ease;
+  transition: color 160ms ease, border-color 160ms ease, background 160ms ease, transform 160ms ease;
 }
 
 .nn-scope-toggle-btn:hover {
   color: var(--neutral-900);
-  border-color: var(--neutral-300);
+  background: var(--neutral-00);
 }
 
 .nn-scope-toggle-btn.active {
   color: var(--blue-500);
   border-color: var(--blue-500);
-  background: rgba(44, 84, 255, 0.04);
+  background: var(--neutral-00);
+  transform: translateY(-1px);
 }
 
 .nn-scope-grid {
@@ -1451,6 +1455,11 @@ a {
 .nn-scope-track {
   background: var(--neutral-00);
   padding: 22px 20px;
+  transition: background 180ms ease, box-shadow 180ms ease;
+}
+
+.nn-scope-track.active {
+  background: linear-gradient(180deg, rgba(44, 84, 255, 0.03) 0%, var(--neutral-00) 26%);
 }
 
 .nn-scope-track-head {
@@ -1483,14 +1492,50 @@ a {
   cursor: pointer;
 }
 
+.nn-scope-phase-trigger:hover .nn-scope-phase-title {
+  color: var(--blue-500);
+}
+
 .nn-scope-phase-title {
+  display: flex;
+  align-items: center;
+  gap: 10px;
   font-family: 'PPMori', serif;
   font-size: 18px;
   line-height: 1.15;
   color: var(--neutral-900);
+  transition: color 160ms ease;
+}
+
+.nn-scope-phase-icon {
+  width: 22px;
+  height: 22px;
+  border: 1px solid var(--neutral-200);
+  border-radius: 999px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'PPNeueMontrealMono', monospace;
+  font-size: 12px;
+  line-height: 1;
+  color: var(--blue-500);
+  flex: 0 0 auto;
+  transition: border-color 160ms ease, background 160ms ease, transform 160ms ease;
+}
+
+.nn-scope-phase-icon.open {
+  border-color: var(--blue-500);
+  background: rgba(44, 84, 255, 0.06);
+  transform: rotate(180deg);
 }
 
 .nn-scope-phase-deliverable {
+  display: inline-flex;
+  align-items: center;
+  padding: 7px 10px;
+  border: 1px solid rgba(44, 84, 255, 0.18);
+  background: rgba(44, 84, 255, 0.04);
+  width: fit-content;
   font-family: 'PPNeueMontrealMono', monospace;
   text-transform: uppercase;
   font-size: 10px;
@@ -1504,7 +1549,7 @@ a {
 
 .nn-scope-detail-list {
   list-style: none;
-  padding: 0 0 18px;
+  padding: 4px 0 18px 32px;
 }
 
 .nn-scope-detail-list li {
@@ -1916,6 +1961,7 @@ a {
   .nn-scope-toggle {
     display: flex;
     width: 100%;
+    padding: 4px;
   }
 
   .nn-scope-toggle-btn {
@@ -1931,6 +1977,15 @@ a {
 
   .nn-scope-phase-title {
     font-size: 16px;
+  }
+
+  .nn-scope-phase-deliverable {
+    width: 100%;
+    line-height: 1.45;
+  }
+
+  .nn-scope-detail-list {
+    padding-left: 0;
   }
 
   .nn-postlaunch-item {
