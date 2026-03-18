@@ -69,6 +69,147 @@
       }
     ]
   },
+  "scope": {
+    "title": "What we build, phase by phase.",
+    "intro": "Two tracks running in parallel: design and development. Each phase has a clear deliverable. Nothing moves forward without it.",
+    "tracks": [
+      {
+        "id": "design",
+        "title": "Design track",
+        "label": "Design · 6-8 weeks · Sprints 1-9",
+        "phases": [
+          {
+            "title": "Phase 1 — Compliance Alignment",
+            "deliverable": "Functional map + acceptance criteria per module",
+            "details": [
+              "Kickoff with Legal (LECQ) and Compliance, supported by an IT interlocutor.",
+              "Review of rules, evidences, and KPI/SLA definitions.",
+              "Mapping of available data fields relevant to the UI."
+            ]
+          },
+          {
+            "title": "Phase 2 — UX Definition",
+            "deliverable": "High-fidelity wireframes + rules scheme visible in UI",
+            "details": [
+              "Information architecture across all modules: Login, Inbox, Cases, Detail, Matrix, Projects, Metrics, Settings.",
+              "User flows and system states modelled."
+            ]
+          },
+          {
+            "title": "Phase 3 — UI Concept & Foundations",
+            "deliverable": "Design foundations — typography, spacing, component base",
+            "details": [
+              "Visual language, severity color coding, hierarchy of risks.",
+              "Accessibility principles and state handling: empty, error, loading."
+            ]
+          },
+          {
+            "title": "Phase 4 — MVP Design & Prototyping",
+            "deliverable": "Figma file with full specifications",
+            "details": [
+              "Detailed design of all screens and states.",
+              "Navigable prototype built for validation with your team."
+            ]
+          },
+          {
+            "title": "Phase 5 — Documentation & Handoff",
+            "deliverable": "Handoff package — Figma specs + QA checklist",
+            "details": [
+              "Design system documentation and usage patterns.",
+              "QA acceptance criteria defined per module."
+            ]
+          },
+          {
+            "title": "Phase 6 — QA Design Support",
+            "deliverable": "QA feedback logs + design sign-off",
+            "details": [
+              "Visual and functional reviews during development.",
+              "Microcopy adjustments, accessibility compliance validated."
+            ]
+          }
+        ]
+      },
+      {
+        "id": "development",
+        "title": "Development track",
+        "label": "Development · 14-16 weeks · Sprints 2-9",
+        "phases": [
+          {
+            "title": "Phase 1 — Data Preparation",
+            "deliverable": "API routes + validated test datasets",
+            "details": [
+              "API routes defined for SAP Concur and NovoVision.",
+              "Sample dataset collected — ~100 tickets and associated photos.",
+              "Data completeness validated against key monitoring rules.",
+              "AI confidence acceptance criteria defined for document parsing and image recognition.",
+              "Gaps in data availability identified, mitigations planned."
+            ]
+          },
+          {
+            "title": "Phase 2 — Data Acquisition",
+            "deliverable": "Working ingestion architecture",
+            "details": [
+              "Azure Service Bus queues designed for ticket, photo, and event data.",
+              "Azure Functions triggers implemented for incoming messages.",
+              "Data schema consistency ensured across sources.",
+              "Logging and retry policies added for resilience."
+            ]
+          },
+          {
+            "title": "Phase 3 — AI Pipelines",
+            "deliverable": "Working pipeline validated with test data",
+            "details": [
+              "Document Intelligence: structured extraction from tickets — vendor, date, total, alcohol items.",
+              "Image Analysis v4: people counting, object detection, captioning — beverages, meeting setup.",
+              "Outputs normalized into a unified format.",
+              "Error handling for AI timeouts and low-confidence results."
+            ]
+          },
+          {
+            "title": "Phase 4 — Business Rules & Correlation",
+            "deliverable": "Rules engine + risk scoring live",
+            "details": [
+              "Ticket rules: alcohol limits, daily/monthly spend caps, disallowed vendors — Glovo, supermarkets.",
+              "Photo rules: attendee matching, prohibited item detection.",
+              "Document rules: required evidence per activity type, event detail matching.",
+              "Temporal correlation between tickets, photos, and NVE records.",
+              "Risk scores and metadata generated for every alert."
+            ]
+          },
+          {
+            "title": "Phase 5 — Dashboard & UX",
+            "deliverable": "Working dashboard in staging",
+            "details": [
+              "Next.js dashboard: alert listings, filters by date, type, risk score, and employee.",
+              "Detail view per alert with linked tickets, photos, and records.",
+              "Real-time notifications for high-risk cases.",
+              "Azure Functions endpoints serving dashboard data securely."
+            ]
+          },
+          {
+            "title": "Phase 6 — Security, Monitoring & Deployment",
+            "deliverable": "Infrastructure deployed with CI/CD",
+            "details": [
+              "Azure AD integrated for authentication and role-based permissions.",
+              "Secrets managed via Azure Key Vault.",
+              "Alert thresholds configured — financial limits, repetition rules.",
+              "Infrastructure as code. CI/CD pipelines via Azure DevOps / GitHub Actions."
+            ]
+          },
+          {
+            "title": "Phase 7 — QA",
+            "deliverable": "Validated production system + full documentation",
+            "details": [
+              "End-to-end functional and integration tests.",
+              "User acceptance testing with Novo Nordisk compliance and IT teams.",
+              "AI outputs validated against manual checks.",
+              "Full technical and functional documentation delivered."
+            ]
+          }
+        ]
+      }
+    ]
+  },
   "pipelines": {
     "title": "Two pipelines. Tickets and photos.",
     "intro": "Each one runs automatically. Each one generates evidence. Each one flags what needs a decision.",
@@ -109,7 +250,7 @@
       ["DevOps Engineer", "100%", "3 weeks"],
       ["Lead Designer", "100-75%", "6-8 weeks"],
       ["Product Designer", "100%", "6-8 weeks"],
-      ["QA Designer", "100%", "60 hours"]
+      ["QA", "100%", "60 hours"]
     ]
   },
   "comparison": {

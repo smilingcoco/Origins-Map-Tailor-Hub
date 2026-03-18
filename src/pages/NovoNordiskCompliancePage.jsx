@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { AnimatePresence, motion } from 'framer-motion';
 import data from '../data/novo-nordisk-compliance.json';
 import HeroSection from '../components/HeroSection';
 import SectionWrapper from '../components/SectionWrapper';
@@ -17,11 +18,14 @@ function DotGrid({ items }) {
 export default function NovoNordiskCompliancePage() {
   const [activeSection, setActiveSection] = useState('section-01');
   const [readingProgress, setReadingProgress] = useState(0);
+  const [activeScopeTrack, setActiveScopeTrack] = useState('design');
+  const [openScopeItems, setOpenScopeItems] = useState({});
 
   const navSections = [
     { id: 'section-01', number: '01', title: 'Overview' },
     { id: 'section-02', number: '02', title: 'Problem' },
     { id: 'section-03', number: '03', title: 'Solution' },
+    { id: 'section-03b', number: '03B', title: 'Scope' },
     { id: 'section-04', number: '04', title: 'AI pipeline' },
     { id: 'section-05', number: '05', title: 'Team' },
     { id: 'section-06', number: '06', title: 'Why Tailor' },
@@ -32,6 +36,13 @@ export default function NovoNordiskCompliancePage() {
     { id: 'section-11', number: '11', title: 'Assumptions' },
     { id: 'section-12', number: '12', title: 'Next step' }
   ];
+
+  const toggleScopeItem = (key) => {
+    setOpenScopeItems((current) => ({
+      ...current,
+      [key]: !current[key]
+    }));
+  };
 
   useEffect(() => {
     document.title = 'Tailor Hub x Novo Nordisk: Compliance monitoring';
@@ -166,6 +177,84 @@ export default function NovoNordiskCompliancePage() {
                   <p className="nn-pillar-body">{pillar.body}</p>
                 </article>
               ))}
+            </div>
+          </SectionWrapper>
+
+          <SectionWrapper id="section-03b" number="03B" title={data.scope.title}>
+            <p>{data.scope.intro}</p>
+            <div className="nn-scope-toggle" role="tablist" aria-label="Scope tracks">
+              {data.scope.tracks.map((track) => (
+                <button
+                  key={track.id}
+                  type="button"
+                  className={activeScopeTrack === track.id ? 'nn-scope-toggle-btn active' : 'nn-scope-toggle-btn'}
+                  onClick={() => setActiveScopeTrack(track.id)}
+                  role="tab"
+                  aria-selected={activeScopeTrack === track.id}
+                >
+                  {track.title}
+                </button>
+              ))}
+            </div>
+
+            <div className="nn-scope-grid">
+              {data.scope.tracks.map((track) => {
+                const isActive = activeScopeTrack === track.id;
+
+                return (
+                  <section
+                    key={track.id}
+                    className={isActive ? 'nn-scope-track active' : 'nn-scope-track'}
+                    data-track-id={track.id}
+                  >
+                    <div className="nn-scope-track-head">
+                      <p className="nn-roadmap-label">{track.title}</p>
+                      <p className="nn-scope-track-meta">{track.label}</p>
+                    </div>
+
+                    <div className="nn-scope-phase-list">
+                      {track.phases.map((phase) => {
+                        const phaseKey = `${track.id}-${phase.title}`;
+                        const isOpen = Boolean(openScopeItems[phaseKey]);
+
+                        return (
+                          <article className="nn-scope-phase" key={phaseKey}>
+                            <button
+                              type="button"
+                              className="nn-scope-phase-trigger"
+                              onClick={() => toggleScopeItem(phaseKey)}
+                              aria-expanded={isOpen}
+                            >
+                              <span className="nn-scope-phase-title">
+                                {isOpen ? '▼' : '▶'} {phase.title}
+                              </span>
+                              <span className="nn-scope-phase-deliverable">Deliverable: {phase.deliverable}</span>
+                            </button>
+
+                            <AnimatePresence initial={false}>
+                              {isOpen ? (
+                                <motion.div
+                                  className="nn-scope-phase-body"
+                                  initial={{ height: 0, opacity: 0 }}
+                                  animate={{ height: 'auto', opacity: 1 }}
+                                  exit={{ height: 0, opacity: 0 }}
+                                  transition={{ duration: 0.22, ease: 'easeOut' }}
+                                >
+                                  <ul className="nn-scope-detail-list">
+                                    {phase.details.map((detail) => (
+                                      <li key={detail}>{detail}</li>
+                                    ))}
+                                  </ul>
+                                </motion.div>
+                              ) : null}
+                            </AnimatePresence>
+                          </article>
+                        );
+                      })}
+                    </div>
+                  </section>
+                );
+              })}
             </div>
           </SectionWrapper>
 
