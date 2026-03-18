@@ -4,17 +4,34 @@ import HeroSection from '../components/HeroSection';
 import SectionWrapper from '../components/SectionWrapper';
 import Footer from '../components/Footer';
 
+function DotGrid({ items }) {
+  return (
+    <ul className="nn-tag-list">
+      {items.map((item) => (
+        <li key={item}>{item}</li>
+      ))}
+    </ul>
+  );
+}
+
 export default function NovoNordiskCompliancePage() {
   const [activeSection, setActiveSection] = useState('section-01');
   const [readingProgress, setReadingProgress] = useState(0);
 
-  const navSections = [{ id: 'section-01', number: '01', title: 'Overview' }].concat(
-    data.sections.map((section) => ({
-      id: section.id,
-      number: section.number,
-      title: section.navTitle
-    }))
-  );
+  const navSections = [
+    { id: 'section-01', number: '01', title: 'Hero' },
+    { id: 'section-02', number: '02', title: 'Problem' },
+    { id: 'section-03', number: '03', title: 'Solution' },
+    { id: 'section-04', number: '04', title: 'AI pipeline' },
+    { id: 'section-05', number: '05', title: 'Team' },
+    { id: 'section-06', number: '06', title: 'Why Tailor' },
+    { id: 'section-07', number: '07', title: 'Cases' },
+    { id: 'section-08', number: '08', title: 'ROI' },
+    { id: 'section-09', number: '09', title: 'Investment' },
+    { id: 'section-10', number: '10', title: 'Roadmap' },
+    { id: 'section-11', number: '11', title: 'Assumptions' },
+    { id: 'section-12', number: '12', title: 'Next step' }
+  ];
 
   useEffect(() => {
     document.title = 'Tailor Hub x Novo Nordisk: Compliance monitoring';
@@ -62,8 +79,8 @@ export default function NovoNordiskCompliancePage() {
         <HeroSection
           meta={data.meta}
           actions={{
-            primary: { href: '#section-01', label: 'Empezar lectura' },
-            secondary: { href: '#section-07', label: 'Ver next steps' }
+            primary: { href: '#section-03', label: 'See the solution' },
+            secondary: { href: '#section-10', label: 'View roadmap' }
           }}
         />
 
@@ -87,28 +104,237 @@ export default function NovoNordiskCompliancePage() {
         </aside>
 
         <div className="page-content">
-          <SectionWrapper id="section-01" number="01" title="Overview">
-            {data.intro.map((paragraph) => (
+          <SectionWrapper id="section-01" number="01" title="Compliance monitoring shouldn't take weeks.">
+            {data.hero.intro.map((paragraph) => (
               <p key={paragraph}>{paragraph}</p>
             ))}
 
-            <div className="scan-summary">
-              <p className="scan-summary-label">In 20 seconds</p>
-              <ul>
-                {data.quickTakeaways.map((takeaway) => (
-                  <li key={takeaway}>{takeaway}</li>
-                ))}
-              </ul>
+            <div className="nn-hero-strip">
+              {data.hero.quickStats.map((item) => (
+                <article className="nn-hero-stat" key={item.label}>
+                  <div className="nn-hero-stat-value">{item.value}</div>
+                  <div className="nn-hero-stat-label">{item.label}</div>
+                </article>
+              ))}
             </div>
           </SectionWrapper>
 
-          {data.sections.map((section) => (
-            <SectionWrapper key={section.id} id={section.id} number={section.number} title={section.title}>
-              {section.paragraphs.map((paragraph) => (
-                <p key={paragraph}>{paragraph}</p>
+          <SectionWrapper id="section-02" number="02" title={data.problem.title}>
+            <div className="nn-problem-diagram">
+              <article className="nn-system-card">
+                <p className="nn-system-label">Source A</p>
+                <h3 className="nn-system-title">{data.problem.left.name}</h3>
+                <DotGrid items={data.problem.left.items} />
+              </article>
+
+              <article className="nn-gap-card">
+                <p className="nn-system-label">The gap</p>
+                <p className="nn-gap-body">{data.problem.center.body}</p>
+                <div className="nn-gap-metric">{data.problem.center.metric}</div>
+              </article>
+
+              <article className="nn-system-card">
+                <p className="nn-system-label">Source B</p>
+                <h3 className="nn-system-title">{data.problem.right.name}</h3>
+                <DotGrid items={data.problem.right.items} />
+              </article>
+            </div>
+          </SectionWrapper>
+
+          <SectionWrapper id="section-03" number="03" title={data.solution.title}>
+            <p>{data.solution.intro}</p>
+            <div className="nn-pillars-grid">
+              {data.solution.pillars.map((pillar) => (
+                <article className="nn-pillar-card" key={pillar.number}>
+                  <div className="nn-pillar-number">{pillar.number}</div>
+                  <h3 className="nn-pillar-title">{pillar.title}</h3>
+                  <p className="nn-pillar-body">{pillar.body}</p>
+                </article>
               ))}
-            </SectionWrapper>
-          ))}
+            </div>
+          </SectionWrapper>
+
+          <SectionWrapper id="section-04" number="04" title={data.pipelines.title}>
+            <p>{data.pipelines.intro}</p>
+            <div className="nn-pipelines-grid">
+              {data.pipelines.items.map((pipeline) => (
+                <article className="nn-pipeline-card" key={pipeline.title}>
+                  <h3 className="nn-pipeline-title">{pipeline.title}</h3>
+                  <div className="nn-pipeline-flow">
+                    {pipeline.steps.map((step) => (
+                      <div className="nn-pipeline-step" key={step}>
+                        <span>{step}</span>
+                      </div>
+                    ))}
+                  </div>
+                </article>
+              ))}
+            </div>
+          </SectionWrapper>
+
+          <SectionWrapper id="section-05" number="05" title={data.team.title}>
+            {data.team.intro.map((paragraph) => (
+              <p key={paragraph}>{paragraph}</p>
+            ))}
+            <div className="signal-table-wrap">
+              <table className="signal-table">
+                <thead>
+                  <tr>
+                    <th>Role</th>
+                    <th>Allocation</th>
+                    <th>Duration</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {data.team.roles.map(([role, allocation, duration]) => (
+                    <tr key={role}>
+                      <td data-label="Role">{role}</td>
+                      <td data-label="Allocation">{allocation}</td>
+                      <td data-label="Duration">{duration}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          </SectionWrapper>
+
+          <SectionWrapper id="section-06" number="06" title={data.comparison.title}>
+            <p className="section-note">{data.comparison.subtitle}</p>
+            <div className="signal-table-wrap">
+              <table className="signal-table nn-comparison-table">
+                <thead>
+                  <tr>
+                    <th>Category</th>
+                    <th>Consultancy</th>
+                    <th>Tailor Hub</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {data.comparison.rows.map(([category, consultancy, tailor]) => (
+                    <tr key={category}>
+                      <td data-label="Category">{category}</td>
+                      <td data-label="Consultancy">{consultancy}</td>
+                      <td data-label="Tailor Hub">{tailor}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          </SectionWrapper>
+
+          <SectionWrapper id="section-07" number="07" title={data.cases.title}>
+            <p>{data.cases.intro}</p>
+            <div className="nn-case-grid">
+              {data.cases.items.map((item) => (
+                <article className="nn-case-card" key={item.title}>
+                  <p className="nn-case-label">{item.label}</p>
+                  <h3 className="nn-case-title">{item.title}</h3>
+                  <div className="nn-case-body">
+                    {item.body.map((paragraph) => (
+                      <p key={paragraph}>{paragraph}</p>
+                    ))}
+                  </div>
+                  {item.metrics ? (
+                    <div className="nn-case-metrics">
+                      {item.metrics.map(([value, label]) => (
+                        <div className="nn-case-metric" key={value + label}>
+                          <div className="nn-case-metric-value">{value}</div>
+                          <div className="nn-case-metric-label">{label}</div>
+                        </div>
+                      ))}
+                    </div>
+                  ) : null}
+                  {item.quote ? <blockquote className="nn-case-quote">"{item.quote}"</blockquote> : null}
+                </article>
+              ))}
+            </div>
+          </SectionWrapper>
+
+          <SectionWrapper id="section-08" number="08" title={data.roi.title}>
+            <p>{data.roi.intro}</p>
+            <div className="metrics-grid">
+              {data.roi.metrics.map(([value, label]) => (
+                <div className="metric-cell" key={value + label}>
+                  <div className="metric-value">{value}</div>
+                  <div className="metric-desc">{label}</div>
+                </div>
+              ))}
+            </div>
+          </SectionWrapper>
+
+          <SectionWrapper id="section-09" number="09" title={data.investment.title}>
+            <p>{data.investment.intro}</p>
+            <div className="nn-investment-grid">
+              {data.investment.phases.map(([title, value, body]) => (
+                <article className="nn-investment-card" key={title}>
+                  <p className="nn-investment-label">{title}</p>
+                  <div className="nn-investment-value">{value}</div>
+                  <p className="nn-investment-body">{body}</p>
+                </article>
+              ))}
+            </div>
+            <div className="quick-decision-box">
+              <p className="quick-decision-label">Total</p>
+              <p className="quick-decision-body">{data.investment.total}</p>
+            </div>
+            <div className="nn-postlaunch-list">
+              {data.investment.postLaunch.map(([title, value, body]) => (
+                <article className="nn-postlaunch-item" key={title}>
+                  <div>
+                    <p className="nn-postlaunch-label">{title}</p>
+                    <p className="nn-postlaunch-body">{body}</p>
+                  </div>
+                  <div className="nn-postlaunch-value">{value}</div>
+                </article>
+              ))}
+            </div>
+          </SectionWrapper>
+
+          <SectionWrapper id="section-10" number="10" title={data.roadmap.title}>
+            <p>{data.roadmap.intro}</p>
+            <div className="nn-roadmap-grid">
+              <article className="nn-roadmap-track">
+                <p className="nn-roadmap-label">Design track</p>
+                <ul className="nn-roadmap-list">
+                  {data.roadmap.designTrack.map((item) => (
+                    <li key={item}>{item}</li>
+                  ))}
+                </ul>
+              </article>
+              <article className="nn-roadmap-track">
+                <p className="nn-roadmap-label">Dev track</p>
+                <ul className="nn-roadmap-list">
+                  {data.roadmap.devTrack.map((item) => (
+                    <li key={item}>{item}</li>
+                  ))}
+                </ul>
+              </article>
+            </div>
+          </SectionWrapper>
+
+          <SectionWrapper id="section-11" number="11" title={data.assumptions.title}>
+            <div className="nn-assumptions">
+              {data.assumptions.items.map(([title, body]) => (
+                <details className="nn-assumption-item" key={title}>
+                  <summary>{title}</summary>
+                  <p>{body}</p>
+                </details>
+              ))}
+            </div>
+          </SectionWrapper>
+
+          <SectionWrapper id="section-12" number="12" title={data.contact.title}>
+            <div className="nn-contact-card">
+              <p className="nn-contact-body">{data.contact.body}</p>
+              <div className="nn-contact-person">{data.contact.name}</div>
+              <a className="hub-card-link" href={`mailto:${data.contact.email}`}>
+                {data.contact.email}
+              </a>
+              <a className="hub-card-link" href={`tel:${data.contact.phone.replace(/\s+/g, '')}`}>
+                {data.contact.phone}
+              </a>
+            </div>
+          </SectionWrapper>
 
           <Footer footer={data.footer} />
         </div>

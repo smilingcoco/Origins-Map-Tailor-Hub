@@ -1280,6 +1280,246 @@ a {
   border-radius: 999px;
 }
 
+.nn-hero-strip {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1px;
+  background: var(--neutral-200);
+  margin-top: 28px;
+}
+
+.nn-hero-stat,
+.nn-system-card,
+.nn-gap-card,
+.nn-pillar-card,
+.nn-pipeline-card,
+.nn-case-card,
+.nn-investment-card,
+.nn-roadmap-track {
+  background: var(--neutral-00);
+  padding: 22px 20px;
+}
+
+.nn-hero-stat-value,
+.nn-gap-metric,
+.nn-investment-value,
+.nn-postlaunch-value,
+.nn-case-metric-value,
+.nn-contact-person {
+  font-family: 'PPMori', serif;
+  font-size: 30px;
+  line-height: 1;
+  text-transform: uppercase;
+  margin-bottom: 6px;
+}
+
+.nn-hero-stat-label,
+.nn-system-label,
+.nn-pillar-number,
+.nn-case-label,
+.nn-investment-label,
+.nn-postlaunch-label,
+.nn-roadmap-label {
+  font-family: 'PPNeueMontrealMono', monospace;
+  text-transform: uppercase;
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  color: var(--blue-500);
+}
+
+.nn-problem-diagram {
+  display: grid;
+  grid-template-columns: 1fr 1.1fr 1fr;
+  gap: 1px;
+  background: var(--neutral-200);
+  margin-top: 28px;
+}
+
+.nn-system-title,
+.nn-pillar-title,
+.nn-pipeline-title,
+.nn-case-title {
+  font-family: 'PPMori', serif;
+  font-size: 22px;
+  text-transform: uppercase;
+  line-height: 1.05;
+  margin: 10px 0 14px;
+}
+
+.nn-tag-list,
+.nn-roadmap-list {
+  list-style: none;
+}
+
+.nn-tag-list li,
+.nn-roadmap-list li {
+  border-top: 1px solid var(--neutral-200);
+  padding: 10px 0;
+  color: var(--neutral-600);
+  font-size: 14px;
+}
+
+.nn-tag-list li:last-child,
+.nn-roadmap-list li:last-child {
+  border-bottom: 1px solid var(--neutral-200);
+}
+
+.nn-gap-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background: var(--neutral-100);
+}
+
+.nn-gap-body,
+.nn-pillar-body,
+.nn-investment-body,
+.nn-postlaunch-body,
+.nn-contact-body {
+  color: var(--neutral-600);
+  font-size: 14px;
+}
+
+.nn-gap-metric {
+  margin-top: 20px;
+  max-width: 250px;
+}
+
+.nn-pillars-grid,
+.nn-pipelines-grid,
+.nn-case-grid,
+.nn-investment-grid,
+.nn-roadmap-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1px;
+  background: var(--neutral-200);
+  margin-top: 24px;
+}
+
+.nn-pillar-card:first-child {
+  grid-column: 1 / -1;
+}
+
+.nn-pipeline-flow {
+  display: grid;
+  gap: 12px;
+  margin-top: 16px;
+}
+
+.nn-pipeline-step {
+  position: relative;
+  border: 1px solid var(--neutral-200);
+  padding: 14px 16px;
+  background: var(--neutral-100);
+}
+
+.nn-pipeline-step:not(:last-child)::after {
+  content: '';
+  position: absolute;
+  left: 24px;
+  bottom: -13px;
+  width: 1px;
+  height: 13px;
+  background: var(--neutral-300);
+}
+
+.nn-comparison-table tbody td:last-child {
+  background: rgba(44, 84, 255, 0.06);
+}
+
+.nn-case-body p {
+  margin-bottom: 12px;
+}
+
+.nn-case-metrics {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1px;
+  background: var(--neutral-200);
+  margin-top: 18px;
+}
+
+.nn-case-metric {
+  background: var(--neutral-100);
+  padding: 14px 12px;
+}
+
+.nn-case-metric-label {
+  color: var(--neutral-600);
+  font-size: 12px;
+}
+
+.nn-case-quote {
+  border-left: 3px solid var(--blue-500);
+  padding-left: 16px;
+  margin-top: 20px;
+  color: var(--neutral-600);
+  font-size: 18px;
+  line-height: 1.45;
+}
+
+.nn-postlaunch-list {
+  margin-top: 24px;
+  border-top: 1px solid var(--neutral-200);
+}
+
+.nn-postlaunch-item {
+  display: flex;
+  justify-content: space-between;
+  gap: 24px;
+  border-bottom: 1px solid var(--neutral-200);
+  padding: 18px 0;
+  align-items: flex-start;
+}
+
+.nn-postlaunch-value {
+  min-width: 180px;
+  text-align: right;
+  font-size: 24px;
+}
+
+.nn-assumptions {
+  border-top: 1px solid var(--neutral-200);
+  margin-top: 24px;
+}
+
+.nn-assumption-item {
+  border-bottom: 1px solid var(--neutral-200);
+  padding: 0;
+}
+
+.nn-assumption-item summary {
+  list-style: none;
+  cursor: pointer;
+  padding: 18px 0;
+  font-family: 'PPNeueMontrealMono', monospace;
+  text-transform: uppercase;
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  color: var(--neutral-900);
+}
+
+.nn-assumption-item summary::-webkit-details-marker {
+  display: none;
+}
+
+.nn-assumption-item p {
+  padding: 0 0 18px;
+  color: var(--neutral-600);
+}
+
+.nn-contact-card {
+  border: 1px solid var(--neutral-200);
+  border-radius: 18px;
+  padding: 26px;
+  background: var(--neutral-100);
+}
+
+.nn-contact-person {
+  margin-top: 18px;
+}
+
 .source-list {
   list-style: none;
   border-top: 1px solid var(--neutral-200);
@@ -1417,7 +1657,14 @@ a {
   .criteria-grid,
   .model-grid,
   .decision-grid,
-  .flow-grid {
+  .flow-grid,
+  .nn-hero-strip,
+  .nn-problem-diagram,
+  .nn-pillars-grid,
+  .nn-pipelines-grid,
+  .nn-case-grid,
+  .nn-investment-grid,
+  .nn-roadmap-grid {
     grid-template-columns: 1fr;
   }
 
@@ -1531,6 +1778,20 @@ a {
 
   .metrics-grid {
     grid-template-columns: 1fr;
+  }
+
+  .nn-case-metrics {
+    grid-template-columns: 1fr;
+  }
+
+  .nn-postlaunch-item {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .nn-postlaunch-value {
+    text-align: left;
+    min-width: 0;
   }
 
   .scan-summary,
