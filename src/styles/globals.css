@@ -1733,7 +1733,7 @@ a {
 
 .editorial-pipeline-node {
   position: absolute;
-  max-width: 220px;
+  max-width: 320px;
   font-family: 'PPNeueMontrealMono', monospace;
   text-transform: uppercase;
   font-size: 11px;
@@ -1741,6 +1741,17 @@ a {
   letter-spacing: 0.06em;
   color: var(--neutral-700);
   transform: translateX(-50%);
+  text-align: center;
+}
+
+.editorial-pipeline-node.align-left {
+  transform: none;
+  text-align: left;
+}
+
+.editorial-pipeline-node.align-right {
+  transform: translateX(-100%);
+  text-align: right;
 }
 
 .editorial-pipeline-node.is-alert {

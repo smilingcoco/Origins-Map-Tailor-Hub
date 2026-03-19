@@ -1,5 +1,22 @@
 import { motion } from 'framer-motion';
 
+const PIPELINE_LAYOUTS = [
+  [
+    { left: '6%', top: '71%', width: 120, align: 'left' },
+    { left: '28%', top: '71%', width: 180, align: 'center' },
+    { left: '47%', top: '24%', width: 230, align: 'center' },
+    { left: '75%', top: '71%', width: 290, align: 'center' },
+    { left: '95%', top: '71%', width: 120, align: 'right' }
+  ],
+  [
+    { left: '6%', top: '71%', width: 120, align: 'left' },
+    { left: '26%', top: '71%', width: 190, align: 'center' },
+    { left: '51%', top: '71%', width: 280, align: 'center' },
+    { left: '76%', top: '71%', width: 270, align: 'center' },
+    { left: '96%', top: '84%', width: 150, align: 'right' }
+  ]
+];
+
 function DesktopPipeline({ pipeline, index }) {
   const pathVariants = {
     hidden: { pathLength: 0, opacity: 0.2 },
@@ -48,28 +65,21 @@ function DesktopPipeline({ pipeline, index }) {
         </svg>
 
         {pipeline.steps.map((step, stepIndex) => {
-          const positions =
-            index === 0
-              ? [
-                  { left: '4%', top: '64%' },
-                  { left: '23%', top: '64%' },
-                  { left: '40%', top: '64%' },
-                  { left: '62%', top: '64%' },
-                  { left: '91%', top: '64%' }
-                ]
-              : [
-                  { left: '4%', top: '64%' },
-                  { left: '21%', top: '64%' },
-                  { left: '43%', top: '64%' },
-                  { left: '64%', top: '64%' },
-                  { left: '89%', top: '64%' }
-                ];
+          const node = PIPELINE_LAYOUTS[index][stepIndex];
+          const alignClass =
+            node.align === 'left'
+              ? 'editorial-pipeline-node align-left'
+              : node.align === 'right'
+                ? 'editorial-pipeline-node align-right'
+                : 'editorial-pipeline-node';
 
           return (
             <motion.div
               key={step}
-              className={stepIndex === pipeline.steps.length - 1 ? 'editorial-pipeline-node is-alert' : 'editorial-pipeline-node'}
-              style={positions[stepIndex]}
+              className={
+                stepIndex === pipeline.steps.length - 1 ? `${alignClass} is-alert` : alignClass
+              }
+              style={{ left: node.left, top: node.top, width: `${node.width}px` }}
               initial={{ opacity: 0, y: 8 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.7 }}
