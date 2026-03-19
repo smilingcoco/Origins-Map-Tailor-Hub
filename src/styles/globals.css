@@ -2258,7 +2258,9 @@ a {
   }
 
   .proposal-hero {
-    width: min(1540px, calc(100vw - 32px));
+    left: auto;
+    transform: none;
+    width: 100%;
   }
 
   .proposal-facts-strip {
@@ -2362,7 +2364,7 @@ a {
   }
 
   .proposal-hero {
-    width: calc(100vw - 20px);
+    width: 100%;
   }
 
   .proposal-hero-topbar {
@@ -2672,7 +2674,7 @@ a {
 
 @media (max-width: 420px) {
   .proposal-hero {
-    width: calc(100vw - 16px);
+    width: 100%;
   }
 
   .proposal-hero-shell {
