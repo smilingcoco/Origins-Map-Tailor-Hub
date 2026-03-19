@@ -474,6 +474,10 @@ a {
   font-weight: 400;
 }
 
+.locale-es .proposal-hero-title {
+  max-width: 15.5ch;
+}
+
 .proposal-hero-subtitle {
   margin-top: 16px;
   max-width: min(32rem, 100%);
@@ -2621,6 +2625,10 @@ a {
     max-width: 10.4ch;
   }
 
+  .locale-es .proposal-hero-title {
+    max-width: 13ch;
+  }
+
   .proposal-hero-subtitle {
     font-size: 14px;
     line-height: 1.28;
@@ -2961,6 +2969,10 @@ a {
   .proposal-hero-title {
     font-size: clamp(24px, 8.8vw, 34px);
     max-width: 10.2ch;
+  }
+
+  .locale-es .proposal-hero-title {
+    max-width: 12ch;
   }
 
   .proposal-hero-subtitle {

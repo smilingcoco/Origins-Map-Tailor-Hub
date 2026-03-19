@@ -232,7 +232,7 @@ export default function NovoNordiskCompliancePage() {
   }, []);
 
   return (
-    <main className="page-shell proposal-page">
+    <main className={`page-shell proposal-page locale-${locale}`}>
       <div className="reading-progress" aria-hidden="true">
         <div className="reading-progress-bar" style={{ width: `${readingProgress}%` }} />
       </div>
