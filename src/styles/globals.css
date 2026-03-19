@@ -376,13 +376,13 @@ a {
 
 .proposal-hero-plate {
   top: -5%;
-  left: 36%;
-  width: 32%;
+  left: 40%;
+  width: 28%;
   height: 54%;
   background: linear-gradient(180deg, rgba(196, 204, 207, 0.94), rgba(102, 110, 112, 0.4));
   clip-path: polygon(12% 0, 76% 0, 100% 92%, 24% 100%, 0 24%);
   transform: rotate(14deg);
-  opacity: 0.7;
+  opacity: 0.58;
   filter: blur(0.2px);
   box-shadow: 0 10px 40px rgba(0, 0, 0, 0.25);
 }
@@ -397,11 +397,15 @@ a {
 
 .proposal-hero-content {
   position: absolute;
-  left: 26px;
-  right: 26px;
-  bottom: 28px;
-  max-width: 780px;
+  left: 38px;
+  right: 38px;
+  top: 34px;
+  bottom: 34px;
+  max-width: 720px;
   z-index: 2;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
 }
 
 .proposal-hero-kicker {
@@ -416,23 +420,23 @@ a {
 
 .proposal-hero-title {
   font-family: 'PPMori', serif;
-  font-size: clamp(42px, 7vw, 84px);
-  line-height: 0.94;
+  font-size: clamp(38px, 6.3vw, 72px);
+  line-height: 0.92;
   letter-spacing: -0.03em;
   color: #f7f7f4;
   text-transform: uppercase;
-  max-width: 820px;
+  max-width: 700px;
 }
 
 .proposal-hero-subtitle {
   margin-top: 14px;
-  max-width: 640px;
-  font-size: 22px;
-  line-height: 1.18;
-  color: rgba(247, 247, 244, 0.92);
-  padding: 10px 12px;
-  border: 1px solid rgba(53, 133, 255, 0.9);
-  background: rgba(9, 14, 22, 0.18);
+  max-width: 560px;
+  font-size: 20px;
+  line-height: 1.2;
+  color: rgba(247, 247, 244, 0.88);
+  padding: 12px 14px;
+  border: 0;
+  background: rgba(9, 14, 22, 0.26);
   backdrop-filter: blur(8px);
 }
 
@@ -2381,19 +2385,20 @@ a {
   }
 
   .proposal-hero-content {
-    left: 14px;
-    right: 14px;
-    bottom: 14px;
+    left: 18px;
+    right: 18px;
+    top: 18px;
+    bottom: 18px;
   }
 
   .proposal-hero-title {
-    font-size: clamp(30px, 10vw, 46px);
-    line-height: 0.94;
+    font-size: clamp(28px, 9vw, 42px);
+    line-height: 0.92;
   }
 
   .proposal-hero-subtitle {
-    font-size: 16px;
-    line-height: 1.22;
+    font-size: 15px;
+    line-height: 1.24;
     max-width: 100%;
   }
 
