@@ -405,6 +405,7 @@ a {
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
+  gap: 0;
 }
 
 .proposal-hero-title {
@@ -414,7 +415,8 @@ a {
   letter-spacing: -0.03em;
   color: #f7f7f4;
   text-transform: uppercase;
-  max-width: 620px;
+  max-width: 9.2ch;
+  text-wrap: balance;
 }
 
 .proposal-hero-subtitle {
@@ -2369,40 +2371,53 @@ a {
   }
 
   .proposal-hero-media {
-    min-height: 54vh;
+    min-height: 0;
+    aspect-ratio: 0.92;
     border-radius: 14px;
   }
 
   .proposal-hero-content {
     left: 18px;
     right: 18px;
-    top: 24px;
+    top: 18px;
     bottom: 18px;
+    justify-content: flex-start;
+    max-width: none;
+    gap: 12px;
   }
 
   .proposal-hero-title {
-    font-size: clamp(28px, 9vw, 42px);
-    line-height: 0.92;
+    font-size: clamp(28px, 8.6vw, 42px);
+    line-height: 0.94;
+    max-width: 8.1ch;
   }
 
   .proposal-hero-subtitle {
-    font-size: 15px;
-    line-height: 1.24;
-    max-width: 100%;
+    font-size: 14px;
+    line-height: 1.28;
+    max-width: min(100%, 24rem);
+    margin-top: 0;
+    padding: 10px 12px;
   }
 
   .proposal-hero-actions {
-    margin-top: 14px;
+    margin-top: auto;
+    width: 100%;
+    gap: 8px;
   }
 
   .proposal-hero-action {
     font-size: 9px;
     padding: 8px 10px;
+    flex: 1 1 calc(50% - 4px);
+    text-align: center;
   }
 
   .proposal-hero-footer {
     margin-top: 12px;
     font-size: 9px;
+    flex-wrap: wrap;
+    row-gap: 4px;
   }
 
   .proposal-facts-strip {
@@ -2652,5 +2667,58 @@ a {
     font-size: 9px;
     color: var(--neutral-600);
     margin-bottom: 5px;
+  }
+}
+
+@media (max-width: 420px) {
+  .proposal-hero {
+    width: calc(100vw - 16px);
+  }
+
+  .proposal-hero-shell {
+    padding: 12px 12px 10px;
+  }
+
+  .proposal-hero-topbar {
+    font-size: 9px;
+    letter-spacing: 0.06em;
+    gap: 10px;
+  }
+
+  .proposal-hero-media {
+    aspect-ratio: 0.82;
+  }
+
+  .proposal-hero-content {
+    left: 14px;
+    right: 14px;
+    top: 14px;
+    bottom: 14px;
+    gap: 10px;
+  }
+
+  .proposal-hero-title {
+    font-size: clamp(24px, 8.8vw, 34px);
+    max-width: 8.6ch;
+  }
+
+  .proposal-hero-subtitle {
+    font-size: 13px;
+    line-height: 1.26;
+    max-width: min(100%, 19rem);
+  }
+
+  .proposal-hero-actions {
+    flex-direction: column;
+  }
+
+  .proposal-hero-action {
+    flex-basis: auto;
+    width: 100%;
+  }
+
+  .proposal-hero-footer {
+    justify-content: space-between;
+    gap: 8px;
   }
 }
