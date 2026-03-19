@@ -69,6 +69,17 @@
       }
     ]
   },
+  "prototype": {
+    "title": "An early prototype already exists.",
+    "body": "It helps make the proposal more tangible by showing a first version of the interface, navigation and key platform flows.",
+    "url": "https://novo-nordisk-platform.vercel.app/",
+    "cta": "Open prototype",
+    "highlights": [
+      "Dashboard overview",
+      "Evidence queue",
+      "Case review flow"
+    ]
+  },
   "scope": {
     "title": "What we build, phase by phase.",
     "intro": "Two tracks running in parallel: design and development. Each phase has a clear deliverable. Nothing moves forward without it.",

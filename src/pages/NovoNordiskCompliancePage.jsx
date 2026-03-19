@@ -30,6 +30,7 @@ export default function NovoNordiskCompliancePage() {
     { id: 'section-01', number: '01', title: 'Overview' },
     { id: 'section-02', number: '02', title: 'Problem' },
     { id: 'section-03', number: '03', title: 'Solution' },
+    { id: 'section-03a', number: '03A', title: 'Prototype' },
     { id: 'section-03b', number: '03B', title: 'Scope' },
     { id: 'section-04', number: '04', title: 'AI pipeline' },
     { id: 'section-05', number: '05', title: 'Team' },
@@ -176,6 +177,66 @@ export default function NovoNordiskCompliancePage() {
                   <p className="nn-pillar-body">{pillar.body}</p>
                 </article>
               ))}
+            </div>
+          </SectionWrapper>
+
+          <SectionWrapper id="section-03a" number="03A" title={data.prototype.title}>
+            <div className="nn-prototype-layout">
+              <div className="nn-prototype-copy">
+                <p>{data.prototype.body}</p>
+                <ul className="nn-prototype-highlights">
+                  {data.prototype.highlights.map((item) => (
+                    <li key={item}>{item}</li>
+                  ))}
+                </ul>
+                <a
+                  className="hub-card-link"
+                  href={data.prototype.url}
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  {data.prototype.cta}
+                </a>
+              </div>
+
+              <a
+                className="nn-prototype-preview"
+                href={data.prototype.url}
+                target="_blank"
+                rel="noreferrer"
+                aria-label="Open Novo Nordisk prototype"
+              >
+                <div className="nn-prototype-browserbar">
+                  <span className="nn-prototype-dot" />
+                  <span className="nn-prototype-dot" />
+                  <span className="nn-prototype-dot" />
+                  <span className="nn-prototype-url">{data.prototype.url.replace('https://', '')}</span>
+                </div>
+                <div className="nn-prototype-canvas" aria-hidden="true">
+                  <div className="nn-prototype-statline">
+                    <span />
+                    <span />
+                    <span />
+                  </div>
+                  <div className="nn-prototype-columns">
+                    <div className="nn-prototype-sidebar" />
+                    <div className="nn-prototype-main">
+                      <div className="nn-prototype-chart" />
+                      <div className="nn-prototype-table">
+                        <span />
+                        <span />
+                        <span />
+                        <span />
+                      </div>
+                    </div>
+                  </div>
+                  <div className="nn-prototype-tags">
+                    {data.prototype.highlights.map((item) => (
+                      <span key={item}>{item}</span>
+                    ))}
+                  </div>
+                </div>
+              </a>
             </div>
           </SectionWrapper>
 
