@@ -4,6 +4,7 @@ import data from '../data/novo-nordisk-compliance.json';
 import HeroSection from '../components/HeroSection';
 import SectionWrapper from '../components/SectionWrapper';
 import Footer from '../components/Footer';
+import EditorialPipelineDiagram from '../components/EditorialPipelineDiagram';
 
 const ComplianceFlowScene = lazy(() => import('../components/ComplianceFlowScene'));
 
@@ -268,20 +269,7 @@ export default function NovoNordiskCompliancePage() {
 
           <SectionWrapper id="section-04" number="04" title={data.pipelines.title}>
             <p>{data.pipelines.intro}</p>
-            <div className="nn-pipelines-grid">
-              {data.pipelines.items.map((pipeline) => (
-                <article className="nn-pipeline-card" key={pipeline.title}>
-                  <h3 className="nn-pipeline-title">{pipeline.title}</h3>
-                  <div className="nn-pipeline-flow">
-                    {pipeline.steps.map((step) => (
-                      <div className="nn-pipeline-step" key={step}>
-                        <span>{step}</span>
-                      </div>
-                    ))}
-                  </div>
-                </article>
-              ))}
-            </div>
+            <EditorialPipelineDiagram items={data.pipelines.items} />
           </SectionWrapper>
 
           <SectionWrapper id="section-05" number="05" title={data.team.title}>
