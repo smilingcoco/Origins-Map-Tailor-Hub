@@ -187,6 +187,47 @@ a {
   transition: width 0.15s ease-out;
 }
 
+.proposal-page-toolbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 20px;
+}
+
+.locale-switch {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 4px;
+  border: 1px solid var(--neutral-200);
+  background: var(--neutral-100);
+}
+
+.locale-switch-btn {
+  appearance: none;
+  border: 1px solid transparent;
+  background: transparent;
+  color: var(--neutral-600);
+  padding: 7px 10px;
+  font-family: 'PPNeueMontrealMono', monospace;
+  text-transform: uppercase;
+  font-size: 10px;
+  letter-spacing: 0.08em;
+  cursor: pointer;
+  transition: color 0.2s ease, border-color 0.2s ease, background 0.2s ease;
+}
+
+.locale-switch-btn:hover {
+  color: var(--neutral-900);
+}
+
+.locale-switch-btn.active {
+  color: var(--blue-500);
+  border-color: var(--neutral-300);
+  background: var(--neutral-00);
+}
+
 .app-layout {
   display: grid;
   grid-template-columns: 220px minmax(0, 1fr);
@@ -2517,6 +2558,12 @@ a {
     padding: 28px 14px 72px;
   }
 
+  .proposal-page-toolbar {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 10px;
+  }
+
   .hero-section {
     min-height: auto;
     padding-top: 8vh;
@@ -2876,6 +2923,11 @@ a {
 }
 
 @media (max-width: 420px) {
+  .locale-switch-btn {
+    padding: 7px 8px;
+    font-size: 9px;
+  }
+
   .proposal-hero {
     width: 100%;
     max-width: 100%;

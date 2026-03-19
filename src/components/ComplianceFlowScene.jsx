@@ -146,16 +146,26 @@ function SceneContent() {
   );
 }
 
-export default function ComplianceFlowScene() {
+const defaultCopy = {
+  kicker: 'Live correlation engine',
+  title: 'Two data streams. One decision layer.',
+  body:
+    'SAP Concur and NovoVision flow into a single correlation engine. Normal cases pass quietly. Signals with real risk pulse out into the alert inbox with evidence attached.',
+  labels: {
+    left: { over: 'Source A', strong: 'SAP Concur' },
+    right: { over: 'Source B', strong: 'NovoVision' },
+    center: { over: 'Core', strong: 'AI correlation engine' },
+    bottom: { over: 'Output', strong: 'Prioritized alerts' }
+  }
+};
+
+export default function ComplianceFlowScene({ copy = defaultCopy }) {
   return (
     <div className="compliance-scene-shell">
       <div className="compliance-scene-copy">
-        <p className="compliance-scene-kicker">Live correlation engine</p>
-        <h3 className="compliance-scene-title">Two data streams. One decision layer.</h3>
-        <p className="compliance-scene-body">
-          SAP Concur and NovoVision flow into a single correlation engine. Normal cases pass quietly. Signals with
-          real risk pulse out into the alert inbox with evidence attached.
-        </p>
+        <p className="compliance-scene-kicker">{copy.kicker}</p>
+        <h3 className="compliance-scene-title">{copy.title}</h3>
+        <p className="compliance-scene-body">{copy.body}</p>
       </div>
 
       <div className="compliance-scene-frame" aria-hidden="true">
@@ -164,20 +174,20 @@ export default function ComplianceFlowScene() {
         </Canvas>
 
         <div className="compliance-scene-label compliance-scene-label-left">
-          <span>Source A</span>
-          <strong>SAP Concur</strong>
+          <span>{copy.labels.left.over}</span>
+          <strong>{copy.labels.left.strong}</strong>
         </div>
         <div className="compliance-scene-label compliance-scene-label-right">
-          <span>Source B</span>
-          <strong>NovoVision</strong>
+          <span>{copy.labels.right.over}</span>
+          <strong>{copy.labels.right.strong}</strong>
         </div>
         <div className="compliance-scene-label compliance-scene-label-center">
-          <span>Core</span>
-          <strong>AI correlation engine</strong>
+          <span>{copy.labels.center.over}</span>
+          <strong>{copy.labels.center.strong}</strong>
         </div>
         <div className="compliance-scene-label compliance-scene-label-bottom">
-          <span>Output</span>
-          <strong>Prioritized alerts</strong>
+          <span>{copy.labels.bottom.over}</span>
+          <strong>{copy.labels.bottom.strong}</strong>
         </div>
       </div>
     </div>
