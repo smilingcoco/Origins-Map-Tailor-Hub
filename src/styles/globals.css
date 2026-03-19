@@ -1721,7 +1721,7 @@ a {
 
 .editorial-pipeline-canvas {
   position: relative;
-  height: 240px;
+  height: 260px;
 }
 
 .editorial-pipeline-svg {
@@ -1742,6 +1742,10 @@ a {
   color: var(--neutral-700);
   transform: translateX(-50%);
   text-align: center;
+}
+
+.editorial-pipeline-node-line {
+  display: block;
 }
 
 .editorial-pipeline-node.align-left {
@@ -2065,7 +2069,7 @@ a {
   }
 
   .editorial-pipeline-canvas {
-    height: 210px;
+    height: 228px;
   }
 
   .editorial-pipeline-node {

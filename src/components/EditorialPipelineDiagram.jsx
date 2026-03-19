@@ -2,18 +2,24 @@ import { motion } from 'framer-motion';
 
 const PIPELINE_LAYOUTS = [
   [
-    { left: '6%', top: '71%', width: 120, align: 'left' },
-    { left: '28%', top: '71%', width: 180, align: 'center' },
-    { left: '47%', top: '24%', width: 230, align: 'center' },
-    { left: '75%', top: '71%', width: 290, align: 'center' },
-    { left: '95%', top: '71%', width: 120, align: 'right' }
+    { left: '6%', top: '74%', width: 120, align: 'left', lines: ['Ticket'] },
+    { left: '28%', top: '74%', width: 180, align: 'center', lines: ['Validation rules'] },
+    { left: '48%', top: '18%', width: 240, align: 'center', lines: ['OCR', '(Document Intelligence)'] },
+    {
+      left: '74%',
+      top: '74%',
+      width: 300,
+      align: 'center',
+      lines: ['Structured extraction', '(vendor, date, total, alcohol)']
+    },
+    { left: '95%', top: '18%', width: 120, align: 'right', lines: ['Alert'] }
   ],
   [
-    { left: '6%', top: '71%', width: 120, align: 'left' },
-    { left: '26%', top: '71%', width: 190, align: 'center' },
-    { left: '51%', top: '71%', width: 280, align: 'center' },
-    { left: '76%', top: '71%', width: 270, align: 'center' },
-    { left: '96%', top: '84%', width: 150, align: 'right' }
+    { left: '6%', top: '74%', width: 120, align: 'left', lines: ['Photo'] },
+    { left: '26%', top: '74%', width: 190, align: 'center', lines: ['Image Analysis v4'] },
+    { left: '51%', top: '74%', width: 250, align: 'center', lines: ['People counting +', 'Object detection'] },
+    { left: '76%', top: '74%', width: 250, align: 'center', lines: ['Correlation with', 'reported attendees'] },
+    { left: '95%', top: '18%', width: 150, align: 'right', lines: ['Alert if', 'discrepancy'] }
   ]
 ];
 
@@ -33,8 +39,9 @@ function DesktopPipeline({ pipeline, index }) {
         ]
       : [
           'M 120 138 C 180 86, 250 84, 320 138',
+          'M 320 138 C 392 86, 466 84, 560 138',
           'M 528 138 C 602 86, 688 84, 820 138',
-          'M 820 196 C 892 242, 960 242, 1038 196'
+          'M 820 86 C 892 42, 960 42, 1038 86'
         ];
 
   return (
@@ -85,7 +92,11 @@ function DesktopPipeline({ pipeline, index }) {
               viewport={{ once: true, amount: 0.7 }}
               transition={{ duration: 0.45, delay: stepIndex * 0.06 + index * 0.08 }}
             >
-              {step}
+              {node.lines.map((line) => (
+                <span key={line} className="editorial-pipeline-node-line">
+                  {line}
+                </span>
+              ))}
             </motion.div>
           );
         })}
