@@ -2254,13 +2254,21 @@ a {
   }
 
   .proposal-hero-media {
-    min-height: 58vh;
+    width: 100%;
+    min-height: 0;
+    aspect-ratio: 4 / 5;
   }
 
   .proposal-hero {
     left: auto;
     transform: none;
     width: 100%;
+    max-width: 100%;
+    overflow: clip;
+  }
+
+  .proposal-hero-shell {
+    overflow: hidden;
   }
 
   .proposal-facts-strip {
@@ -2365,6 +2373,7 @@ a {
 
   .proposal-hero {
     width: 100%;
+    max-width: 100%;
   }
 
   .proposal-hero-topbar {
@@ -2374,7 +2383,8 @@ a {
 
   .proposal-hero-media {
     min-height: 0;
-    aspect-ratio: 0.92;
+    width: 100%;
+    aspect-ratio: 1 / 1;
     border-radius: 14px;
   }
 
@@ -2389,7 +2399,7 @@ a {
   }
 
   .proposal-hero-title {
-    font-size: clamp(28px, 8.6vw, 42px);
+    font-size: clamp(27px, 8.2vw, 40px);
     line-height: 0.94;
     max-width: 8.1ch;
   }
@@ -2397,7 +2407,7 @@ a {
   .proposal-hero-subtitle {
     font-size: 14px;
     line-height: 1.28;
-    max-width: min(100%, 24rem);
+    max-width: min(100%, 18rem);
     margin-top: 0;
     padding: 10px 12px;
   }
@@ -2420,6 +2430,16 @@ a {
     font-size: 9px;
     flex-wrap: wrap;
     row-gap: 4px;
+  }
+
+  .proposal-hero-footer span {
+    min-width: 0;
+  }
+
+  .proposal-hero-footer span:last-child {
+    margin-left: auto;
+    text-align: right;
+    overflow-wrap: anywhere;
   }
 
   .proposal-facts-strip {
@@ -2675,6 +2695,7 @@ a {
 @media (max-width: 420px) {
   .proposal-hero {
     width: 100%;
+    max-width: 100%;
   }
 
   .proposal-hero-shell {
@@ -2688,7 +2709,7 @@ a {
   }
 
   .proposal-hero-media {
-    aspect-ratio: 0.82;
+    aspect-ratio: 1 / 1;
   }
 
   .proposal-hero-content {
