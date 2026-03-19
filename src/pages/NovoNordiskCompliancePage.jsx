@@ -260,16 +260,17 @@ export default function NovoNordiskCompliancePage() {
 
       <div className="app-layout">
         <ProposalHero
-          eyebrow={ui.heroEyebrow}
           title={`${data.meta.title} ${data.meta.subtitle}`}
           subtitle={data.hero.intro[0]}
           facts={data.hero.quickStats}
-          footerLeft="Tailor Hub"
-          footerRight={ui.heroFooterRight}
           actions={{
             primary: { href: '#section-03', label: ui.heroPrimaryCta },
             secondary: { href: '#section-10', label: ui.heroSecondaryCta }
           }}
+          brands={[
+            { label: 'Tailor Hub', imageSrc: '/isotipo-tailor-black.png' },
+            { label: 'Novo Nordisk' }
+          ]}
         />
 
         <aside className="side-nav" aria-label={ui.sectionNavAria}>
