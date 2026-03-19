@@ -1697,6 +1697,7 @@ a {
 .nn-contact-body {
   color: var(--neutral-600);
   font-size: 14px;
+  overflow-wrap: anywhere;
 }
 
 .nn-gap-metric {
@@ -2303,14 +2304,26 @@ a {
   .model-grid,
   .decision-grid,
   .flow-grid,
-  .nn-hero-strip,
-  .nn-problem-diagram,
-  .nn-pillars-grid,
-  .nn-case-grid,
-  .nn-investment-grid,
-  .nn-roadmap-grid,
   .doc-footer {
     flex-direction: column;
+  }
+
+  .nn-hero-strip,
+  .nn-problem-diagram,
+  .nn-case-grid,
+  .nn-investment-grid,
+  .nn-roadmap-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .nn-gap-metric,
+  .nn-system-title,
+  .nn-case-title,
+  .nn-investment-value,
+  .nn-roadmap-list li,
+  .nn-scope-phase-title,
+  .nn-scope-phase-deliverable span:last-child {
+    overflow-wrap: anywhere;
   }
 
   .compliance-scene-frame {
@@ -2444,6 +2457,19 @@ a {
 
   .proposal-facts-strip {
     grid-template-columns: 1fr;
+  }
+
+  .nn-system-card,
+  .nn-gap-card,
+  .nn-case-card,
+  .nn-investment-card,
+  .nn-roadmap-track {
+    padding: 18px 16px;
+  }
+
+  .nn-system-title,
+  .nn-case-title {
+    font-size: 20px;
   }
 
   .hero-title {
