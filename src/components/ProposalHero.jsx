@@ -45,9 +45,6 @@ export default function ProposalHero({
           <div className="proposal-hero-overlay" />
 
           <div className="proposal-hero-content">
-            <motion.p custom={0.05} variants={rise} initial="hidden" animate="visible" className="proposal-hero-kicker">
-              {eyebrow}
-            </motion.p>
             <motion.h1 custom={0.12} variants={rise} initial="hidden" animate="visible" className="proposal-hero-title">
               {title}
             </motion.h1>

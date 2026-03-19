@@ -93,12 +93,12 @@ export default function NovoNordiskCompliancePage() {
 
       <div className="app-layout">
         <ProposalHero
-          eyebrow={data.meta.label}
+          eyebrow="Commercial proposal"
           title={`${data.meta.title} ${data.meta.subtitle}`}
           subtitle={data.hero.intro[0]}
           facts={data.hero.quickStats}
           footerLeft="Tailor Hub"
-          footerRight="Proposal · Novo Nordisk"
+          footerRight="Novo Nordisk · Mar 2026"
           actions={{
             primary: { href: '#section-03', label: 'See the solution ↓' },
             secondary: { href: '#section-10', label: 'View roadmap' }

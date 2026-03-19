@@ -307,7 +307,6 @@ a {
 .proposal-hero-topbar,
 .proposal-hero-footer,
 .proposal-hero-eyebrow,
-.proposal-hero-kicker,
 .proposal-hero-action,
 .proposal-fact-label,
 .proposal-fact-value {
@@ -406,16 +405,6 @@ a {
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
-}
-
-.proposal-hero-kicker {
-  display: inline-flex;
-  margin-bottom: 12px;
-  padding: 4px 7px;
-  background: rgba(250, 210, 70, 0.9);
-  color: #111216;
-  font-size: 9px;
-  letter-spacing: 0.08em;
 }
 
 .proposal-hero-title {
