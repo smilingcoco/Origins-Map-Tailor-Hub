@@ -1,10 +1,10 @@
 import { Suspense, lazy, useEffect, useState } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
 import data from '../data/novo-nordisk-compliance.json';
-import HeroSection from '../components/HeroSection';
 import SectionWrapper from '../components/SectionWrapper';
 import Footer from '../components/Footer';
 import EditorialPipelineDiagram from '../components/EditorialPipelineDiagram';
+import ProposalHero from '../components/ProposalHero';
 
 const ComplianceFlowScene = lazy(() => import('../components/ComplianceFlowScene'));
 
@@ -92,27 +92,18 @@ export default function NovoNordiskCompliancePage() {
       </a>
 
       <div className="app-layout">
-        <HeroSection
-          meta={data.meta}
+        <ProposalHero
+          eyebrow={data.meta.label}
+          title={`${data.meta.title} ${data.meta.subtitle}`}
+          subtitle={data.hero.intro[0]}
+          facts={data.hero.quickStats}
+          footerLeft="Tailor Hub"
+          footerRight="Proposal · Novo Nordisk"
           actions={{
             primary: { href: '#section-03', label: 'See the solution ↓' },
             secondary: { href: '#section-10', label: 'View roadmap' }
           }}
-        >
-          <div className="nn-hero-copy">
-            {data.hero.intro.map((paragraph) => (
-              <p key={paragraph}>{paragraph}</p>
-            ))}
-          </div>
-          <div className="nn-hero-strip">
-            {data.hero.quickStats.map((item) => (
-              <article className="nn-hero-stat" key={item.label}>
-                <div className="nn-hero-stat-value">{item.value}</div>
-                <div className="nn-hero-stat-label">{item.label}</div>
-              </article>
-            ))}
-          </div>
-        </HeroSection>
+        />
 
         <aside className="side-nav" aria-label="Section navigation">
           <div className="side-nav-brand" aria-hidden="true">
