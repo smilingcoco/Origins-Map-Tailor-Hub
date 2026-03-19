@@ -290,6 +290,10 @@ a {
 }
 
 .proposal-hero {
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+  width: min(1540px, calc(100vw - 56px));
   margin-bottom: 44px;
 }
 
@@ -2258,6 +2262,10 @@ a {
     min-height: 58vh;
   }
 
+  .proposal-hero {
+    width: min(1540px, calc(100vw - 32px));
+  }
+
   .proposal-facts-strip {
     grid-template-columns: repeat(2, 1fr);
   }
@@ -2356,6 +2364,10 @@ a {
   .proposal-hero-shell {
     padding: 14px 14px 12px;
     border-radius: 18px;
+  }
+
+  .proposal-hero {
+    width: calc(100vw - 20px);
   }
 
   .proposal-hero-topbar {
