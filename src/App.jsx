@@ -2,6 +2,7 @@ import HubHomePage from './pages/HubHomePage';
 import OriginsMapPage from './pages/OriginsMapPage';
 import BenchmarkCmssPage from './pages/BenchmarkCmssPage';
 import NovoNordiskCompliancePage from './pages/NovoNordiskCompliancePage';
+import WolfAvionicProposalPage from './pages/WolfAvionicProposalPage';
 
 function getRoute() {
   if (typeof window === 'undefined') {
@@ -25,6 +26,10 @@ export default function App() {
 
   if (route === '/proposals/novo-nordisk-compliance' || route === '/novo-nordisk-compliance') {
     return <NovoNordiskCompliancePage />;
+  }
+
+  if (route === '/proposals/wolf-avionic' || route === '/wolf-avionic') {
+    return <WolfAvionicProposalPage />;
   }
 
   return <HubHomePage />;

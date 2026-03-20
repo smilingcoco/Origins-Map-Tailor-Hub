@@ -40,6 +40,12 @@ const contentGroups = [
         description: "Compliance monitoring shouldn't take weeks.",
         href: '/proposals/novo-nordisk-compliance',
         status: 'Borrador'
+      },
+      {
+        title: 'Tailor Hub x Wolf Avionic',
+        description: 'Proposal template cloned from Novo Nordisk and ready to adapt with Wolf Avionic content.',
+        href: '/proposals/wolf-avionic',
+        status: 'Borrador'
       }
     ]
   }
