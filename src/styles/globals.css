@@ -3247,6 +3247,10 @@ a {
     width: 160px;
   }
 
+  .operations-scene-shell {
+    display: none;
+  }
+
   .proposal-facts-strip {
     grid-template-columns: 1fr;
   }
