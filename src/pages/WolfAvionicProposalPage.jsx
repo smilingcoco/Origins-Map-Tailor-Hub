@@ -103,15 +103,18 @@ function DotGrid({ items }) {
 
 function RoadmapGantt({ weeks, locale }) {
   const [activeWeek, setActiveWeek] = useState(0);
+  const [hoveredWeek, setHoveredWeek] = useState(null);
   const [expandedMobileWeek, setExpandedMobileWeek] = useState(0);
 
   useEffect(() => {
     setActiveWeek(0);
+    setHoveredWeek(null);
     setExpandedMobileWeek(0);
   }, [locale, weeks]);
 
   const weekNumbers = weeks.map((_, index) => index + 1);
-  const selectedWeek = weeks[activeWeek] ?? weeks[0];
+  const visibleWeekIndex = hoveredWeek ?? activeWeek;
+  const selectedWeek = weeks[visibleWeekIndex] ?? weeks[0];
   const copy =
     locale === 'es'
       ? {
@@ -135,8 +138,10 @@ function RoadmapGantt({ weeks, locale }) {
               <p className="wolf-roadmap-caption">{copy.caption}</p>
             </div>
             <div className="wolf-roadmap-scale" aria-hidden="true">
-              {weekNumbers.map((weekNumber) => (
-                <span key={weekNumber}>W{weekNumber}</span>
+              {weekNumbers.map((weekNumber, index) => (
+                <span key={weekNumber} className={visibleWeekIndex === index ? 'active' : ''}>
+                  W{weekNumber}
+                </span>
               ))}
             </div>
           </div>
@@ -146,13 +151,23 @@ function RoadmapGantt({ weeks, locale }) {
               <div className="wolf-roadmap-row" key={week.label}>
                 <button
                   type="button"
-                  className={activeWeek === index ? 'wolf-roadmap-row-copy active' : 'wolf-roadmap-row-copy'}
+                  className={[
+                    'wolf-roadmap-row-copy',
+                    activeWeek === index ? 'is-selected' : '',
+                    visibleWeekIndex === index ? 'is-visible' : '',
+                    hoveredWeek === index ? 'is-preview' : ''
+                  ]
+                    .filter(Boolean)
+                    .join(' ')}
                   onClick={() => setActiveWeek(index)}
+                  onMouseEnter={() => setHoveredWeek(index)}
+                  onMouseLeave={() => setHoveredWeek(null)}
                   role="tab"
                   aria-selected={activeWeek === index}
                   aria-controls={`wolf-roadmap-panel-${index}`}
                   id={`wolf-roadmap-tab-${index}`}
                 >
+                  <span className="wolf-roadmap-row-accent" aria-hidden="true" />
                   <span className="wolf-roadmap-row-label">{week.label}</span>
                   <span className="wolf-roadmap-row-title">{week.title}</span>
                 </button>
@@ -165,9 +180,18 @@ function RoadmapGantt({ weeks, locale }) {
                   </div>
                   <button
                     type="button"
-                    className={activeWeek === index ? 'wolf-roadmap-bar active' : 'wolf-roadmap-bar'}
+                    className={[
+                      'wolf-roadmap-bar',
+                      activeWeek === index ? 'is-selected' : '',
+                      visibleWeekIndex === index ? 'is-visible' : '',
+                      hoveredWeek === index ? 'is-preview' : ''
+                    ]
+                      .filter(Boolean)
+                      .join(' ')}
                     style={{ gridColumn: `${index + 1} / span 1` }}
                     onClick={() => setActiveWeek(index)}
+                    onMouseEnter={() => setHoveredWeek(index)}
+                    onMouseLeave={() => setHoveredWeek(null)}
                     aria-label={week.label}
                   >
                     <span className="wolf-roadmap-bar-fill" />
@@ -181,12 +205,13 @@ function RoadmapGantt({ weeks, locale }) {
         <div
           className="wolf-roadmap-detail"
           role="tabpanel"
-          id={`wolf-roadmap-panel-${activeWeek}`}
-          aria-labelledby={`wolf-roadmap-tab-${activeWeek}`}
+          id={`wolf-roadmap-panel-${visibleWeekIndex}`}
+          aria-labelledby={`wolf-roadmap-tab-${visibleWeekIndex}`}
         >
           <AnimatePresence mode="wait">
             <motion.div
               key={selectedWeek.label}
+              className="wolf-roadmap-detail-inner"
               initial={{ opacity: 0, y: 14 }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -8 }}
