@@ -1,3 +1,4 @@
+import { AnimatePresence, motion } from 'framer-motion';
 import { Suspense, lazy, useEffect, useMemo, useState } from 'react';
 import SectionWrapper from '../components/SectionWrapper';
 import Footer from '../components/Footer';
@@ -97,6 +98,170 @@ function DotGrid({ items }) {
         <li key={item}>{item}</li>
       ))}
     </ul>
+  );
+}
+
+function RoadmapGantt({ weeks, locale }) {
+  const [activeWeek, setActiveWeek] = useState(0);
+  const [expandedMobileWeek, setExpandedMobileWeek] = useState(0);
+
+  useEffect(() => {
+    setActiveWeek(0);
+    setExpandedMobileWeek(0);
+  }, [locale, weeks]);
+
+  const weekNumbers = weeks.map((_, index) => index + 1);
+  const selectedWeek = weeks[activeWeek] ?? weeks[0];
+  const copy =
+    locale === 'es'
+      ? {
+          kicker: 'Timeline',
+          caption: `${weeks.length} semanas ordenadas como una secuencia de entrega enfocada.`,
+          aria: 'Roadmap interactivo'
+        }
+      : {
+          kicker: 'Timeline',
+          caption: `${weeks.length} weeks mapped as one focused delivery sequence.`,
+          aria: 'Interactive roadmap'
+        };
+
+  return (
+    <div className="wolf-roadmap">
+      <div className="wolf-roadmap-desktop" aria-label={copy.aria}>
+        <div className="wolf-roadmap-gantt">
+          <div className="wolf-roadmap-header">
+            <div className="wolf-roadmap-header-copy">
+              <p className="wolf-roadmap-kicker">{copy.kicker}</p>
+              <p className="wolf-roadmap-caption">{copy.caption}</p>
+            </div>
+            <div className="wolf-roadmap-scale" aria-hidden="true">
+              {weekNumbers.map((weekNumber) => (
+                <span key={weekNumber}>W{weekNumber}</span>
+              ))}
+            </div>
+          </div>
+
+          <div className="wolf-roadmap-rows" role="tablist" aria-orientation="vertical">
+            {weeks.map((week, index) => (
+              <div className="wolf-roadmap-row" key={week.label}>
+                <button
+                  type="button"
+                  className={activeWeek === index ? 'wolf-roadmap-row-copy active' : 'wolf-roadmap-row-copy'}
+                  onClick={() => setActiveWeek(index)}
+                  role="tab"
+                  aria-selected={activeWeek === index}
+                  aria-controls={`wolf-roadmap-panel-${index}`}
+                  id={`wolf-roadmap-tab-${index}`}
+                >
+                  <span className="wolf-roadmap-row-label">{week.label}</span>
+                  <span className="wolf-roadmap-row-title">{week.title}</span>
+                </button>
+
+                <div className="wolf-roadmap-row-lane" aria-hidden="true">
+                  <div className="wolf-roadmap-lane-grid">
+                    {weekNumbers.map((weekNumber) => (
+                      <span key={weekNumber} className="wolf-roadmap-grid-cell" />
+                    ))}
+                  </div>
+                  <button
+                    type="button"
+                    className={activeWeek === index ? 'wolf-roadmap-bar active' : 'wolf-roadmap-bar'}
+                    style={{ gridColumn: `${index + 1} / span 1` }}
+                    onClick={() => setActiveWeek(index)}
+                    aria-label={week.label}
+                  >
+                    <span className="wolf-roadmap-bar-fill" />
+                  </button>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <div
+          className="wolf-roadmap-detail"
+          role="tabpanel"
+          id={`wolf-roadmap-panel-${activeWeek}`}
+          aria-labelledby={`wolf-roadmap-tab-${activeWeek}`}
+        >
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={selectedWeek.label}
+              initial={{ opacity: 0, y: 14 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -8 }}
+              transition={{ duration: 0.22, ease: 'easeOut' }}
+            >
+              <p className="wolf-roadmap-detail-label">{selectedWeek.label}</p>
+              <h3 className="wolf-roadmap-detail-title">{selectedWeek.title}</h3>
+              <p className="wolf-roadmap-detail-objective">{selectedWeek.objective}</p>
+              <ul className="wolf-roadmap-detail-list">
+                {selectedWeek.items.map((item) => (
+                  <li key={item}>{item}</li>
+                ))}
+              </ul>
+              <p className="wolf-roadmap-detail-team">{selectedWeek.team.join(' · ')}</p>
+            </motion.div>
+          </AnimatePresence>
+        </div>
+      </div>
+
+      <div className="wolf-roadmap-mobile">
+        <div className="wolf-roadmap-mobile-scale" aria-hidden="true">
+          {weeks.map((week, index) => (
+            <span key={week.label} className={expandedMobileWeek === index ? 'active' : ''}>
+              W{index + 1}
+            </span>
+          ))}
+        </div>
+
+        <div className="wolf-roadmap-mobile-cards">
+          {weeks.map((week, index) => {
+            const isOpen = expandedMobileWeek === index;
+            return (
+              <article className={isOpen ? 'wolf-roadmap-mobile-card open' : 'wolf-roadmap-mobile-card'} key={week.label}>
+                <button
+                  type="button"
+                  className="wolf-roadmap-mobile-trigger"
+                  onClick={() => setExpandedMobileWeek(isOpen ? -1 : index)}
+                  aria-expanded={isOpen}
+                  aria-controls={`wolf-roadmap-mobile-panel-${index}`}
+                >
+                  <span className="wolf-roadmap-mobile-trigger-copy">
+                    <span className="wolf-roadmap-mobile-label">{week.label}</span>
+                    <span className="wolf-roadmap-mobile-title">{week.title}</span>
+                  </span>
+                  <span className="wolf-roadmap-mobile-icon" aria-hidden="true">
+                    {isOpen ? '−' : '+'}
+                  </span>
+                </button>
+
+                <AnimatePresence initial={false}>
+                  {isOpen ? (
+                    <motion.div
+                      id={`wolf-roadmap-mobile-panel-${index}`}
+                      className="wolf-roadmap-mobile-panel"
+                      initial={{ height: 0, opacity: 0 }}
+                      animate={{ height: 'auto', opacity: 1 }}
+                      exit={{ height: 0, opacity: 0 }}
+                      transition={{ duration: 0.2, ease: 'easeOut' }}
+                    >
+                      <p className="wolf-roadmap-mobile-objective">{week.objective}</p>
+                      <ul className="wolf-roadmap-mobile-list">
+                        {week.items.map((item) => (
+                          <li key={item}>{item}</li>
+                        ))}
+                      </ul>
+                      <p className="wolf-roadmap-mobile-team">{week.team.join(' · ')}</p>
+                    </motion.div>
+                  ) : null}
+                </AnimatePresence>
+              </article>
+            );
+          })}
+        </div>
+      </div>
+    </div>
   );
 }
 
@@ -329,21 +494,7 @@ export default function WolfAvionicProposalPage() {
 
           <SectionWrapper id="section-07" number="07" title={data.roadmap.title}>
             <p>{data.roadmap.intro}</p>
-            <div className="nn-weeks-grid">
-              {data.roadmap.weeks.map((week) => (
-                <article className="nn-week-card" key={week.label}>
-                  <p className="nn-week-label">{week.label}</p>
-                  <h3 className="nn-week-title">{week.title}</h3>
-                  <p className="nn-week-objective">{week.objective}</p>
-                  <ul className="nn-week-list">
-                    {week.items.map((item) => (
-                      <li key={item}>{item}</li>
-                    ))}
-                  </ul>
-                  <p className="nn-week-team">{week.team.join(' · ')}</p>
-                </article>
-              ))}
-            </div>
+            <RoadmapGantt weeks={data.roadmap.weeks} locale={locale} />
           </SectionWrapper>
 
           <SectionWrapper id="section-08" number="08" title={data.team.title}>

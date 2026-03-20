@@ -2023,6 +2023,293 @@ a {
   color: var(--neutral-600);
 }
 
+.wolf-roadmap {
+  margin-top: 24px;
+}
+
+.wolf-roadmap-desktop {
+  display: grid;
+  grid-template-columns: minmax(0, 1.15fr) minmax(300px, 0.85fr);
+  gap: 28px;
+  align-items: start;
+}
+
+.wolf-roadmap-mobile {
+  display: none;
+}
+
+.wolf-roadmap-gantt,
+.wolf-roadmap-detail {
+  background: var(--neutral-00);
+  border: 1px solid var(--neutral-200);
+}
+
+.wolf-roadmap-gantt {
+  padding: 22px 22px 10px;
+}
+
+.wolf-roadmap-detail {
+  padding: 22px;
+  position: sticky;
+  top: 28px;
+}
+
+.wolf-roadmap-header {
+  display: grid;
+  grid-template-columns: minmax(180px, 0.95fr) minmax(0, 1.05fr);
+  gap: 16px;
+  align-items: end;
+  padding-bottom: 18px;
+  border-bottom: 1px solid var(--neutral-200);
+}
+
+.wolf-roadmap-kicker,
+.wolf-roadmap-row-label,
+.wolf-roadmap-detail-label,
+.wolf-roadmap-mobile-label,
+.wolf-roadmap-caption,
+.wolf-roadmap-mobile-scale span,
+.wolf-roadmap-detail-team,
+.wolf-roadmap-mobile-team {
+  font-family: 'PPNeueMontrealMono', monospace;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.wolf-roadmap-kicker,
+.wolf-roadmap-row-label,
+.wolf-roadmap-detail-label,
+.wolf-roadmap-mobile-label {
+  font-size: 10px;
+  color: var(--blue-500);
+}
+
+.wolf-roadmap-caption {
+  margin-top: 8px;
+  font-size: 10px;
+  color: var(--neutral-500);
+}
+
+.wolf-roadmap-scale {
+  display: grid;
+  grid-template-columns: repeat(9, minmax(0, 1fr));
+  gap: 8px;
+}
+
+.wolf-roadmap-scale span {
+  text-align: center;
+  font-family: 'PPNeueMontrealMono', monospace;
+  font-size: 10px;
+  color: var(--neutral-500);
+  letter-spacing: 0.08em;
+}
+
+.wolf-roadmap-rows {
+  margin-top: 6px;
+}
+
+.wolf-roadmap-row {
+  display: grid;
+  grid-template-columns: minmax(180px, 0.95fr) minmax(0, 1.05fr);
+  gap: 16px;
+  align-items: center;
+  padding: 14px 0;
+  border-bottom: 1px solid var(--neutral-200);
+}
+
+.wolf-roadmap-row-copy {
+  appearance: none;
+  background: transparent;
+  border: 0;
+  padding: 0;
+  margin: 0;
+  text-align: left;
+  cursor: pointer;
+  transition: opacity 0.2s ease;
+}
+
+.wolf-roadmap-row-copy:hover,
+.wolf-roadmap-row-copy.active {
+  opacity: 1;
+}
+
+.wolf-roadmap-row-copy:focus-visible,
+.wolf-roadmap-bar:focus-visible,
+.wolf-roadmap-mobile-trigger:focus-visible {
+  outline: 2px solid var(--blue-500);
+  outline-offset: 4px;
+}
+
+.wolf-roadmap-row-copy:not(.active) {
+  opacity: 0.72;
+}
+
+.wolf-roadmap-row-title {
+  display: block;
+  margin-top: 6px;
+  font-size: 18px;
+  line-height: 1;
+  letter-spacing: -0.02em;
+  color: var(--neutral-900);
+}
+
+.wolf-roadmap-row-lane {
+  position: relative;
+}
+
+.wolf-roadmap-lane-grid {
+  display: grid;
+  grid-template-columns: repeat(9, minmax(0, 1fr));
+  gap: 8px;
+}
+
+.wolf-roadmap-grid-cell {
+  height: 16px;
+  border-radius: 999px;
+  background: linear-gradient(180deg, rgba(35, 41, 55, 0.04), rgba(35, 41, 55, 0.08));
+}
+
+.wolf-roadmap-bar {
+  position: absolute;
+  inset: 0 auto 0 0;
+  display: grid;
+  grid-template-columns: repeat(9, minmax(0, 1fr));
+  width: 100%;
+  background: transparent;
+  border: 0;
+  padding: 0;
+  cursor: pointer;
+}
+
+.wolf-roadmap-bar-fill {
+  height: 16px;
+  border-radius: 999px;
+  background: rgba(36, 89, 255, 0.16);
+  border: 1px solid rgba(36, 89, 255, 0.18);
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.2);
+  transition: background 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
+}
+
+.wolf-roadmap-bar.active .wolf-roadmap-bar-fill,
+.wolf-roadmap-bar:hover .wolf-roadmap-bar-fill {
+  background: linear-gradient(90deg, rgba(36, 89, 255, 0.92), rgba(92, 128, 255, 0.86));
+  border-color: rgba(36, 89, 255, 0.96);
+  transform: translateY(-1px);
+}
+
+.wolf-roadmap-detail-title {
+  margin-top: 10px;
+  font-size: 32px;
+  line-height: 0.96;
+  letter-spacing: -0.03em;
+}
+
+.wolf-roadmap-detail-objective,
+.wolf-roadmap-mobile-objective {
+  margin-top: 14px;
+  color: var(--neutral-600);
+}
+
+.wolf-roadmap-detail-list,
+.wolf-roadmap-mobile-list {
+  list-style: none;
+  display: grid;
+  gap: 10px;
+  margin-top: 18px;
+}
+
+.wolf-roadmap-detail-list li,
+.wolf-roadmap-mobile-list li {
+  position: relative;
+  padding-left: 16px;
+  color: var(--neutral-600);
+}
+
+.wolf-roadmap-detail-list li::before,
+.wolf-roadmap-mobile-list li::before {
+  content: '';
+  position: absolute;
+  top: 0.72em;
+  left: 0;
+  width: 6px;
+  height: 6px;
+  border-radius: 999px;
+  background: var(--blue-500);
+}
+
+.wolf-roadmap-detail-team,
+.wolf-roadmap-mobile-team {
+  margin-top: 18px;
+  font-size: 10px;
+  color: var(--neutral-600);
+}
+
+.wolf-roadmap-mobile-scale {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+  padding-bottom: 14px;
+  border-bottom: 1px solid var(--neutral-200);
+}
+
+.wolf-roadmap-mobile-scale span {
+  font-size: 10px;
+  color: var(--neutral-500);
+}
+
+.wolf-roadmap-mobile-scale span.active {
+  color: var(--blue-500);
+}
+
+.wolf-roadmap-mobile-cards {
+  margin-top: 14px;
+  display: grid;
+  gap: 1px;
+  background: var(--neutral-200);
+}
+
+.wolf-roadmap-mobile-card {
+  background: var(--neutral-00);
+}
+
+.wolf-roadmap-mobile-trigger {
+  width: 100%;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 18px 16px;
+  border: 0;
+  background: transparent;
+  text-align: left;
+  cursor: pointer;
+}
+
+.wolf-roadmap-mobile-trigger-copy {
+  display: grid;
+  gap: 6px;
+}
+
+.wolf-roadmap-mobile-title {
+  font-size: 22px;
+  line-height: 0.98;
+  letter-spacing: -0.02em;
+  color: var(--neutral-900);
+}
+
+.wolf-roadmap-mobile-icon {
+  font-size: 18px;
+  line-height: 1;
+  color: var(--blue-500);
+  flex-shrink: 0;
+}
+
+.wolf-roadmap-mobile-panel {
+  overflow: hidden;
+  padding: 0 16px 18px;
+}
+
 .nn-prototype-layout {
   display: grid;
   grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.15fr);
@@ -2772,6 +3059,14 @@ a {
   .operations-scene-label-right {
     right: 18px;
     bottom: 18px;
+  }
+
+  .wolf-roadmap-desktop {
+    display: none;
+  }
+
+  .wolf-roadmap-mobile {
+    display: block;
   }
 
   .editorial-pipeline-row {
