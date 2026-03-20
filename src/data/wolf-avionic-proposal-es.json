@@ -1,6 +1,6 @@
 {
   "meta": {
-    "title": "El control operativo no debería\nromperse cuando escalas.",
+    "title": "El control operativo\nno debería romperse\ncuando escalas.",
     "deck": "AIROPS centraliza operaciones, pilotos, aeronaves, documentación y validación en un único flujo estructurado para operadoras de drones.",
     "stats": [
       { "label": "Arquitectura", "value": "Cloud multiempresa" },
