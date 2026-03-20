@@ -1,9 +1,11 @@
-import { useEffect, useMemo, useState } from 'react';
+import { Suspense, lazy, useEffect, useMemo, useState } from 'react';
 import SectionWrapper from '../components/SectionWrapper';
 import Footer from '../components/Footer';
 import ProposalHero from '../components/ProposalHero';
 import dataEn from '../data/wolf-avionic-proposal.json';
 import dataEs from '../data/wolf-avionic-proposal-es.json';
+
+const OperationsMeshScene = lazy(() => import('../components/OperationsMeshScene'));
 
 const chromeByLocale = {
   en: {
@@ -32,7 +34,19 @@ const chromeByLocale = {
     teamHeaders: ['Role', 'Allocation', 'Duration'],
     investmentHeaders: ['Team', 'Allocation', 'Weeks', 'Cost'],
     investmentTotalLabel: 'Total investment',
-    investmentNoteLabel: 'Included in this phase'
+    investmentNoteLabel: 'Included in this phase',
+    loadingScene: 'Loading operational mesh…',
+    scene: {
+      kicker: 'Operational mesh',
+      title: 'Fragmented inputs become one traceable flow.',
+      body:
+        'Pilots, aircraft, operations, checklists and evidence no longer live in disconnected pockets. AIROPS structures them into one operational chain with a visible record from planning to validation.',
+      labels: {
+        left: { over: 'Inputs', strong: 'Pilots · Aircraft · Docs' },
+        center: { over: 'Core', strong: 'Operational system of record' },
+        right: { over: 'Output', strong: 'Validated operation trace' }
+      }
+    }
   },
   es: {
     pageTitle: 'Tailor Hub x Wolf Avionic: Monitoreo operativo',
@@ -60,7 +74,19 @@ const chromeByLocale = {
     teamHeaders: ['Rol', 'Dedicación', 'Duración'],
     investmentHeaders: ['Equipo', 'Dedicación', 'Semanas', 'Coste'],
     investmentTotalLabel: 'Inversión total',
-    investmentNoteLabel: 'Incluido en esta fase'
+    investmentNoteLabel: 'Incluido en esta fase',
+    loadingScene: 'Cargando malla operativa…',
+    scene: {
+      kicker: 'Malla operativa',
+      title: 'Entradas fragmentadas se convierten en un flujo trazable.',
+      body:
+        'Pilotos, aeronaves, operaciones, checklists y evidencias dejan de vivir en bolsas desconectadas. AIROPS los estructura en una única cadena operativa con registro visible desde planificación hasta validación.',
+      labels: {
+        left: { over: 'Entradas', strong: 'Pilotos · Aeronaves · Docs' },
+        center: { over: 'Core', strong: 'Sistema operativo de registro' },
+        right: { over: 'Salida', strong: 'Traza validada de operación' }
+      }
+    }
   }
 };
 
@@ -246,6 +272,9 @@ export default function WolfAvionicProposalPage() {
 
           <SectionWrapper id="section-03" number="03" title={data.flow.title}>
             <p>{data.flow.intro}</p>
+            <Suspense fallback={<div className="compliance-scene-loading">{ui.loadingScene}</div>}>
+              <OperationsMeshScene copy={ui.scene} />
+            </Suspense>
             <div className="nn-flow-grid">
               {data.flow.steps.map((step) => (
                 <article className="nn-flow-step" key={step.number}>

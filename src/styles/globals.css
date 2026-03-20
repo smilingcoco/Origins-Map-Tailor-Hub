@@ -1737,6 +1737,98 @@ a {
   text-align: center;
 }
 
+.operations-scene-shell {
+  border-top: 1px solid var(--neutral-200);
+  margin-top: 22px;
+}
+
+.operations-scene-copy {
+  padding: 24px 24px 0;
+  max-width: 760px;
+}
+
+.operations-scene-kicker {
+  font-family: 'PPNeueMontrealMono', monospace;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-size: 10px;
+  color: var(--blue-500);
+  margin-bottom: 10px;
+}
+
+.operations-scene-title {
+  font-family: 'PPMori', serif;
+  text-transform: uppercase;
+  font-size: 24px;
+  line-height: 1.04;
+  margin-bottom: 12px;
+}
+
+.operations-scene-body {
+  color: var(--neutral-600);
+  font-size: 15px;
+  max-width: 640px;
+}
+
+.operations-scene-frame {
+  position: relative;
+  height: 480px;
+  margin-top: 16px;
+  background:
+    radial-gradient(circle at 50% 45%, rgba(44, 84, 255, 0.08), transparent 22%),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.36), rgba(248, 248, 246, 0.94));
+  overflow: hidden;
+}
+
+.operations-scene-frame canvas {
+  width: 100% !important;
+  height: 100% !important;
+  display: block;
+}
+
+.operations-scene-label {
+  position: absolute;
+  display: grid;
+  gap: 3px;
+  pointer-events: none;
+  opacity: 0.86;
+  min-width: 170px;
+}
+
+.operations-scene-label span {
+  font-family: 'PPNeueMontrealMono', monospace;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-size: 9px;
+  color: var(--neutral-600);
+}
+
+.operations-scene-label strong {
+  font-family: 'PPMori', serif;
+  text-transform: uppercase;
+  font-size: 16px;
+  line-height: 1.04;
+  color: var(--neutral-900);
+}
+
+.operations-scene-label-left {
+  left: 24px;
+  top: 34px;
+}
+
+.operations-scene-label-center {
+  left: 50%;
+  top: 34px;
+  transform: translateX(-50%);
+  text-align: center;
+}
+
+.operations-scene-label-right {
+  right: 24px;
+  bottom: 28px;
+  text-align: right;
+}
+
 .nn-problem-diagram {
   display: grid;
   grid-template-columns: 1fr 1.1fr 1fr;
@@ -2672,6 +2764,15 @@ a {
     height: 400px;
   }
 
+  .operations-scene-frame {
+    height: 400px;
+  }
+
+  .operations-scene-label-right {
+    right: 18px;
+    bottom: 18px;
+  }
+
   .editorial-pipeline-row {
     padding: 18px 18px 22px;
   }
@@ -2801,6 +2902,53 @@ a {
     padding: 10px 24px;
     flex: 1 1 calc(50% - 4px);
     text-align: center;
+  }
+
+  .operations-scene-copy {
+    padding: 18px 18px 0;
+  }
+
+  .operations-scene-title {
+    font-size: 20px;
+  }
+
+  .operations-scene-body {
+    font-size: 14px;
+  }
+
+  .operations-scene-frame {
+    height: 340px;
+  }
+
+  .operations-scene-label {
+    min-width: auto;
+  }
+
+  .operations-scene-label strong {
+    font-size: 12px;
+  }
+
+  .operations-scene-label span {
+    font-size: 9px;
+  }
+
+  .operations-scene-label-left,
+  .operations-scene-label-center {
+    top: 16px;
+  }
+
+  .operations-scene-label-left {
+    left: 14px;
+  }
+
+  .operations-scene-label-center {
+    width: 160px;
+  }
+
+  .operations-scene-label-right {
+    right: 14px;
+    bottom: 14px;
+    width: 160px;
   }
 
   .proposal-facts-strip {
