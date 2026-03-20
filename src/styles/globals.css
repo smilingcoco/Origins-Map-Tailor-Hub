@@ -120,6 +120,45 @@ a {
   background: var(--neutral-200);
 }
 
+.hub-groups {
+  display: grid;
+  gap: 40px;
+}
+
+.hub-group {
+  display: grid;
+  gap: 18px;
+}
+
+.hub-group-header {
+  display: grid;
+  gap: 8px;
+}
+
+.hub-group-kicker {
+  font-family: 'PPNeueMontrealMono', monospace;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-size: 10px;
+  color: var(--blue-500);
+  margin-bottom: 0;
+}
+
+.hub-group-title {
+  font-family: 'PPMori', serif;
+  text-transform: uppercase;
+  font-size: 28px;
+  letter-spacing: -0.01em;
+  line-height: 1;
+}
+
+.hub-group-desc {
+  max-width: 720px;
+  font-size: 15px;
+  color: var(--neutral-600);
+  margin-bottom: 0;
+}
+
 .hub-card {
   background: var(--neutral-00);
   padding: 24px;
@@ -2393,6 +2432,14 @@ a {
     font-size: 16px;
   }
 
+  .hub-groups {
+    gap: 32px;
+  }
+
+  .hub-group-title {
+    font-size: 22px;
+  }
+
   .hub-card-title {
     font-size: 22px;
   }
@@ -2551,6 +2598,10 @@ a {
 
   .hub-subtitle {
     font-size: 15px;
+  }
+
+  .hub-group-title {
+    font-size: 20px;
   }
 
   .hub-card {

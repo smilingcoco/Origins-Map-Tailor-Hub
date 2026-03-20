@@ -15,15 +15,15 @@ function getRoute() {
 export default function App() {
   const route = getRoute();
 
-  if (route === '/origins-map') {
+  if (route === '/internal/origins-map' || route === '/origins-map') {
     return <OriginsMapPage />;
   }
 
-  if (route === '/benchmark-cmss') {
+  if (route === '/internal/benchmark-cmss' || route === '/benchmark-cmss') {
     return <BenchmarkCmssPage />;
   }
 
-  if (route === '/novo-nordisk-compliance') {
+  if (route === '/proposals/novo-nordisk-compliance' || route === '/novo-nordisk-compliance') {
     return <NovoNordiskCompliancePage />;
   }
 
