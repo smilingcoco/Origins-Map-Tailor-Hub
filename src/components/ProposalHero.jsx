@@ -20,6 +20,10 @@ export default function ProposalHero({
 }) {
   const primaryAction = actions?.primary;
   const secondaryAction = actions?.secondary;
+  const titleLines = String(title)
+    .split('\n')
+    .map((line) => line.trim())
+    .filter(Boolean);
 
   return (
     <header className="proposal-hero">
@@ -51,7 +55,15 @@ export default function ProposalHero({
 
         <div className="proposal-hero-content">
           <motion.h1 custom={0.12} variants={rise} initial="hidden" animate="visible" className="proposal-hero-title">
-            {title}
+            {titleLines.length ? (
+              titleLines.map((line, index) => (
+                <span className="proposal-hero-title-line" key={`${line}-${index}`}>
+                  {line}
+                </span>
+              ))
+            ) : (
+              title
+            )}
           </motion.h1>
           <motion.p custom={0.2} variants={rise} initial="hidden" animate="visible" className="proposal-hero-subtitle">
             {subtitle}

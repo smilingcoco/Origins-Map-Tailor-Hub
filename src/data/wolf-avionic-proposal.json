@@ -1,6 +1,6 @@
 {
   "meta": {
-    "title": "Operational control shouldn't break as you scale.",
+    "title": "Operational control\nshouldn't break as you scale.",
     "deck": "AIROPS centralizes operations, pilots, aircraft, documentation and validation into one structured workflow for drone operators.",
     "stats": [
       { "label": "Architecture", "value": "Multi-company cloud" },

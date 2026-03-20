@@ -203,7 +203,8 @@ export default function WolfAvionicProposalPage() {
         <ProposalHero
           title={data.meta.title}
           subtitle={data.meta.deck}
-          facts={data.meta.stats}
+          imageSrc="/wolf-avionic-hero.png"
+          imageAlt="Abstract green and blue motion background"
           actions={{
             primary: { href: '#section-03', label: ui.heroPrimaryCta },
             secondary: { href: '#section-09', label: ui.heroSecondaryCta }
