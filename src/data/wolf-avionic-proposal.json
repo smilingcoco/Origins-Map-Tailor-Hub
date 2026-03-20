@@ -1,392 +1,316 @@
 {
   "meta": {
-    "label": "Tailor Hub x Wolf Avionic",
-    "title": "Operational monitoring",
-    "subtitle": "shouldn't take weeks.",
+    "title": "Operational control shouldn't break as you scale.",
+    "deck": "AIROPS centralizes operations, pilots, aircraft, documentation and validation into one structured workflow for drone operators.",
     "stats": [
-      { "label": "Use case", "value": "Operational monitoring" },
-      { "label": "Systems", "value": "2 disconnected sources" },
-      { "label": "Timeline", "value": "16 weeks" },
-      { "label": "Team", "value": "Senior dedicated squad" },
-      { "label": "Version", "value": "0.2 · Mar 2026" }
-    ]
-  },
-  "hero": {
-    "intro": [
-      "Wolf Avionic cross-checks operational records, supplier activity and supporting evidence every month. Two systems. No connection. Weeks of delay before an anomaly is caught.",
-      "This platform changes that."
-    ],
-    "quickStats": [
-      { "label": "Systems", "value": "2" },
-      { "label": "Integration", "value": "0" },
-      { "label": "Detection speed", "value": "Weeks, not hours" }
+      { "label": "Architecture", "value": "Multi-company cloud" },
+      { "label": "Timeline", "value": "9 weeks" },
+      { "label": "Traceability", "value": "Full operation record" },
+      { "label": "Devices", "value": "Tablet-ready UX" }
     ]
   },
   "problem": {
-    "title": "Two systems. Zero integration.",
+    "title": "As operations grow, fragmentation becomes risk.",
+    "intro": "Watofly is built for drone operators that need one place to plan, execute, control and audit their operations. As fleets, pilots and missions grow, critical information starts spreading across people, folders and disconnected systems.",
     "left": {
       "name": "Flight Ops ERP",
-      "items": ["Expenses", "Tickets", "Meals", "Hotels", "Event photos"]
+      "items": ["Pilots", "Aircraft", "Operations", "Permissions"]
     },
     "center": {
       "title": "The gap",
-      "body": "Every month, someone in your team opens two systems, exports data, and spends days looking for discrepancies. Sometimes they find them. Sometimes they don't.",
-      "metric": "Anomaly detection: weeks, not hours"
+      "body": "Distributed information creates operational risk: inconsistent execution, weak auditability, duplicated work and less control over who flew what, when and under which conditions.",
+      "metric": "Growth without structure creates safety risk"
     },
     "right": {
-      "name": "Maintenance Records Hub",
-      "items": ["Maintenance logs", "Operator records", "Supplier data"]
+      "name": "Documentation layer",
+      "items": ["Evidence", "Checklists", "Drive files", "Validation"]
     }
   },
-  "solution": {
-    "title": "How it works.",
-    "intro": "The platform connects both systems, applies every compliance rule automatically, and flags what needs a human decision. In hours, not weeks.",
-    "pillars": [
+  "mvp": {
+    "title": "A usable MVP, built for real operations.",
+    "intro": "This phase is not about building the entire platform from day one. It is about building the first usable version of AIROPS: one that operators can actually use, validate and improve through real workflows.",
+    "items": [
+      {
+        "title": "Validate real product usage",
+        "body": "Put the product in front of operators early and learn from actual operational behaviour, not assumptions."
+      },
+      {
+        "title": "Centralize the operational core",
+        "body": "Bring operations, users, aircraft and documentation into one controlled system of record."
+      },
+      {
+        "title": "Reduce operational error",
+        "body": "Replace ad-hoc execution with structured flows, checklists and role-based actions."
+      },
+      {
+        "title": "Lay the foundation to scale",
+        "body": "Build the first version on a modular architecture prepared for future integrations and product growth."
+      }
+    ]
+  },
+  "flow": {
+    "title": "One operational flow, end to end.",
+    "intro": "AIROPS connects planning, execution and validation in one operational chain. Every relevant action stays structured, visible and traceable from creation to closure.",
+    "steps": [
       {
         "number": "01",
-        "title": "Intelligent data integration",
-        "body": "Flight Ops ERP and Maintenance Records Hub connected into a single automated workflow. Daily scheduled sync. Resilient ingestion via Azure Service Bus."
+        "title": "Login",
+        "body": "The system identifies company and role from the first access."
       },
       {
         "number": "02",
-        "title": "AI-powered compliance engine",
-        "body": "Document Intelligence reads every ticket: vendor, date, amounts and categories. Image Analysis v4 counts assets and detects prohibited items in photos. Automatically correlated with maintenance and operator records."
+        "title": "Setup",
+        "body": "Admins create pilots, aircraft and the minimum structure required to operate."
       },
       {
         "number": "03",
-        "title": "Business rules",
-        "body": "Every operational rule codified. Spend caps, disallowed vendors, required evidence per activity type. Cross-source correlation. Risk scoring with full audit trail."
+        "title": "Create operation",
+        "body": "Operations are planned with date, pilot, aircraft, location and notes."
       },
       {
         "number": "04",
-        "title": "Operational dashboard",
-        "body": "Alert inbox prioritized by severity and SLA. Case explorer with advanced filters. Each case shows the triggering rule, AI confidence, linked evidence, and four decision options: Validate, Not valid, Request evidence, Close."
+        "title": "Execute",
+        "body": "Pilots access their assigned work from a personal operational view."
       },
       {
         "number": "05",
-        "title": "Enterprise infrastructure",
-        "body": "Azure-native. Azure AD SSO. Key Vault for secrets. CI/CD pipelines. Full audit trail for audits and inspections."
-      }
-    ]
-  },
-  "prototype": {
-    "title": "An early prototype already exists.",
-    "body": "It helps make the proposal more tangible by showing a first version of the interface, navigation and key platform flows.",
-    "url": null,
-    "cta": "Prototype link pending",
-    "highlights": [
-      "Dashboard overview",
-      "Evidence queue",
-      "Case review flow"
-    ]
-  },
-  "scope": {
-    "title": "What we build, phase by phase.",
-    "intro": "Two tracks running in parallel: design and development. Each phase has a clear deliverable. Nothing moves forward without it.",
-    "tracks": [
-      {
-        "id": "design",
-        "title": "Design track",
-        "label": "Design · 6-8 weeks · Sprints 1-9",
-        "phases": [
-          {
-            "title": "Phase 1 — Compliance Alignment",
-            "deliverable": "Functional map + acceptance criteria per module",
-            "details": [
-              "Kickoff with Legal (LECQ) and Compliance, supported by an IT interlocutor.",
-              "Review of rules, evidences, and KPI/SLA definitions.",
-              "Mapping of available data fields relevant to the UI."
-            ]
-          },
-          {
-            "title": "Phase 2 — UX Definition",
-            "deliverable": "High-fidelity wireframes + rules scheme visible in UI",
-            "details": [
-              "Information architecture across all modules: Login, Inbox, Cases, Detail, Matrix, Projects, Metrics, Settings.",
-              "User flows and system states modelled."
-            ]
-          },
-          {
-            "title": "Phase 3 — UI Concept & Foundations",
-            "deliverable": "Design foundations — typography, spacing, component base",
-            "details": [
-              "Visual language, severity color coding, hierarchy of risks.",
-              "Accessibility principles and state handling: empty, error, loading."
-            ]
-          },
-          {
-            "title": "Phase 4 — MVP Design & Prototyping",
-            "deliverable": "Figma file with full specifications",
-            "details": [
-              "Detailed design of all screens and states.",
-              "Navigable prototype built for validation with your team."
-            ]
-          },
-          {
-            "title": "Phase 5 — Documentation & Handoff",
-            "deliverable": "Handoff package — Figma specs + QA checklist",
-            "details": [
-              "Design system documentation and usage patterns.",
-              "QA acceptance criteria defined per module."
-            ]
-          },
-          {
-            "title": "Phase 6 — QA Design Support",
-            "deliverable": "QA feedback logs + design sign-off",
-            "details": [
-              "Visual and functional reviews during development.",
-              "Microcopy adjustments, accessibility compliance validated."
-            ]
-          }
-        ]
+        "title": "Checklist",
+        "body": "Start and closing checklists create operational traceability at the right moment."
       },
       {
-        "id": "development",
-        "title": "Development track",
-        "label": "Development · 14-16 weeks · Sprints 2-9",
-        "phases": [
-          {
-            "title": "Phase 1 — Data Preparation",
-            "deliverable": "API routes + validated test datasets",
-            "details": [
-              "API routes defined for Flight Ops ERP and Maintenance Records Hub.",
-              "Sample dataset collected — ~100 tickets and associated photos.",
-              "Data completeness validated against key monitoring rules.",
-              "AI confidence acceptance criteria defined for document parsing and image recognition.",
-              "Gaps in data availability identified, mitigations planned."
-            ]
-          },
-          {
-            "title": "Phase 2 — Data Acquisition",
-            "deliverable": "Working ingestion architecture",
-            "details": [
-              "Azure Service Bus queues designed for ticket, photo, and event data.",
-              "Azure Functions triggers implemented for incoming messages.",
-              "Data schema consistency ensured across sources.",
-              "Logging and retry policies added for resilience."
-            ]
-          },
-          {
-            "title": "Phase 3 — AI Pipelines",
-            "deliverable": "Working pipeline validated with test data",
-            "details": [
-              "Document Intelligence: structured extraction from tickets — vendor, date, total, alcohol items.",
-              "Image Analysis v4: people counting, object detection, captioning — beverages, meeting setup.",
-              "Outputs normalized into a unified format.",
-              "Error handling for AI timeouts and low-confidence results."
-            ]
-          },
-          {
-            "title": "Phase 4 — Business Rules & Correlation",
-            "deliverable": "Rules engine + risk scoring live",
-            "details": [
-              "Ticket rules: alcohol limits, daily/monthly spend caps, disallowed vendors — Glovo, supermarkets.",
-              "Photo rules: attendee matching, prohibited item detection.",
-              "Document rules: required evidence per activity type, event detail matching.",
-              "Temporal correlation between tickets, photos, and NVE records.",
-              "Risk scores and metadata generated for every alert."
-            ]
-          },
-          {
-            "title": "Phase 5 — Dashboard & UX",
-            "deliverable": "Working dashboard in staging",
-            "details": [
-              "Next.js dashboard: alert listings, filters by date, type, risk score, and employee.",
-              "Detail view per alert with linked tickets, photos, and records.",
-              "Real-time notifications for high-risk cases.",
-              "Azure Functions endpoints serving dashboard data securely."
-            ]
-          },
-          {
-            "title": "Phase 6 — Security, Monitoring & Deployment",
-            "deliverable": "Infrastructure deployed with CI/CD",
-            "details": [
-              "Azure AD integrated for authentication and role-based permissions.",
-              "Secrets managed via Azure Key Vault.",
-              "Alert thresholds configured — financial limits, repetition rules.",
-              "Infrastructure as code. CI/CD pipelines via Azure DevOps / GitHub Actions."
-            ]
-          },
-          {
-            "title": "Phase 7 — QA",
-            "deliverable": "Validated production system + full documentation",
-            "details": [
-              "End-to-end functional and integration tests.",
-              "User acceptance testing with Wolf Avionic compliance and IT teams.",
-              "AI outputs validated against manual checks.",
-              "Full technical and functional documentation delivered."
-            ]
-          }
-        ]
+        "number": "06",
+        "title": "Upload evidence",
+        "body": "Photos, videos and documents are attached to the operation file in Google Drive."
+      },
+      {
+        "number": "07",
+        "title": "Validate",
+        "body": "Admins review data and documentation, then validate or flag issues."
+      },
+      {
+        "number": "08",
+        "title": "Review",
+        "body": "Teams filter and consult operations through a minimal operational control layer."
       }
     ]
   },
-  "pipelines": {
-    "title": "Two pipelines. Tickets and photos.",
-    "intro": "Each one runs automatically. Each one generates evidence. Each one flags what needs a decision.",
+  "role": {
+    "title": "What Tailor is responsible for.",
+    "intro": "Tailor is not only building screens. We are defining how the operational core of the product should behave across architecture, workflows, safety and future evolution.",
     "items": [
       {
-        "title": "Pipeline 1 — Tickets",
-        "steps": [
-          "Ticket",
-          "Validation rules",
-          "OCR (Document Intelligence)",
-          "Structured extraction (vendor, date, total, alcohol)",
-          "Alert"
+        "title": "Architecture and security",
+        "body": "Multi-company cloud setup, authentication, sessions, roles and protection of critical operational data."
+      },
+      {
+        "title": "Operational core design",
+        "body": "Data model and workflow logic for users, pilots, UAS, operations and documentation."
+      },
+      {
+        "title": "UX for real field operations",
+        "body": "Clear interfaces designed for tablets and iPads, reducing friction in critical day-to-day actions."
+      },
+      {
+        "title": "Scalability and future evolution",
+        "body": "Modular codebase prepared for future integrations, product growth and more advanced operational capabilities."
+      }
+    ]
+  },
+  "security": {
+    "title": "Built for operational trust.",
+    "intro": "Security is part of the product definition from the beginning. AIROPS needs to protect sensitive operational data while keeping execution practical for the teams that use it every day.",
+    "columns": [
+      {
+        "title": "Platform security",
+        "points": [
+          "Authentication by user and role",
+          "Access control by operator company",
+          "Secure session management",
+          "Sensitive data protection",
+          "Controlled document access",
+          "Audit trail of operations and changes"
         ]
       },
       {
-        "title": "Pipeline 2 — Photos",
-        "steps": [
-          "Photo",
-          "Image Analysis v4",
-          "People counting + Object detection",
-          "Correlation with reported attendees",
-          "Alert if discrepancy"
+        "title": "What Tailor brings",
+        "points": [
+          "Architecture designed for critical operational use",
+          "Workflows that reduce human error",
+          "Centralized information without parallel systems",
+          "Maintainable codebase prepared for growth",
+          "Continuous technical partnership beyond launch"
         ]
+      }
+    ]
+  },
+  "stack": {
+    "title": "A stack chosen for control and future evolution.",
+    "intro": "The proposed stack favors maintainability, traceability and predictable evolution over unnecessary complexity.",
+    "items": [
+      {
+        "title": "Frontend",
+        "body": "Modern JavaScript frontend with modular architecture, responsive UI and reusable components for forms, tables and dashboards."
+      },
+      {
+        "title": "Backend",
+        "body": "Node.js API with secure role management, session handling and business logic kept separate from the interface layer."
+      },
+      {
+        "title": "Database",
+        "body": "MySQL relational model designed for traceability, auditability and operational history."
+      },
+      {
+        "title": "Infrastructure",
+        "body": "Cloud deployment with separated environments, secure secrets management and horizontal scalability as the product grows."
+      }
+    ]
+  },
+  "roadmap": {
+    "title": "From definition to go-live in 9 weeks.",
+    "intro": "The roadmap is designed to get a first usable version of AIROPS into production quickly, while keeping enough structure to support future iterations.",
+    "weeks": [
+      {
+        "label": "Week 1",
+        "title": "Definition, design and architecture",
+        "objective": "Set the foundations of the product.",
+        "items": [
+          "Functional definition of the MVP",
+          "Technical architecture for multi-company access and roles",
+          "Initial data model",
+          "Design of the main flows",
+          "Base UI component direction"
+        ],
+        "team": ["PM", "UI Designer"]
+      },
+      {
+        "label": "Week 2",
+        "title": "Core users, roles and security",
+        "objective": "Make access and control work.",
+        "items": [
+          "Authentication",
+          "Role system for admin and user",
+          "Session management",
+          "Tenant base structure"
+        ],
+        "team": ["PM", "Backend", "Frontend"]
+      },
+      {
+        "label": "Week 3",
+        "title": "Operations core",
+        "objective": "Define the heart of the product.",
+        "items": [
+          "Operation model",
+          "Operation creation",
+          "Relations between users and aircraft"
+        ],
+        "team": ["PM", "Backend", "Frontend"]
+      },
+      {
+        "label": "Week 4",
+        "title": "Operational calendar",
+        "objective": "Create the planning layer.",
+        "items": [
+          "Calendar view by day and week",
+          "Pilot assignment",
+          "Aircraft assignment",
+          "Operations visualization"
+        ],
+        "team": ["PM", "Backend", "Frontend"]
+      },
+      {
+        "label": "Week 5",
+        "title": "Administrative management",
+        "objective": "Control users and resources.",
+        "items": [
+          "Create and manage users",
+          "Create and manage aircraft",
+          "Basic validations"
+        ],
+        "team": ["PM", "Backend", "Frontend"]
+      },
+      {
+        "label": "Week 6",
+        "title": "Operation files and documentation",
+        "objective": "Build document traceability.",
+        "items": [
+          "Operation file structure",
+          "File upload to Google Drive",
+          "Document association to operations"
+        ],
+        "team": ["PM", "Backend", "Frontend"]
+      },
+      {
+        "label": "Week 7",
+        "title": "Operational user flow",
+        "objective": "Support real day-to-day usage.",
+        "items": [
+          "User access flow",
+          "Personal calendar view",
+          "Start and end checklists",
+          "Operational activity tracking"
+        ],
+        "team": ["PM", "Backend", "Frontend"]
+      },
+      {
+        "label": "Week 8",
+        "title": "Testing and adjustments",
+        "objective": "Stabilize the product.",
+        "items": [
+          "Functional testing",
+          "Bug fixing",
+          "UX adjustments",
+          "Basic optimization"
+        ],
+        "team": ["PM", "Backend", "Frontend"]
+      },
+      {
+        "label": "Week 9",
+        "title": "Production preparation and deploy",
+        "objective": "Go live.",
+        "items": [
+          "Production environment setup",
+          "Final validation",
+          "Basic documentation",
+          "Go-live"
+        ],
+        "team": ["PM"]
       }
     ]
   },
   "team": {
-    "title": "A team built for this project.",
+    "title": "A lean team built for speed and ownership.",
     "intro": [
-      "We work inside your team's rhythm — same tools, same channels, same weekly cadence. Not as a vendor you check in with once a week.",
-      "One shared context from day one. A living roadmap that adapts weekly. Knowledge that never gets lost when the team reconfigures."
+      "The team is intentionally compact: enough to move quickly, with clear accountability across product, backend, frontend and design.",
+      "This setup is designed to define, build and launch the first operational version of AIROPS without overbuilding the organization around it."
     ],
     "roles": [
-      ["Project Manager", "80%", "14-16 weeks"],
-      ["Tech Lead", "100%", "14-16 weeks"],
-      ["Senior Software Engineer", "100%", "14-16 weeks"],
-      ["Senior Backend Engineer", "100%", "14-16 weeks"],
-      ["DevOps Engineer", "100%", "3 weeks"],
-      ["Lead Designer", "100-75%", "6-8 weeks"],
-      ["Product Designer", "100%", "6-8 weeks"],
-      ["QA", "100%", "60 hours"]
-    ]
-  },
-  "comparison": {
-    "title": "You've worked with a consultancy before.",
-    "subtitle": "Here's what's different.",
-    "rows": [
-      ["Team", "Junior rotation, knowledge loss", "Dedicated senior team, full continuity"],
-      ["Speed", "6-12 months, heavy governance", "16 weeks, 15-day sprints"],
-      ["Stack", "Proprietary, vendor lock-in", "Azure-native, open standards"],
-      ["AI", "Generic PoCs, outsourced", "Azure Cognitive Services, integrated E2E"],
-      ["Cost", "€300K–500K+", "€173K–198K, full senior team"],
-      ["Post-launch", "Expensive maintenance", "€3,152/mo — same team that built it"]
-    ]
-  },
-  "cases": {
-    "title": "We've done this before.",
-    "intro": "Cargill. dormakaba. Inditex. Different industries, same challenge: complex data, high stakes, no margin for error.",
-    "items": [
-      {
-        "title": "Cargill: The flight radar of maritime logistics",
-        "label": "Data · Anomaly detection · Global scale",
-        "body": [
-          "Cargill needed real-time visibility across a global fleet handling sensitive logistics data.",
-          "We built a platform that consolidated contract management, vessel tracking, and automated invoice validation into a single system.",
-          "The impact was significant enough that the platform led to a multi-million dollar acquisition by Veson Nautical."
-        ],
-        "metrics": [
-          ["6 months", "from dashboard launch to acquisition"],
-          ["+12%", "operational efficiency"],
-          ["+100", "vessels tracked"]
-        ]
-      },
-      {
-        "title": "Cargill: The camera sees what the schedule doesn't",
-        "label": "Computer vision · Predictive analytics",
-        "body": [
-          "Older vessels accumulate biological growth on their hulls. It doesn't trigger alarms — but it quietly increases fuel consumption per voyage.",
-          "We built a system that tracks each voyage continuously and flags the gap between what the data predicts and what actually happens.",
-          "The diagnosis that used to require weeks of manual review now happens while the ship is still at sea."
-        ],
-        "metrics": [
-          ["Real time", "voyage monitoring"],
-          ["At sea", "issue detection before docking"],
-          ["Weeks to hours", "review cycle reduction"]
-        ]
-      },
-      {
-        "title": "dormakaba: +40 countries. One headless website.",
-        "label": "Contentful · Headless CMS · Enterprise",
-        "body": [
-          "dormakaba needed to overhaul a complex, multilingual corporate site with dozens of local variants.",
-          "We replaced their legacy stack with a modern headless architecture — now considered a global benchmark in Contentful implementation.",
-          "Three years later, our team of 9 engineers is still their tech partner."
-        ],
-        "metrics": [
-          ["+3 years", "working as tech partners"],
-          ["-10%", "reduction in load times"],
-          ["48%", "cost savings in development"]
-        ],
-        "quote": "We were looking at how easy it would be to work and communicate with them. And Tailor Hub fits that."
-      }
-    ]
-  },
-  "roi": {
-    "title": "What changes from day one.",
-    "intro": "These aren't projections. They're what happens when manual cross-checking gets replaced by a system that runs every night.",
-    "metrics": [
-      ["70-90%", "reduction in manual compliance checks"],
-      ["24h", "anomaly detection instead of weeks"],
-      ["100%", "audit trail for audits and inspections"],
-      ["1", "unified monitoring interface for all expense and event data"]
+      ["Project Manager", "30%", "9 weeks"],
+      ["Backend Engineer", "100%", "8 weeks"],
+      ["Frontend Engineer", "100%", "8-10 weeks"],
+      ["UI Designer", "100%", "2.5-3 weeks"]
     ]
   },
   "investment": {
     "title": "The investment.",
-    "intro": "Three phases. The same senior team throughout. No handoffs, no knowledge loss between stages.",
-    "phases": [
-      ["Phase 1 — Design", "€38,700–43,900", "Figma specs + interactive prototype"],
-      ["Phase 2 — Development", "€125,960–144,240", "Deployed functional platform — Backend + AI + Frontend"],
-      ["Phase 3 — QA + Deploy", "€9,000", "Validated production system"]
+    "intro": "A focused team, a defined scope and a first operational release in 9 weeks.",
+    "summary": [
+      ["Roles", "4"],
+      ["Timeline", "9 weeks"],
+      ["Total", "€48,880"]
     ],
-    "total": "€173,660–198,140 (VAT not included)",
-    "postLaunch": [
-      ["Maintenance", "€3,152/month", "Senior Software Engineer (32h) + DevOps (16h) — the same team that built the system."],
-      ["Azure infrastructure", "€400–700/month", "Base infra + AI services. Estimate; varies with usage."]
-    ]
-  },
-  "roadmap": {
-    "title": "9 sprints. 16 weeks.",
-    "intro": "Design and development run in parallel from sprint 3 onwards. 15-day cycles throughout.",
-    "designTrack": [
-      "S1: Compliance Alignment",
-      "S2: UX Definition",
-      "S3-4: UI Concept",
-      "S5-7: MVP Design",
-      "S8: Handoff",
-      "S8-9: QA Support"
+    "rows": [
+      ["Product Manager", "30%", "9 weeks", "€6,480"],
+      ["Backend Engineer", "100%", "8 weeks", "€20,800"],
+      ["Frontend Engineer", "100%", "8 weeks", "€19,200"],
+      ["UI Designer (UX / UI)", "100%", "1 week", "€2,400"]
     ],
-    "devTrack": [
-      "S2-3: Data Preparation",
-      "S3-4: Data Acquisition",
-      "S4-5: AI Pipelines",
-      "S5-6: Business Rules",
-      "S6-7: Dashboard",
-      "S7-8: Security & Deploy",
-      "S8-9: QA",
-      "S9+: Maintenance"
-    ]
-  },
-  "assumptions": {
-    "title": "Project assumptions.",
-    "items": [
-      ["Azure environment", "The solution deploys within Wolf Avionic's existing Azure infrastructure."],
-      ["System access", "API credentials for Flight Ops ERP and Maintenance Records Hub provided by Wolf Avionic."],
-      ["Sample data", "Minimum 100 real tickets and 100 representative photos for initial testing."],
-      ["Stakeholder contacts", "One IT interlocutor and one compliance/legal contact designated from day one."],
-      ["Monitoring activation", "Daily cron job retrieving previous day's data."],
-      ["Face recognition", "Azure Face API excluded from scope; the system counts people but does not identify them."],
-      ["Post-launch", "New features and integrations handled under a separate agreement."]
-    ]
+    "total": "€48,880",
+    "note": "This budget covers the team required to define, build and launch the first usable version of AIROPS, with enough depth to validate real usage and enough structure to support future iterations."
   },
   "contact": {
     "title": "Next step.",
-    "body": "The next step is a 45-minute working session. No slides — just your data and your rules on the table.",
-    "name": "Diego Mendez",
+    "body": "A working session to align scope, priorities and operational assumptions before kickoff.",
+    "name": "Diego Méndez",
     "email": "diego.mendez@tailor-hub.com",
     "phone": "+34 664 756 677"
   },

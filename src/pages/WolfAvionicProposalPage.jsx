@@ -1,136 +1,66 @@
-import { Suspense, lazy, useEffect, useMemo, useState } from 'react';
-import { AnimatePresence, motion } from 'framer-motion';
-import dataEn from '../data/wolf-avionic-proposal.json';
-import dataEs from '../data/wolf-avionic-proposal-es.json';
+import { useEffect, useMemo, useState } from 'react';
 import SectionWrapper from '../components/SectionWrapper';
 import Footer from '../components/Footer';
-import EditorialPipelineDiagram from '../components/EditorialPipelineDiagram';
 import ProposalHero from '../components/ProposalHero';
-
-const ComplianceFlowScene = lazy(() => import('../components/ComplianceFlowScene'));
+import dataEn from '../data/wolf-avionic-proposal.json';
+import dataEs from '../data/wolf-avionic-proposal-es.json';
 
 const chromeByLocale = {
   en: {
-    localeLabel: 'EN',
     pageTitle: 'Tailor Hub x Wolf Avionic: Operational monitoring',
     backToHub: '← Back to hub',
-    heroEyebrow: 'Commercial proposal',
-    heroFooterRight: 'Wolf Avionic · Mar 2026',
-    heroPrimaryCta: 'See the solution ↓',
-    heroSecondaryCta: 'View roadmap',
+    heroPrimaryCta: 'See the flow ↓',
+    heroSecondaryCta: 'View investment',
+    sectionNavAria: 'Section navigation',
+    languageLabel: 'Language',
+    languages: { en: 'EN', es: 'ES' },
     nav: {
-      overview: 'Overview',
       problem: 'Problem',
-      solution: 'Solution',
-      prototype: 'Prototype',
-      scope: 'Scope',
-      pipeline: 'AI pipeline',
+      mvp: 'MVP',
+      flow: 'Flow',
+      role: 'Tailor role',
+      security: 'Security',
+      stack: 'Stack',
+      roadmap: 'Roadmap',
       team: 'Team',
       investment: 'Investment',
-      comparison: 'Why Tailor',
-      cases: 'Cases',
-      roi: 'ROI',
-      roadmap: 'Roadmap',
-      assumptions: 'Assumptions',
       nextStep: 'Next step'
     },
-    overviewTitle: 'Overview',
-    overviewBody:
-      'Wolf Avionic needs a compliance workflow that moves from disconnected manual review to a monitored system that runs continuously, flags real risk, and gives legal and operations teams a faster path to decision.',
-    scanSummaryLabel: 'In 20 seconds',
-    scanSummaryItems: [
-      'Two disconnected systems become one monitored workflow.',
-      'Tickets and photos are checked automatically every day.',
-      'Human review focuses only on the cases that actually need a decision.'
-    ],
     sourceA: 'Source A',
     sourceB: 'Source B',
     gapLabel: 'The gap',
-    scopeTabAria: 'Scope tracks',
-    phases: 'phases',
-    deliverable: 'Deliverable',
-    loadingFlow: 'Loading live flow…',
     teamHeaders: ['Role', 'Allocation', 'Duration'],
-    investmentTotal: 'Total',
-    comparisonHeaders: ['Category', 'Consultancy', 'Tailor Hub'],
-    roadmapLabels: ['Design track', 'Dev track'],
-    sectionNavAria: 'Section navigation',
-    prototypeAria: 'Open Wolf Avionic prototype',
-    languageLabel: 'Language',
-    languages: { en: 'EN', es: 'ES' },
-    scene: {
-      kicker: 'Live correlation engine',
-      title: 'Two data streams. One decision layer.',
-      body:
-        'Flight Ops ERP and Maintenance Records Hub flow into a single correlation engine. Normal cases pass quietly. Signals with real risk pulse out into the alert inbox with evidence attached.',
-      labels: {
-        left: { over: 'Source A', strong: 'Flight Ops ERP' },
-        right: { over: 'Source B', strong: 'Maintenance Records Hub' },
-        center: { over: 'Core', strong: 'AI correlation engine' },
-        bottom: { over: 'Output', strong: 'Prioritized alerts' }
-      }
-    }
+    investmentHeaders: ['Team', 'Allocation', 'Weeks', 'Cost'],
+    investmentTotalLabel: 'Total investment',
+    investmentNoteLabel: 'Included in this phase'
   },
   es: {
-    localeLabel: 'ES',
     pageTitle: 'Tailor Hub x Wolf Avionic: Monitoreo operativo',
     backToHub: '← Volver al hub',
-    heroEyebrow: 'Propuesta comercial',
-    heroFooterRight: 'Wolf Avionic · Mar 2026',
-    heroPrimaryCta: 'Ver la solución ↓',
-    heroSecondaryCta: 'Ver roadmap',
+    heroPrimaryCta: 'Ver el flujo ↓',
+    heroSecondaryCta: 'Ver inversión',
+    sectionNavAria: 'Navegación por secciones',
+    languageLabel: 'Idioma',
+    languages: { en: 'EN', es: 'ES' },
     nav: {
-      overview: 'Resumen',
       problem: 'Problema',
-      solution: 'Solución',
-      prototype: 'Prototipo',
-      scope: 'Scope',
-      pipeline: 'Pipeline IA',
+      mvp: 'MVP',
+      flow: 'Flujo',
+      role: 'Rol Tailor',
+      security: 'Seguridad',
+      stack: 'Stack',
+      roadmap: 'Roadmap',
       team: 'Equipo',
       investment: 'Inversión',
-      comparison: 'Por qué Tailor',
-      cases: 'Casos',
-      roi: 'ROI',
-      roadmap: 'Roadmap',
-      assumptions: 'Supuestos',
       nextStep: 'Siguiente paso'
     },
-    overviewTitle: 'Resumen',
-    overviewBody:
-      'Wolf Avionic necesita un flujo de compliance que pase de una revisión manual desconectada a un sistema monitorizado que corre de forma continua, detecta riesgo real y da a los equipos de legal y operaciones un camino más rápido hacia la decisión.',
-    scanSummaryLabel: 'En 20 segundos',
-    scanSummaryItems: [
-      'Dos sistemas desconectados se convierten en un flujo monitorizado único.',
-      'Los tickets y las fotos se comprueban automáticamente cada día.',
-      'La revisión humana se centra solo en los casos que realmente requieren decisión.'
-    ],
     sourceA: 'Fuente A',
     sourceB: 'Fuente B',
     gapLabel: 'El gap',
-    scopeTabAria: 'Tracks del scope',
-    phases: 'fases',
-    deliverable: 'Entregable',
-    loadingFlow: 'Cargando flujo en vivo…',
     teamHeaders: ['Rol', 'Dedicación', 'Duración'],
-    investmentTotal: 'Total',
-    comparisonHeaders: ['Categoría', 'Consultora', 'Tailor Hub'],
-    roadmapLabels: ['Track de diseño', 'Track de desarrollo'],
-    sectionNavAria: 'Navegación por secciones',
-    prototypeAria: 'Abrir prototipo de Wolf Avionic',
-    languageLabel: 'Idioma',
-    languages: { en: 'EN', es: 'ES' },
-    scene: {
-      kicker: 'Motor de correlación en vivo',
-      title: 'Dos corrientes de datos. Una capa de decisión.',
-      body:
-        'Flight Ops ERP y Maintenance Records Hub fluyen hacia un único motor de correlación. Los casos normales pasan sin ruido. Las señales con riesgo real emergen en la bandeja de alertas con la evidencia asociada.',
-      labels: {
-        left: { over: 'Fuente A', strong: 'Flight Ops ERP' },
-        right: { over: 'Fuente B', strong: 'Maintenance Records Hub' },
-        center: { over: 'Core', strong: 'Motor de correlación IA' },
-        bottom: { over: 'Salida', strong: 'Alertas priorizadas' }
-      }
-    }
+    investmentHeaders: ['Equipo', 'Dedicación', 'Semanas', 'Coste'],
+    investmentTotalLabel: 'Inversión total',
+    investmentNoteLabel: 'Incluido en esta fase'
   }
 };
 
@@ -148,41 +78,25 @@ export default function WolfAvionicProposalPage() {
   const [locale, setLocale] = useState('en');
   const [activeSection, setActiveSection] = useState('section-01');
   const [readingProgress, setReadingProgress] = useState(0);
-  const [activeScopeTrack, setActiveScopeTrack] = useState('design');
-  const [openScopeItems, setOpenScopeItems] = useState({});
 
   const data = locale === 'es' ? dataEs : dataEn;
   const ui = chromeByLocale[locale];
 
-  const activeTrack = data.scope.tracks.find((track) => track.id === activeScopeTrack) ?? data.scope.tracks[0];
-  const inactiveTrack = data.scope.tracks.find((track) => track.id !== activeScopeTrack);
-
   const navSections = useMemo(
     () => [
-      { id: 'section-01', number: '01', title: ui.nav.overview },
-      { id: 'section-02', number: '02', title: ui.nav.problem },
-      { id: 'section-03', number: '03', title: ui.nav.solution },
-      { id: 'section-03a', number: '03A', title: ui.nav.prototype },
-      { id: 'section-03b', number: '03B', title: ui.nav.scope },
-      { id: 'section-04', number: '04', title: ui.nav.pipeline },
-      { id: 'section-05', number: '05', title: ui.nav.team },
-      { id: 'section-09', number: '06', title: ui.nav.investment },
-      { id: 'section-06', number: '07', title: ui.nav.comparison },
-      { id: 'section-07', number: '08', title: ui.nav.cases },
-      { id: 'section-08', number: '09', title: ui.nav.roi },
-      { id: 'section-10', number: '10', title: ui.nav.roadmap },
-      { id: 'section-11', number: '11', title: ui.nav.assumptions },
-      { id: 'section-12', number: '12', title: ui.nav.nextStep }
+      { id: 'section-01', number: '01', title: ui.nav.problem },
+      { id: 'section-02', number: '02', title: ui.nav.mvp },
+      { id: 'section-03', number: '03', title: ui.nav.flow },
+      { id: 'section-04', number: '04', title: ui.nav.role },
+      { id: 'section-05', number: '05', title: ui.nav.security },
+      { id: 'section-06', number: '06', title: ui.nav.stack },
+      { id: 'section-07', number: '07', title: ui.nav.roadmap },
+      { id: 'section-08', number: '08', title: ui.nav.team },
+      { id: 'section-09', number: '09', title: ui.nav.investment },
+      { id: 'section-10', number: '10', title: ui.nav.nextStep }
     ],
     [ui]
   );
-
-  const toggleScopeItem = (key) => {
-    setOpenScopeItems((current) => ({
-      ...current,
-      [key]: !current[key]
-    }));
-  };
 
   useEffect(() => {
     const stored = window.localStorage.getItem('wolf-avionic-locale');
@@ -236,6 +150,7 @@ export default function WolfAvionicProposalPage() {
       <div className="reading-progress" aria-hidden="true">
         <div className="reading-progress-bar" style={{ width: `${readingProgress}%` }} />
       </div>
+
       <div className="proposal-page-toolbar">
         <a className="hub-backlink" href="/">
           {ui.backToHub}
@@ -260,12 +175,12 @@ export default function WolfAvionicProposalPage() {
 
       <div className="app-layout">
         <ProposalHero
-          title={`${data.meta.title} ${data.meta.subtitle}`}
-          subtitle={data.hero.intro[0]}
-          facts={data.hero.quickStats}
+          title={data.meta.title}
+          subtitle={data.meta.deck}
+          facts={data.meta.stats}
           actions={{
             primary: { href: '#section-03', label: ui.heroPrimaryCta },
-            secondary: { href: '#section-10', label: ui.heroSecondaryCta }
+            secondary: { href: '#section-09', label: ui.heroSecondaryCta }
           }}
           brands={[
             { label: 'Tailor Hub', imageSrc: '/isotipo-tailor-black.png' },
@@ -293,19 +208,8 @@ export default function WolfAvionicProposalPage() {
         </aside>
 
         <div className="page-content">
-          <SectionWrapper id="section-01" number="01" title={ui.overviewTitle}>
-            <p>{ui.overviewBody}</p>
-            <div className="scan-summary">
-              <p className="scan-summary-label">{ui.scanSummaryLabel}</p>
-              <ul>
-                {ui.scanSummaryItems.map((item) => (
-                  <li key={item}>{item}</li>
-                ))}
-              </ul>
-            </div>
-          </SectionWrapper>
-
-          <SectionWrapper id="section-02" number="02" title={data.problem.title}>
+          <SectionWrapper id="section-01" number="01" title={data.problem.title}>
+            <p>{data.problem.intro}</p>
             <div className="nn-problem-diagram">
               <article className="nn-system-card">
                 <p className="nn-system-label">{ui.sourceA}</p>
@@ -327,201 +231,92 @@ export default function WolfAvionicProposalPage() {
             </div>
           </SectionWrapper>
 
-          <SectionWrapper id="section-03" number="03" title={data.solution.title}>
-            <p>{data.solution.intro}</p>
-            <Suspense fallback={<div className="compliance-scene-loading">{ui.loadingFlow}</div>}>
-              <ComplianceFlowScene copy={ui.scene} />
-            </Suspense>
-            <div className="nn-pillars-grid">
-              {data.solution.pillars.map((pillar) => (
-                <article className="nn-pillar-card" key={pillar.number}>
-                  <div className="nn-pillar-number">{pillar.number}</div>
-                  <h3 className="nn-pillar-title">{pillar.title}</h3>
-                  <p className="nn-pillar-body">{pillar.body}</p>
+          <SectionWrapper id="section-02" number="02" title={data.mvp.title}>
+            <p>{data.mvp.intro}</p>
+            <div className="nn-editorial-grid">
+              {data.mvp.items.map((item, index) => (
+                <article className="nn-editorial-card" key={item.title}>
+                  <p className="nn-editorial-label">{String(index + 1).padStart(2, '0')}</p>
+                  <h3 className="nn-editorial-title">{item.title}</h3>
+                  <p className="nn-editorial-body">{item.body}</p>
                 </article>
               ))}
             </div>
           </SectionWrapper>
 
-          <SectionWrapper id="section-03a" number="03A" title={data.prototype.title}>
-            <div className="nn-prototype-layout">
-              <div className="nn-prototype-copy">
-                <p>{data.prototype.body}</p>
-                <ul className="nn-prototype-highlights">
-                  {data.prototype.highlights.map((item) => (
-                    <li key={item}>{item}</li>
-                  ))}
-                </ul>
-                {data.prototype.url ? (
-                  <a className="hub-card-link" href={data.prototype.url} target="_blank" rel="noreferrer">
-                    {data.prototype.cta}
-                  </a>
-                ) : (
-                  <span className="hub-card-link disabled">{data.prototype.cta}</span>
-                )}
-              </div>
-
-              {data.prototype.url ? (
-                <a
-                  className="nn-prototype-preview"
-                  href={data.prototype.url}
-                  target="_blank"
-                  rel="noreferrer"
-                  aria-label={ui.prototypeAria}
-                >
-                  <div className="nn-prototype-browserbar">
-                    <span className="nn-prototype-dot" />
-                    <span className="nn-prototype-dot" />
-                    <span className="nn-prototype-dot" />
-                    <span className="nn-prototype-url">{data.prototype.url.replace('https://', '')}</span>
-                  </div>
-                  <div className="nn-prototype-canvas" aria-hidden="true">
-                    <div className="nn-prototype-statline">
-                      <span />
-                      <span />
-                      <span />
-                    </div>
-                    <div className="nn-prototype-columns">
-                      <div className="nn-prototype-sidebar" />
-                      <div className="nn-prototype-main">
-                        <div className="nn-prototype-chart" />
-                        <div className="nn-prototype-table">
-                          <span />
-                          <span />
-                          <span />
-                          <span />
-                        </div>
-                      </div>
-                    </div>
-                    <div className="nn-prototype-tags">
-                      {data.prototype.highlights.map((item) => (
-                        <span key={item}>{item}</span>
-                      ))}
-                    </div>
-                  </div>
-                </a>
-              ) : (
-                <div className="nn-prototype-preview" aria-label={ui.prototypeAria}>
-                  <div className="nn-prototype-browserbar">
-                    <span className="nn-prototype-dot" />
-                    <span className="nn-prototype-dot" />
-                    <span className="nn-prototype-dot" />
-                    <span className="nn-prototype-url">prototype link pending</span>
-                  </div>
-                  <div className="nn-prototype-canvas" aria-hidden="true">
-                    <div className="nn-prototype-statline">
-                      <span />
-                      <span />
-                      <span />
-                    </div>
-                    <div className="nn-prototype-columns">
-                      <div className="nn-prototype-sidebar" />
-                      <div className="nn-prototype-main">
-                        <div className="nn-prototype-chart" />
-                        <div className="nn-prototype-table">
-                          <span />
-                          <span />
-                          <span />
-                          <span />
-                        </div>
-                      </div>
-                    </div>
-                    <div className="nn-prototype-tags">
-                      {data.prototype.highlights.map((item) => (
-                        <span key={item}>{item}</span>
-                      ))}
-                    </div>
-                  </div>
-                </div>
-              )}
-            </div>
-          </SectionWrapper>
-
-          <SectionWrapper id="section-03b" number="03B" title={data.scope.title}>
-            <p>{data.scope.intro}</p>
-            <div className="nn-scope-toggle" role="tablist" aria-label={ui.scopeTabAria}>
-              {data.scope.tracks.map((track) => (
-                <button
-                  key={track.id}
-                  type="button"
-                  className={activeScopeTrack === track.id ? 'nn-scope-toggle-btn active' : 'nn-scope-toggle-btn'}
-                  onClick={() => setActiveScopeTrack(track.id)}
-                  role="tab"
-                  aria-selected={activeScopeTrack === track.id}
-                >
-                  {track.title}
-                </button>
+          <SectionWrapper id="section-03" number="03" title={data.flow.title}>
+            <p>{data.flow.intro}</p>
+            <div className="nn-flow-grid">
+              {data.flow.steps.map((step) => (
+                <article className="nn-flow-step" key={step.number}>
+                  <p className="nn-flow-step-number">{step.number}</p>
+                  <h3 className="nn-flow-step-title">{step.title}</h3>
+                  <p className="nn-flow-step-body">{step.body}</p>
+                </article>
               ))}
             </div>
+          </SectionWrapper>
 
-            <div className="nn-scope-summary">
-              <div className="nn-scope-summary-main">
-                <p className="nn-roadmap-label">{activeTrack.title}</p>
-                <p className="nn-scope-summary-meta">{activeTrack.label}</p>
-              </div>
-              {inactiveTrack ? (
-                <p className="nn-scope-summary-secondary">
-                  {inactiveTrack.title} · {inactiveTrack.phases.length} {ui.phases}
-                </p>
-              ) : null}
+          <SectionWrapper id="section-04" number="04" title={data.role.title}>
+            <p>{data.role.intro}</p>
+            <div className="nn-editorial-grid">
+              {data.role.items.map((item) => (
+                <article className="nn-editorial-card" key={item.title}>
+                  <h3 className="nn-editorial-title">{item.title}</h3>
+                  <p className="nn-editorial-body">{item.body}</p>
+                </article>
+              ))}
             </div>
-
-            <section className="nn-scope-track active" data-track-id={activeTrack.id}>
-              <div className="nn-scope-phase-list">
-                {activeTrack.phases.map((phase) => {
-                  const phaseKey = `${activeTrack.id}-${phase.title}`;
-                  const isOpen = Boolean(openScopeItems[phaseKey]);
-
-                  return (
-                    <article className="nn-scope-phase" key={phaseKey}>
-                      <button
-                        type="button"
-                        className="nn-scope-phase-trigger"
-                        onClick={() => toggleScopeItem(phaseKey)}
-                        aria-expanded={isOpen}
-                      >
-                        <div className="nn-scope-phase-copy">
-                          <span className="nn-scope-phase-title">{phase.title}</span>
-                          <span className="nn-scope-phase-deliverable">
-                            <span className="nn-scope-phase-deliverable-label">{ui.deliverable}</span>
-                            <span>{phase.deliverable}</span>
-                          </span>
-                        </div>
-                        <span className={isOpen ? 'nn-scope-phase-icon open' : 'nn-scope-phase-icon'} aria-hidden="true">
-                          {isOpen ? '−' : '+'}
-                        </span>
-                      </button>
-
-                      <AnimatePresence initial={false}>
-                        {isOpen ? (
-                          <motion.div
-                            className="nn-scope-phase-body"
-                            initial={{ height: 0, opacity: 0 }}
-                            animate={{ height: 'auto', opacity: 1 }}
-                            exit={{ height: 0, opacity: 0 }}
-                            transition={{ duration: 0.22, ease: 'easeOut' }}
-                          >
-                            <ul className="nn-scope-detail-list">
-                              {phase.details.map((detail) => (
-                                <li key={detail}>{detail}</li>
-                              ))}
-                            </ul>
-                          </motion.div>
-                        ) : null}
-                      </AnimatePresence>
-                    </article>
-                  );
-                })}
-              </div>
-            </section>
           </SectionWrapper>
 
-          <SectionWrapper id="section-04" number="04" title={data.pipelines.title}>
-            <p>{data.pipelines.intro}</p>
-            <EditorialPipelineDiagram items={data.pipelines.items} />
+          <SectionWrapper id="section-05" number="05" title={data.security.title}>
+            <p>{data.security.intro}</p>
+            <div className="nn-column-grid">
+              {data.security.columns.map((column) => (
+                <article className="nn-column-card" key={column.title}>
+                  <h3 className="nn-column-title">{column.title}</h3>
+                  <ul className="nn-column-list">
+                    {column.points.map((point) => (
+                      <li key={point}>{point}</li>
+                    ))}
+                  </ul>
+                </article>
+              ))}
+            </div>
           </SectionWrapper>
 
-          <SectionWrapper id="section-05" number="05" title={data.team.title}>
+          <SectionWrapper id="section-06" number="06" title={data.stack.title}>
+            <p>{data.stack.intro}</p>
+            <div className="nn-editorial-grid">
+              {data.stack.items.map((item) => (
+                <article className="nn-editorial-card" key={item.title}>
+                  <h3 className="nn-editorial-title">{item.title}</h3>
+                  <p className="nn-editorial-body">{item.body}</p>
+                </article>
+              ))}
+            </div>
+          </SectionWrapper>
+
+          <SectionWrapper id="section-07" number="07" title={data.roadmap.title}>
+            <p>{data.roadmap.intro}</p>
+            <div className="nn-weeks-grid">
+              {data.roadmap.weeks.map((week) => (
+                <article className="nn-week-card" key={week.label}>
+                  <p className="nn-week-label">{week.label}</p>
+                  <h3 className="nn-week-title">{week.title}</h3>
+                  <p className="nn-week-objective">{week.objective}</p>
+                  <ul className="nn-week-list">
+                    {week.items.map((item) => (
+                      <li key={item}>{item}</li>
+                    ))}
+                  </ul>
+                  <p className="nn-week-team">{week.team.join(' · ')}</p>
+                </article>
+              ))}
+            </div>
+          </SectionWrapper>
+
+          <SectionWrapper id="section-08" number="08" title={data.team.title}>
             {data.team.intro.map((paragraph) => (
               <p key={paragraph}>{paragraph}</p>
             ))}
@@ -547,132 +342,46 @@ export default function WolfAvionicProposalPage() {
             </div>
           </SectionWrapper>
 
-          <SectionWrapper id="section-09" number="06" title={data.investment.title}>
+          <SectionWrapper id="section-09" number="09" title={data.investment.title}>
             <p>{data.investment.intro}</p>
-            <div className="nn-investment-grid">
-              {data.investment.phases.map(([title, value, body]) => (
-                <article className="nn-investment-card" key={title}>
-                  <p className="nn-investment-label">{title}</p>
-                  <div className="nn-investment-value">{value}</div>
-                  <p className="nn-investment-body">{body}</p>
-                </article>
-              ))}
-            </div>
-            <div className="quick-decision-box">
-              <p className="quick-decision-label">{ui.investmentTotal}</p>
-              <p className="quick-decision-body">{data.investment.total}</p>
-            </div>
-            <div className="nn-postlaunch-list">
-              {data.investment.postLaunch.map(([title, value, body]) => (
-                <article className="nn-postlaunch-item" key={title}>
-                  <div>
-                    <p className="nn-postlaunch-label">{title}</p>
-                    <p className="nn-postlaunch-body">{body}</p>
-                  </div>
-                  <div className="nn-postlaunch-value">{value}</div>
-                </article>
-              ))}
-            </div>
-          </SectionWrapper>
-
-          <SectionWrapper id="section-06" number="07" title={data.comparison.title}>
-            <p className="section-note">{data.comparison.subtitle}</p>
-            <div className="signal-table-wrap">
-              <table className="signal-table nn-comparison-table">
-                <thead>
-                  <tr>
-                    <th>{ui.comparisonHeaders[0]}</th>
-                    <th>{ui.comparisonHeaders[1]}</th>
-                    <th>{ui.comparisonHeaders[2]}</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {data.comparison.rows.map(([category, consultancy, tailor]) => (
-                    <tr key={category}>
-                      <td data-label={ui.comparisonHeaders[0]}>{category}</td>
-                      <td data-label={ui.comparisonHeaders[1]}>{consultancy}</td>
-                      <td data-label={ui.comparisonHeaders[2]}>{tailor}</td>
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
-            </div>
-          </SectionWrapper>
-
-          <SectionWrapper id="section-07" number="08" title={data.cases.title}>
-            <p>{data.cases.intro}</p>
-            <div className="nn-case-grid">
-              {data.cases.items.map((item) => (
-                <article className="nn-case-card" key={item.title}>
-                  <p className="nn-case-label">{item.label}</p>
-                  <h3 className="nn-case-title">{item.title}</h3>
-                  <div className="nn-case-body">
-                    {item.body.map((paragraph) => (
-                      <p key={paragraph}>{paragraph}</p>
-                    ))}
-                  </div>
-                  {item.metrics ? (
-                    <div className="nn-case-metrics">
-                      {item.metrics.map(([value, label]) => (
-                        <div className="nn-case-metric" key={value + label}>
-                          <div className="nn-case-metric-value">{value}</div>
-                          <div className="nn-case-metric-label">{label}</div>
-                        </div>
-                      ))}
-                    </div>
-                  ) : null}
-                  {item.quote ? <blockquote className="nn-case-quote">"{item.quote}"</blockquote> : null}
-                </article>
-              ))}
-            </div>
-          </SectionWrapper>
-
-          <SectionWrapper id="section-08" number="09" title={data.roi.title}>
-            <p>{data.roi.intro}</p>
             <div className="metrics-grid">
-              {data.roi.metrics.map(([value, label]) => (
-                <div className="metric-cell" key={value + label}>
+              {data.investment.summary.map(([label, value]) => (
+                <div className="metric-cell" key={label}>
                   <div className="metric-value">{value}</div>
                   <div className="metric-desc">{label}</div>
                 </div>
               ))}
             </div>
-          </SectionWrapper>
-
-          <SectionWrapper id="section-10" number="10" title={data.roadmap.title}>
-            <p>{data.roadmap.intro}</p>
-            <div className="nn-roadmap-grid">
-              <article className="nn-roadmap-track">
-                <p className="nn-roadmap-label">{ui.roadmapLabels[0]}</p>
-                <ul className="nn-roadmap-list">
-                  {data.roadmap.designTrack.map((item) => (
-                    <li key={item}>{item}</li>
+            <div className="signal-table-wrap">
+              <table className="signal-table">
+                <thead>
+                  <tr>
+                    <th>{ui.investmentHeaders[0]}</th>
+                    <th>{ui.investmentHeaders[1]}</th>
+                    <th>{ui.investmentHeaders[2]}</th>
+                    <th>{ui.investmentHeaders[3]}</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {data.investment.rows.map(([role, allocation, duration, cost]) => (
+                    <tr key={role}>
+                      <td data-label={ui.investmentHeaders[0]}>{role}</td>
+                      <td data-label={ui.investmentHeaders[1]}>{allocation}</td>
+                      <td data-label={ui.investmentHeaders[2]}>{duration}</td>
+                      <td data-label={ui.investmentHeaders[3]}>{cost}</td>
+                    </tr>
                   ))}
-                </ul>
-              </article>
-              <article className="nn-roadmap-track">
-                <p className="nn-roadmap-label">{ui.roadmapLabels[1]}</p>
-                <ul className="nn-roadmap-list">
-                  {data.roadmap.devTrack.map((item) => (
-                    <li key={item}>{item}</li>
-                  ))}
-                </ul>
-              </article>
+                </tbody>
+              </table>
             </div>
+            <div className="quick-decision-box">
+              <p className="quick-decision-label">{ui.investmentTotalLabel}</p>
+              <p className="quick-decision-body">{data.investment.total}</p>
+            </div>
+            <p className="section-note"><strong>{ui.investmentNoteLabel}.</strong> {data.investment.note}</p>
           </SectionWrapper>
 
-          <SectionWrapper id="section-11" number="11" title={data.assumptions.title}>
-            <div className="nn-assumptions">
-              {data.assumptions.items.map(([title, body]) => (
-                <details className="nn-assumption-item" key={title}>
-                  <summary>{title}</summary>
-                  <p>{body}</p>
-                </details>
-              ))}
-            </div>
-          </SectionWrapper>
-
-          <SectionWrapper id="section-12" number="12" title={data.contact.title}>
+          <SectionWrapper id="section-10" number="10" title={data.contact.title}>
             <div className="nn-contact-card">
               <p className="nn-contact-body">{data.contact.body}</p>
               <div className="nn-contact-person">{data.contact.name}</div>

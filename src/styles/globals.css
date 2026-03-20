@@ -1835,6 +1835,101 @@ a {
   margin: 8px 0 10px;
 }
 
+.nn-editorial-grid,
+.nn-column-grid,
+.nn-weeks-grid,
+.nn-flow-grid {
+  display: grid;
+  gap: 1px;
+  background: var(--neutral-200);
+  margin-top: 24px;
+}
+
+.nn-editorial-grid,
+.nn-column-grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.nn-weeks-grid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.nn-flow-grid {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.nn-editorial-card,
+.nn-column-card,
+.nn-week-card,
+.nn-flow-step {
+  background: var(--neutral-00);
+  padding: 22px 20px 24px;
+}
+
+.nn-editorial-label,
+.nn-week-label,
+.nn-flow-step-number {
+  font-family: 'PPNeueMontrealMono', monospace;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-size: 10px;
+  color: var(--blue-500);
+  margin-bottom: 14px;
+}
+
+.nn-editorial-title,
+.nn-column-title,
+.nn-week-title,
+.nn-flow-step-title {
+  font-size: 28px;
+  line-height: 0.98;
+  letter-spacing: -0.02em;
+  margin-bottom: 10px;
+}
+
+.nn-editorial-body,
+.nn-week-objective,
+.nn-flow-step-body {
+  color: var(--neutral-600);
+  margin-bottom: 0;
+}
+
+.nn-column-list,
+.nn-week-list {
+  list-style: none;
+  display: grid;
+  gap: 10px;
+  margin-top: 18px;
+}
+
+.nn-column-list li,
+.nn-week-list li {
+  position: relative;
+  padding-left: 16px;
+  color: var(--neutral-600);
+}
+
+.nn-column-list li::before,
+.nn-week-list li::before {
+  content: '';
+  position: absolute;
+  top: 0.72em;
+  left: 0;
+  width: 6px;
+  height: 6px;
+  border-radius: 999px;
+  background: var(--blue-500);
+}
+
+.nn-week-team {
+  margin-top: 18px;
+  font-family: 'PPNeueMontrealMono', monospace;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-size: 10px;
+  color: var(--neutral-600);
+}
+
 .nn-prototype-layout {
   display: grid;
   grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.15fr);
@@ -2548,10 +2643,14 @@ a {
 
   .nn-hero-strip,
   .nn-problem-diagram,
+  .nn-editorial-grid,
+  .nn-column-grid,
   .nn-prototype-layout,
+  .nn-flow-grid,
   .nn-case-grid,
   .nn-investment-grid,
-  .nn-roadmap-grid {
+  .nn-roadmap-grid,
+  .nn-weeks-grid {
     grid-template-columns: 1fr;
   }
 
@@ -2559,6 +2658,10 @@ a {
   .nn-system-title,
   .nn-case-title,
   .nn-investment-value,
+  .nn-editorial-title,
+  .nn-column-title,
+  .nn-week-title,
+  .nn-flow-step-title,
   .nn-roadmap-list li,
   .nn-scope-phase-title,
   .nn-scope-phase-deliverable span:last-child {
@@ -2832,6 +2935,13 @@ a {
   .section-title {
     font-size: 22px;
     margin-bottom: 22px;
+  }
+
+  .nn-editorial-title,
+  .nn-column-title,
+  .nn-week-title,
+  .nn-flow-step-title {
+    font-size: 22px;
   }
 
   .callout,
